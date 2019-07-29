@@ -18,9 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->rememberToken();
 
-            $table->integer('group_id')->unsigned();
-            $table->foreign('group_id')->references('id')->on('group_users');
+            $table->integer('group_id')->unsigned()->default('0');
 
             $table->timestamps();
         });

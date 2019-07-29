@@ -82,6 +82,9 @@
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
+                    @if ($message = Session::get('error'))
+                    {{ $message }}
+                    @endif
                 </div>
 
                 <div class="links">
