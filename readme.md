@@ -1,4 +1,4 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"> 5.8</p>
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 ## About Ray White Bukit Darmo Golf
 
