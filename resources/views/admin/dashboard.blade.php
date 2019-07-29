@@ -1796,3 +1796,236 @@
                                         <img src="{{ url('public/assets/admin') }}/images/placeholders/placeholder.jpg"
                                             class="rounded-circle" width="36" height="36" alt="">
                                     </div>
+
+                                    <div class="media-body">
+                                        <div class="d-flex justify-content-between">
+                                            <a href="#">Owen Stretch</a>
+                                            <span class="font-size-sm text-muted">Mon, 18:12</span>
+                                        </div>
+
+                                        Tardy rattlesnake seal raptly earthworm...
+                                    </div>
+                                </li>
+
+                                <li class="media">
+                                    <div class="mr-3">
+                                        <img src="{{ url('public/assets/admin') }}/images/placeholders/placeholder.jpg"
+                                            class="rounded-circle" width="36" height="36" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="d-flex justify-content-between">
+                                            <a href="#">Jenilee Mcnair</a>
+                                            <span class="font-size-sm text-muted">Mon, 14:03</span>
+                                        </div>
+
+                                        Since hello dear pushed amid darn trite...
+                                    </div>
+                                </li>
+
+                                <li class="media">
+                                    <div class="mr-3">
+                                        <img src="{{ url('public/assets/admin') }}/images/placeholders/placeholder.jpg"
+                                            class="rounded-circle" width="36" height="36" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="d-flex justify-content-between">
+                                            <a href="#">Alaster Jain</a>
+                                            <span class="font-size-sm text-muted">Mon, 13:59</span>
+                                        </div>
+
+                                        Dachshund cardinal dear next jeepers well...
+                                    </div>
+                                </li>
+
+                                <li class="media">
+                                    <div class="mr-3">
+                                        <img src="{{ url('public/assets/admin') }}/images/placeholders/placeholder.jpg"
+                                            class="rounded-circle" width="36" height="36" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="d-flex justify-content-between">
+                                            <a href="#">Sigfrid Thisted</a>
+                                            <span class="font-size-sm text-muted">Mon, 09:26</span>
+                                        </div>
+
+                                        Lighted wolf yikes less lemur crud grunted...
+                                    </div>
+                                </li>
+
+                                <li class="media">
+                                    <div class="mr-3">
+                                        <img src="{{ url('public/assets/admin') }}/images/placeholders/placeholder.jpg"
+                                            class="rounded-circle" width="36" height="36" alt="">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="d-flex justify-content-between">
+                                            <a href="#">Sherilyn Mckee</a>
+                                            <span class="font-size-sm text-muted">Mon, 06:38</span>
+                                        </div>
+
+                                        Less unicorn a however careless husky...
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /tabs content -->
+
+                </div>
+                <!-- /my messages -->
+
+
+                <!-- Daily financials -->
+                <div class="card">
+                    <div class="card-header header-elements-inline">
+                        <h6 class="card-title">Daily financials</h6>
+                        <div class="header-elements">
+                            <div
+                                class="form-check form-check-inline form-check-right form-check-switchery form-check-switchery-sm">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-input-switchery" id="realtime" checked data-fouc>
+                                    Realtime
+                                </label>
+                            </div>
+                            <span class="badge bg-danger-400 badge-pill">+86</span>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="chart mb-3" id="bullets"></div>
+
+                        <ul class="media-list">
+                            <li class="media">
+                                <div class="mr-3">
+                                    <a href="#"
+                                        class="btn bg-transparent border-pink text-pink rounded-round border-2 btn-icon"><i
+                                            class="icon-statistics"></i></a>
+                                </div>
+
+                                <div class="media-body">
+                                    Stats for July, 6: <span class="font-weight-semibold">1938</span> orders, <span
+                                        class="font-weight-semibold text-danger">$4220</span> revenue
+                                    <div class="text-muted">2 hours ago</div>
+                                </div>
+
+                                <div class="ml-3 align-self-center">
+                                    <a href="#" class="list-icons-item"><i class="icon-more"></i></a>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="mr-3">
+                                    <a href="#"
+                                        class="btn bg-transparent border-success text-success rounded-round border-2 btn-icon"><i
+                                            class="icon-checkmark3"></i></a>
+                                </div>
+
+                                <div class="media-body">
+                                    Invoices <a href="#">#4732</a> and <a href="#">#4734</a> have been paid
+                                    <div class="text-muted">Dec 18, 18:36</div>
+                                </div>
+
+                                <div class="ml-3 align-self-center">
+                                    <a href="#" class="list-icons-item"><i class="icon-more"></i></a>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="mr-3">
+                                    <a href="#"
+                                        class="btn bg-transparent border-primary text-primary rounded-round border-2 btn-icon"><i
+                                            class="icon-alignment-unalign"></i></a>
+                                </div>
+
+                                <div class="media-body">
+                                    Affiliate commission for June has been paid
+                                    <div class="text-muted">36 minutes ago</div>
+                                </div>
+
+                                <div class="ml-3 align-self-center">
+                                    <a href="#" class="list-icons-item"><i class="icon-more"></i></a>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="mr-3">
+                                    <a href="#"
+                                        class="btn bg-transparent border-warning-400 text-warning-400 rounded-round border-2 btn-icon"><i
+                                            class="icon-spinner11"></i></a>
+                                </div>
+
+                                <div class="media-body">
+                                    Order <a href="#">#37745</a> from July, 1st has been refunded
+                                    <div class="text-muted">4 minutes ago</div>
+                                </div>
+
+                                <div class="ml-3 align-self-center">
+                                    <a href="#" class="list-icons-item"><i class="icon-more"></i></a>
+                                </div>
+                            </li>
+
+                            <li class="media">
+                                <div class="mr-3">
+                                    <a href="#"
+                                        class="btn bg-transparent border-teal text-teal rounded-round border-2 btn-icon"><i
+                                            class="icon-redo2"></i></a>
+                                </div>
+
+                                <div class="media-body">
+                                    Invoice <a href="#">#4769</a> has been sent to <a href="#">Robert Smith</a>
+                                    <div class="text-muted">Dec 12, 05:46</div>
+                                </div>
+
+                                <div class="ml-3 align-self-center">
+                                    <a href="#" class="list-icons-item"><i class="icon-more"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /daily financials -->
+
+            </div>
+        </div>
+        <!-- /dashboard content -->
+
+    </div>
+    <!-- /content area -->
+
+
+    <!-- Footer -->
+    <div class="navbar navbar-expand-lg navbar-light">
+        <div class="text-center d-lg-none w-100">
+            <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse"
+                data-target="#navbar-footer">
+                <i class="icon-unfold mr-2"></i>
+                Footer
+            </button>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-footer">
+            <span class="navbar-text">
+                &copy; 2015 - 2018. <a href="#">Limitless Web App Kit</a> by <a
+                    href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+            </span>
+
+            <ul class="navbar-nav ml-lg-auto">
+                <li class="nav-item"><a href="https://kopyov.ticksy.com/" class="navbar-nav-link" target="_blank"><i
+                            class="icon-lifebuoy mr-2"></i> Support</a></li>
+                <li class="nav-item"><a href="http://demo.interface.club/limitless/docs/" class="navbar-nav-link"
+                        target="_blank"><i class="icon-file-text2 mr-2"></i> Docs</a></li>
+                <li class="nav-item"><a
+                        href="https://themeforest.net/item/limitless-responsive-web-application-kit/13080328?ref=kopyov"
+                        class="navbar-nav-link font-weight-semibold"><span class="text-pink-400"><i
+                                class="icon-cart2 mr-2"></i> Purchase</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /footer -->
+
+</div>
+@endsection
