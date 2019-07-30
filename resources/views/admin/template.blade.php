@@ -133,7 +133,7 @@
 						<!-- Main -->
 						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
 						<li class="nav-item">
-							<a href="index.html" class="nav-link active">
+							<a href="index.html" class="nav-link {{ Request::segment(2) == 'dashboard' ? 'active':'' }}">
 								<i class="icon-home4"></i>
 								<span>
 									Dashboard
@@ -141,14 +141,15 @@
 							</a>
 						</li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Setting</span></a>
+							<a href="#" class="nav-link {{ Request::segment(2) == 'config' || Request::segment(2) == 'website' ? 'active':'' }}"><i class="icon-copy"></i> <span>Setting</span></a>
 
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
-								<li class="nav-item"><a href="../../../../layout_2/LTR/default/full/index.html" class="nav-link">Config</a></li>
+								<li class="nav-item"><a href="{{ route('admin.config.index') }}" class="nav-link {{ Request::segment(2) == 'config' ? 'active':'' }}">Config</a></li>
 								<li class="nav-item"><a href="../../../../layout_3/LTR/default/full/index.html" class="nav-link">Website</a></li>
 							</ul>
 						</li>
 						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>Slider</span></a></li>
+						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>Admin</span></a></li>
 						<!-- /main -->
 
 						<!-- Forms -->
@@ -156,7 +157,7 @@
 						<li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-pencil3"></i> <span>Master</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Form components">
-								<li class="nav-item"><a href="form_inputs.html" class="nav-link">Type Property</a></li>
+								<li class="nav-item"><a href="form_inputs.html" class="nav-link">Category Property</a></li>
 								<li class="nav-item"><a href="form_checkboxes_radios.html" class="nav-link">Marketplace Property</a></li>
 							</ul>
 						</li>
