@@ -48,31 +48,64 @@
                             </div>
 
                             <div class="card-body">
-                                <ul class="nav nav-tabs">
-                                    <li class="nav-item"><a href="#basic-tab1" class="nav-link active" data-toggle="tab">id</a></li>
-                                    <li class="nav-item"><a href="#basic-tab2" class="nav-link" data-toggle="tab">en</a></li>
-                                </ul>
-
-                                <div class="tab-content">
-                                    <div class="tab-pane fade show active" id="basic-tab1">
-                                        <form action="#">
-                                            <fieldset class="mb-3">
-                                                <div class="form-group row">
-                                                    <label class="col-form-label col-lg-2">Default text input</label>
-                                                    <div class="col-lg-10">
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                        </form>
-                                    </div>
-
-                                    <div class="tab-pane fade" id="basic-tab2">
-                                        Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid laeggin.
-                                    </div>
-                                </div>
+                                <form action="#">
+                                    <fieldset class="mb-3">
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Website Name</label>
+                                            <div class="col-lg-10">
+                                                <input type="text" class="form-control" placeholder="Website Name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Website Description</label>
+                                            <div class="col-lg-10">
+                                                <input type="text" class="form-control" placeholder="Website Name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Logo</label>
+                                            <div class="col-lg-10">
+                                                <input type="file" class="file-input" data-fouc>
+                                                <span class="form-text text-muted">Automatically convert a file input to a bootstrap file input widget by setting its class as <code>file-input</code>.</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Favicon</label>
+                                            <div class="col-lg-10">
+                                                <input type="file" class="file-input" data-fouc>
+                                                <span class="form-text text-muted">Automatically convert a file input to a bootstrap file input widget by setting its class as <code>file-input</code>.</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Meta Description</label>
+                                            <div class="col-lg-10">
+                                                <textarea rows="3" cols="3" class="form-control" placeholder="Default textarea"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Meta Keyword</label>
+                                            <div class="col-lg-10">
+                                                <textarea rows="3" cols="3" class="form-control" placeholder="Default textarea"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Head Script</label>
+                                            <div class="col-lg-10">
+                                                <textarea rows="3" cols="3" class="form-control" placeholder="Default textarea"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Body Script</label>
+                                            <div class="col-lg-10">
+                                                <textarea rows="3" cols="3" class="form-control" placeholder="Default textarea"></textarea>
+                                            </div>
+                                        </div>
+                                </form>
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
                                 </div>
+                            </div>
+                            
                             </div>
                         </div>
                     </div>
