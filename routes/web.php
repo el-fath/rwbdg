@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 
 //FRONT END
+Route::get('/about', 'User\AboutController@index');
+Route::get('/landing-page', 'User\HomeController@index');
 
 
 
