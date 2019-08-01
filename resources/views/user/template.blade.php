@@ -56,8 +56,10 @@
           </div>
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
+              <li><a href="{{url("landing-page")}}">Home</a></li>
+              <li><a href="{{url("about")}}">About</a></li>
               <li class="dropdown active">
-                <a href="#." class="dropdown-toggle" data-toggle="dropdown">Home </a>
+                <a href="#." class="dropdown-toggle" data-toggle="dropdown">Example</a>
                 <ul class="dropdown-menu">
                   <li><a href="index.html">Home Style 1</a></li>
                   <li><a href="index2.html">Home Style 2</a></li>
@@ -147,117 +149,6 @@
                   </li>
                 </ul>
               </li>
-              <li class="dropdown megamenu-fw">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Properties</a>
-                <ul class="dropdown-menu megamenu-content bg" role="menu">
-                  <li>
-                    <div class="row">
-                      <div class="col-menu col-md-3">
-                        <h5 class="title">PROPERTY LISTINGS</h5>
-                        <div class="content">
-                          <ul class="menu-col">
-                            <li><a href="listing1.html">List Style 1</a></li>
-                            <li><a href="listing2.html">List Style 2</a></li>
-                            <li><a href="listing3.html">List Style 3</a></li>
-                            <li><a href="listing4.html">List Style 4</a></li>
-                            <li><a href="listing5.html">List Style 5</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-menu col-md-3">
-                        <h5 class="title">PROPERTY LISTINGS</h5>
-                        <div class="content">
-                          <ul class="menu-col">
-                            <li><a href="listing6.html">List Style 5</a></li>
-                            <li><a href="listing7.html">List Style 6</a></li>
-                            <li><a href="listing1.html">Search by City</a></li>
-                            <li><a href="listing2.html">Search by Category</a></li>
-                            <li><a href="listing3.html">Search by Type</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-menu col-md-3">
-                        <h5 class="title">PROPERTY DETAIL</h5>
-                        <div class="content">
-                          <ul class="menu-col">
-                            <li><a href="property_detail1.html">Property Detail 1</a></li>
-                            <li><a href="property_detail2.html">Property Detail 2</a></li>
-                            <li><a href="property_detail3.html">Property Detail 3</a></li>
-                            <li><a href="index7.html">Single Property</a></li>
-                            <li><a href="listing4.html">Search by Type</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-menu col-md-3">
-                        <h5 class="title">OTHER PAGES</h5>
-                        <div class="content">
-                          <ul class="menu-col">
-                            <li><a href="favorite_properties.html">Favorite Properties</a></li>
-                            <li><a href="agent_profile.html">Agent Profile</a></li>
-                            <li><a href="404.html">404 Error</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="testimonial.html">Testimonials</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="#." class="dropdown-toggle" data-toggle="dropdown">Features </a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown">
-                    <a href="#." class="dropdown-toggle" data-toggle="dropdown">News</a>
-                    <ul class="dropdown-menu">
-                      <li><a href="news.html">news Style1</a></li>
-                      <li><a href="news2.html">news Style2<span>new</span></a></li>
-                      <li><a href="news3.html">news Style3<span>new</span></a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#." class="dropdown-toggle" data-toggle="dropdown">Property Agents</a>
-                    <ul class="dropdown-menu">
-                      <li><a href="agent1.html">Agent Style1</a></li>
-                      <li><a href="agent2.html">Agent Style2</a></li>
-                      <li><a href="agent3.html">Agent Style3<span>new</span></a></li>
-                      <li><a href="agent4.htm4">Agent Style4<span>new</span></a></li>
-                      <li><a href="agent5.htm5">Agent Style5<span>new</span></a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#." class="dropdown-toggle" data-toggle="dropdown">Agetn Profile Styles</a>
-                    <ul class="dropdown-menu">
-                      <li><a href="agent_profile.html">Agent Profile 1</a></li>
-                      <li><a href="agent_profile2.html">Agent Profile 2</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                  <a href="#." class="dropdown-toggle" data-toggle="dropdown">Testimonials</a>
-                  <ul class="dropdown-menu">
-                      <li><a href="testimonial.html">Style 1</a></li>
-                      <li><a href="testimonial2.html">Style 2<span>new</span></a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                  <a href="#." class="dropdown-toggle" data-toggle="dropdown">FAQ's</a>
-                  <ul class="dropdown-menu">
-                      <li><a href="faq.html">Style 1</a></li>
-                      <li><a href="faq2.html">Style 2<span>new</span></a></li>
-                    </ul>
-                  </li>
-                  <li><a href="favorite_properties.html">Favorite Properties</a></li>
-                  <li class="dropdown">
-                  <a href="#." class="dropdown-toggle" data-toggle="dropdown">404 Error</a>
-                  <ul class="dropdown-menu">
-                      <li><a href="404.html">404 Error 1</a></li>
-                      <li><a href="404-2.html">404 Error 2<span>new</span></a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="contact.html">Contact Us</a></li>
-              <li><a href="#.">Buy Now</a></li>
             </ul>
           </div>
         </div>
