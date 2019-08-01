@@ -15,7 +15,14 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'code' => 'asd',
+            'id' => ['title' => 'Post que'],
+            'en' => ['title' => 'My first post'],
+          ];
+        $post = Profile::create($data);
+          
+        echo $post->translate('id')->name;
     }
 
     /**
