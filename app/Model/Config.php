@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,5 +17,5 @@ class Config extends Model
     public function getFaviconPathAttribute()
     {
         return url('/')."/public/image/config/".$this->logo;
-    }
+    }  
 }
