@@ -4,9 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Slide;
 
 class SlideController extends Controller
 {
+    public function __construct()
+    {
+        $this->img_location = "public/image/admin/";
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +19,9 @@ class SlideController extends Controller
      */
     public function index()
     {
-        $title = "Slide";
-        return view("admin/slide/index",compact('title'));
+        $data['title'] = "Slide";
+        $data['action'] = route('admin.slide.store');
+        return view("admin/slide/index",compact('data'));
     }
 
     /**
@@ -36,7 +42,23 @@ class SlideController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->file('image')) {
+            $file    = $request->file('image');
+            $ext     = $file->getClientOriginalExtension();
+            $newName = rand(100000,1001238912).".".$ext;
+            $file->move($this->img_location.'slide',$newName);
+        }else{
+            $newName = NULL;
+        }
+
+        $data = [
+            'title' => $request->title,
+            'desc'  => $request->desc,
+            'image' => $newName,
+        ];
+
+        $data = Slide::create($data);
+        return $data;
     }
 
     /**
