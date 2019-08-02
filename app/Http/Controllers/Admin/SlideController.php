@@ -20,7 +20,8 @@ class SlideController extends Controller
     public function index()
     {
         $data['title'] = "Slide";
-        $data['action'] = route('admin.slide.store');
+        $data['path'] = $this->img_location;
+        $data['data'] = Slide::all()->sortByDesc('id');
         return view("admin/slide/index",compact('data'));
     }
 
@@ -31,7 +32,9 @@ class SlideController extends Controller
      */
     public function create()
     {
-        //
+        $data['title'] = "Slide";
+        $data['action'] = route('admin.slide.store');
+        return view("admin/slide/form",compact('data'));
     }
 
     /**
@@ -54,11 +57,12 @@ class SlideController extends Controller
         $data = [
             'title' => $request->title,
             'desc'  => $request->desc,
-            'image' => $newName,
+            'image' => $newName
         ];
 
         $data = Slide::create($data);
-        return $data;
+
+        return redirect('admin/slide')->with('alert', 'New Data Added...!');
     }
 
     /**

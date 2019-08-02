@@ -37,6 +37,8 @@
 	<script src="{{ url('public/assets/admin') }}/assets/js/app.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/dashboard.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/uploader_bootstrap.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/tables/datatables/datatables.min.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/datatables_basic.js"></script>
 	<!-- /theme JS files -->
 
 </head>

@@ -28,64 +28,74 @@
     </div>
     <!-- /page header -->
 
-
     <!-- Content area -->
     <div class="content">
-         <!-- Dashboard content -->
-        <div class="row">
-            <div class="col-xl-12">
-                <!-- Basic tabs -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header header-elements-inline">
-                            <h6 class="card-title">{{$data['title']}}</h6>
-                                <div class="header-elements">
-                                    <div class="list-icons">
-                                        <a class="list-icons-item" data-action="collapse"></a>
+
+        @if (session('alert'))
+        <!-- alert -->
+        <div class="alert alert-success alert-styled-left alert-arrow-left alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+            <span class="font-weight-semibold">Well done! </span>{{ session('alert') }}
+        </div>
+        <!-- alert -->
+        @endif
+    
+        <!-- Basic datatable -->
+        <div class="card">
+            <div class="card-header header-elements-inline">
+                <h5 class="card-title">Master {{$data['title']}} / <a href="{{ url('admin/slide/create') }}">Add</a></h5>
+                
+                <div class="header-elements">
+                    <div class="list-icons">
+                        <a class="list-icons-item" data-action="reload"></a>
+                        <a class="list-icons-item" data-action="collapse"></a>
+                        {{-- <a class="list-icons-item" data-action="remove"></a> --}}
+                    </div>
+                </div>
+            </div>
+
+            <table class="table datatable-basic">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Slug</th>
+                        <th>Desc</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($data['data'] as $val)
+                    @php $no = 1; @endphp
+                    <tr>
+                        <td>{{$no}}</td>
+                        <td>
+                            <img src="{{url('public/image/admin/slide')."/".$val->image}}" alt="" style="width:120px;">
+                        </td>
+                        <td><a href="#">{{$val->title}}</a></td>
+                        <td>{{$val->slug}}</td>
+                        <td>{{$val->desc}}</td>
+                        <td class="text-center">
+                            <div class="list-icons">
+                                <div class="dropdown">
+                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="#" class="dropdown-item"><i class="icon-file-pdf"></i> Edit</a>
+                                        <a href="#" class="dropdown-item"><i class="icon-file-excel"></i> Delete</a>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="card-body">
-                                <form action="{{$data['action']}}" method="POST" enctype="multipart/form-data">
-                                    {{ csrf_field() }}
-                                    <fieldset class="mb-3">
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Title</label>
-                                            <div class="col-lg-10">
-                                                <input type="text" class="form-control" placeholder="title banner" name="title">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Image</label>
-                                            <div class="col-lg-10">
-                                                <input type="file" class="file-input" name="image">
-                                                <span class="form-text text-muted">Automatically convert a file input to a bootstrap file input widget by setting its class as <code>file-input</code>.</span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Description</label>
-                                            <div class="col-lg-10">
-                                                <textarea rows="3" cols="3" class="form-control" name="desc" placeholder="description"></textarea>
-                                            </div>
-                                        </div>
-                                </form>
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
-                                </div>
-                            </div>
-                            
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /basic tabs -->
-            </div>
+                        </td>
+                    </tr>
+                    @php $no++; @endphp
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-        <!-- /dashboard content -->
+        <!-- /basic datatable -->
     </div>
-    <!-- /content area -->
-
 </div>
 @endsection
