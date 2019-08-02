@@ -30,6 +30,7 @@ Route::get('/admin/login', 'Auth\LoginController@showLoginForm');
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/dashboard', 'Admin\DashboardController@index');
     Route::resource('admin/config', 'Admin\ConfigController',['as' => 'admin']);
+    Route::resource('admin/slide', 'Admin\SlideController');
 });
 
 

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Config;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ConfigController extends Controller
+class SlideController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class ConfigController extends Controller
      */
     public function index()
     {
-        $title = "Config";
-        return view("admin/config/index",compact('title'));
+        $title = "Slide";
+        return view("admin/slide/index",compact('title'));
     }
 
     /**
@@ -43,10 +42,10 @@ class ConfigController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Config  $config
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Config $config)
+    public function show($id)
     {
         //
     }
@@ -54,10 +53,10 @@ class ConfigController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Config  $config
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Config $config)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +65,10 @@ class ConfigController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Config  $config
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Config $config)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +76,10 @@ class ConfigController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Config  $config
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Config $config)
+    public function destroy($id)
     {
         //
     }

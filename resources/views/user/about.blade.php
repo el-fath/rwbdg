@@ -7,13 +7,13 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1 class="text-uppercase">About Us Ray White Indonesia</h1>
-          {{-- <p>The page you are looking for was moved, removed, renamed or might never existed.</p>
+          <h1 class="text-uppercase">About Us</h1>
+          <p>Ray White Indonesia</p>
           <ol class="breadcrumb text-center">
             <li><a href="#">Home</a></li>
             <li><a href="#">Pages</a></li>
             <li class="active">FAQ's</li>
-          </ol> --}}
+          </ol>
         </div>
       </div>
     </div>

@@ -153,7 +153,7 @@
 								<li class="nav-item"><a href="../../../../layout_3/LTR/default/full/index.html" class="nav-link">Website</a></li>
 							</ul>
 						</li>
-						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>Slider</span></a></li>
+						<li class="nav-item"><a href="{{ url('admin/slide') }}" class="nav-link {{ Request::segment(2) == 'slide' ? 'active':'' }}"><i class="icon-width"></i> <span>Slider</span></a></li>
 						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>Admin</span></a></li>
 						<!-- /main -->
 
