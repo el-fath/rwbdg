@@ -15,8 +15,11 @@ Route::get('/', 'User\HomeController@index');
 
 
 //FRONT END
-Route::get('/about', 'User\AboutController@index');
-Route::get('/landing-page', 'User\HomeController@index');
+
+Route::group(['middleware' => ['web'], 'prefix' => '{locale}'], function () {
+    Route::get('/about', 'User\AboutController@index');
+    Route::get('/landing-page', 'User\HomeController@index');
+});
 
 
 
