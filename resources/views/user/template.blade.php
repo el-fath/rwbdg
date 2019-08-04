@@ -96,7 +96,7 @@
                           <div id="nav_slider" class="owl-carousel">
                             <div class="item">
                               <div class="image bottom15"> 
-                                <img src="images/nav-slider1.jpg" alt="Featured Property"> 
+                                <img src="{{ url('public/assets/user') }}/images/nav-slider1.jpg" alt="Featured Property"> 
                                 <span class="nav_tag yellow text-uppercase">for rent</span>
                               </div>
                               <h4><a href="property_detail1.html">Park Avenue Apartment</a></h4>
@@ -104,7 +104,7 @@
                             </div>
                             <div class="item">
                               <div class="image bottom15"> 
-                                <img src="images/nav-slider2.jpg" alt="Featured Property"> 
+                                <img src="{{ url('public/assets/user') }}/images/nav-slider2.jpg" alt="Featured Property"> 
                                 <span class="nav_tag yellow text-uppercase">for rent</span>
                               </div>
                               <h4><a href="property_detail2.html">Park Avenue Apartment</a></h4>
@@ -112,7 +112,7 @@
                             </div>
                             <div class="item">
                               <div class="image bottom15"> 
-                                <img src="images/nav-slider3.jpg" alt="Featured Property"> 
+                                <img src="{{ url('public/assets/user') }}/images/nav-slider3.jpg" alt="Featured Property"> 
                                 <span class="nav_tag yellow text-uppercase">for rent</span>
                               </div>
                               <h4><a href="property_detail3.html">Park Avenue Apartment</a></h4>
@@ -120,7 +120,7 @@
                             </div>
                             <div class="item">
                               <div class="image bottom15"> 
-                                <img src="images/nav-slider1.jpg" alt="Featured Property"> 
+                                <img src="{{ url('public/assets/user') }}/images/nav-slider1.jpg" alt="Featured Property"> 
                                 <span class="nav_tag yellow text-uppercase">for rent</span>
                               </div>
                               <h4><a href="property_detail1.html">Park Avenue Apartment</a></h4>
@@ -128,7 +128,7 @@
                             </div>
                             <div class="item">
                               <div class="image bottom15"> 
-                                <img src="images/nav-slider2.jpg" alt="Featured Property"> 
+                                <img src="{{ url('public/assets/user') }}/images/nav-slider2.jpg" alt="Featured Property"> 
                                 <span class="nav_tag yellow text-uppercase">for rent</span>
                               </div>
                               <h4><a href="property_detail2.html">Park Avenue Apartment</a></h4>
@@ -136,7 +136,7 @@
                             </div>
                             <div class="item">
                               <div class="image bottom15"> 
-                                <img src="images/nav-slider3.jpg" alt="Featured Property"> 
+                                <img src="{{ url('public/assets/user') }}/images/nav-slider3.jpg" alt="Featured Property"> 
                                 <span class="nav_tag yellow text-uppercase">for rent</span>
                               </div>
                               <h4><a href="property_detail3.html">Park Avenue Apartment</a></h4>

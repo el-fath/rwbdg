@@ -36,10 +36,12 @@
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/notifications/noty.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/notifications/jgrowl.min.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/tables/datatables/datatables.min.js"></script>
 
 	<script src="{{ url('public/assets/admin') }}/assets/js/app.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/dashboard.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/uploader_bootstrap.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/datatables_basic.js"></script>
 	<script src="{{ url('public/js') }}/cakcode.js"></script>
 	<!-- /theme JS files -->
 
@@ -157,7 +159,7 @@
 								<li class="nav-item"><a href="../../../../layout_3/LTR/default/full/index.html" class="nav-link">Website</a></li>
 							</ul>
 						</li>
-						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>Slider</span></a></li>
+						<li class="nav-item"><a href="{{ url('admin/slide') }}" class="nav-link {{ Request::segment(2) == 'slide' ? 'active':'' }}"><i class="icon-width"></i> <span>Slider</span></a></li>
 						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>Admin</span></a></li>
 						<!-- /main -->
 
