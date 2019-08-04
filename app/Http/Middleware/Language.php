@@ -23,6 +23,7 @@ class Language
 
     public function handle($request, Closure $next)
     {
+        return $next($request);
         $segments = $request->segments();
         $locale = $segments[0];
         if ($locale == "admin"){

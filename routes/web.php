@@ -15,8 +15,8 @@ Route::get('/', 'User\HomeController@index');
 
 
 //FRONT END
-
-Route::group(['middleware' => ['web'], 'prefix' => '{locale}'], function () {
+Route::prefix(parseLocale())->group(function () {
+    Auth::routes();
     Route::get('/about', 'User\AboutController@index');
     Route::get('/landing-page', 'User\HomeController@index');
 });
@@ -62,3 +62,19 @@ Route::get('/migrate', function() {
 //OTHER
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+//CUSTOM FUNCTION
+function parseLocale()
+{
+    $locale = Request::segment(1);
+    $languages = ['id', 'en'];
+
+    if (in_array($locale, $languages)) {
+        App::setLocale($locale);
+        return $locale;
+    }
+
+    return '/';
+}
