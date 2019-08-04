@@ -16,17 +16,6 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('code');
-
-            $table->timestamps();
-        });
-
-        Schema::create('profile_translations', function(Blueprint $table){
-            $table->increments('id');
-            $table->integer('profile_id')->unsigned();
-            
-            $table->string('name')->nullable();
-            $table->text('description')->nullable();
             $table->text('address')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
@@ -37,6 +26,17 @@ class CreateProfilesTable extends Migration
 
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
+
+            $table->timestamps();
+        });
+
+        Schema::create('profile_translations', function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('profile_id')->unsigned();
+            
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
+            
 
             $table->string('locale')->index();
             $table->unique(['profile_id','locale']);

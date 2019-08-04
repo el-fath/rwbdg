@@ -15,14 +15,22 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $data = [
-            'code' => 'asd',
-            'id' => ['title' => 'Post que'],
-            'en' => ['title' => 'My first post'],
-          ];
-        $post = Profile::create($data);
-          
-        echo $post->translate('id')->name;
+        $profile = new Profile();
+
+        $profile->save();
+        $profile->fill([
+            'id' => [
+                'name' => 'nama ku',
+            ],
+            'en' => [
+                'name' => 'my name',
+            ],
+        ]);
+        $profile->fill([
+            'id' => $profile->id,
+        ]);
+        $profile->save();
+        dd($profile->translate('id'));
     }
 
     /**

@@ -11,6 +11,7 @@ class Profile extends Model implements TranslatableContract
     use Translatable;
     protected $guarded = [];
     public $translatedAttributes = ['name','description'];
+
 }
 
 class ProfileTranslation extends Model {
