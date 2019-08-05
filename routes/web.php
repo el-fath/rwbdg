@@ -11,14 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'User\HomeController@index');
 
 
 //FRONT END
-Route::get('/about', 'User\AboutController@index');
-Route::get('/landing-page', 'User\HomeController@index');
+Route::prefix(parseLocale())->group(function () {
+    Auth::routes();
+    Route::get('/about', 'User\AboutController@index');
+    Route::get('/landing-page', 'User\HomeController@index');
+});
 
 
 
@@ -30,6 +31,7 @@ Route::get('/admin/login', 'Auth\LoginController@showLoginForm');
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/dashboard', 'Admin\DashboardController@index');
     Route::resource('admin/config', 'Admin\ConfigController',['as' => 'admin']);
+    Route::resource('admin/profile', 'Admin\ProfileController',['as' => 'admin']);
     Route::resource('admin/slide', 'Admin\SlideController',['as' => 'admin']);
 });
 
@@ -61,3 +63,19 @@ Route::get('/migrate', function() {
 //OTHER
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+//CUSTOM FUNCTION
+function parseLocale()
+{
+    $locale = Request::segment(1);
+    $languages = ['id', 'en'];
+
+    if (in_array($locale, $languages)) {
+        App::setLocale($locale);
+        return $locale;
+    }
+
+    return '/';
+}

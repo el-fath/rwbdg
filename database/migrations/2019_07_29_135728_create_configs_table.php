@@ -15,16 +15,16 @@ class CreateConfigsTable extends Migration
     {
         Schema::create('configs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->text('description');
-            $table->text('favicon');
-            $table->text('logo');
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
+            $table->text('favicon')->nullable();
+            $table->text('logo')->nullable();
 
-            $table->text('meta_description');
-            $table->text('meta_keyword');
-            $table->text('meta_desc');
-            $table->text('head_script');
-            $table->text('body_script');
+            $table->text('meta_description')->nullable();
+            $table->text('meta_keyword')->nullable();
+            $table->text('meta_desc')->nullable();
+            $table->text('head_script')->nullable();
+            $table->text('body_script')->nullable();
 
 
             $table->timestamps();
