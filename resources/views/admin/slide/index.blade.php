@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <table class="table datatable-basic">
+            <table class="table" id="table">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -66,8 +66,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data['data'] as $val)
                     @php $no = 1; @endphp
+                    @foreach ($data['data'] as $val)
                     <tr>
                         <td>{{$no}}</td>
                         <td>
@@ -83,8 +83,16 @@
                                         <i class="icon-menu9"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#" class="dropdown-item"><i class="icon-file-pdf"></i> Edit</a>
-                                        <a href="#" class="dropdown-item"><i class="icon-file-excel"></i> Delete</a>
+                                        <a href="{{ route('admin.slide.show', $val->id) }}" class="dropdown-item">
+                                            <i class="icon-file-pdf"></i> Edit
+                                        </a>
+                                        <form action="{{ route('admin.slide.destroy', $val->id) }}" id="delete{{ $val->id }}" method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button type="button" class="dropdown-item" id="{{ $val->id }}" onClick="hapus(this.id)">
+                                            <i class="icon-file-excel"></i> Delete
+                                        </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -98,4 +106,40 @@
         <!-- /basic datatable -->
     </div>
 </div>
+<script>
+$(document).ready( function () {
+    $('#table').DataTable();
+});
+function hapus(id){
+    swal({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    }).then(function(result) {
+        if(result.value) {
+            swal({
+                title: "Okey",
+                text: "Data will be deleted",
+                type: "success",
+            }).then(function(){
+                // console.log('asssem');
+                document.getElementById("delete"+id).submit();
+            });
+        }
+        else if(result.dismiss === swal.DismissReason.cancel) {
+            swal(
+                'Cancelled',
+                'Your imaginary file is safe :)',
+                'error'
+            );
+        }
+    });
+}
+</script>
 @endsection

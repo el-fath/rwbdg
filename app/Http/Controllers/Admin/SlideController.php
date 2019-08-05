@@ -33,6 +33,7 @@ class SlideController extends Controller
     public function create()
     {
         $data['title'] = "Slide";
+        $data['job'] = "Add";
         $data['action'] = route('admin.slide.store');
         return view("admin/slide/form",compact('data'));
     }
@@ -73,7 +74,11 @@ class SlideController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['value'] = Slide::find($id);
+        $data['title'] = "Slide";
+        $data['job'] = "Edit";
+        $data['action'] = route('admin.slide.update', $id);
+        return view("admin/slide/form",compact('data'));
     }
 
     /**
@@ -96,7 +101,29 @@ class SlideController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Slide::find($id);
+
+        if ($request->file('image')) {
+            $myFile = $this->img_location.'slide/'.$data->image;
+            unlink($myFile);
+
+            $file    = $request->file('image');
+            $ext     = $file->getClientOriginalExtension();
+            $newName = rand(100000,1001238912).".".$ext;
+            $file->move($this->img_location.'slide',$newName);
+            
+            $newFile = [ 'image' => $newName ];
+            $data->update($newFile);
+        }
+
+        $newData = [
+            'title' => $request->title,
+            'desc'  => $request->desc
+        ];
+
+        $data->update($newData);
+
+        return redirect('admin/slide')->with('alert', 'Data with id '.$data->id.' edited...!');
     }
 
     /**
@@ -107,6 +134,12 @@ class SlideController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Slide::find($id);
+        if ($data->image != NULL) {
+            $myFile = $this->img_location.'slide/'.$data->image;
+            unlink($myFile);
+        }
+        $data->delete();
+        return redirect('admin/slide')->with('alert', 'Data with id '.$data->id.' deleted...!');
     }
 }

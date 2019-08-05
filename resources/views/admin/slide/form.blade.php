@@ -50,24 +50,31 @@
                             <div class="card-body">
                                 <form action="{{$data['action']}}" method="POST" enctype="multipart/form-data">
                                     {{ csrf_field() }}
+                                    @if ($data['job'] != "Add")
+                                        {{ method_field('PUT') }}                
+                                    @endif
                                     <fieldset class="mb-3">
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Title</label>
                                             <div class="col-lg-10">
-                                                <input type="text" class="form-control" placeholder="title banner" name="title">
+                                                <input type="text" class="form-control" placeholder="title banner" value="{{ $data['job'] == 'Add' ? "" : $data['value']->title }}" name="title">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Image</label>
                                             <div class="col-lg-10">
-                                                <input type="file" class="file-input" name="image">
-                                                <span class="form-text text-muted">Automatically convert a file input to a bootstrap file input widget by setting its class as <code>file-input</code>.</span>
+                                                {{-- <input type="file" class="file-input" name="image">
+                                                <span class="form-text text-muted">Automatically convert a file input to a bootstrap file input widget by setting its class as <code>file-input</code>.</span> --}}
+                                                <input type="file" class="form-control" name="image" id="foto" onchange="readURL(this);">
+                                                <img id="preview" 
+                                                src="{{ $data['job'] == 'Add' ? "https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg" : url('public/image/admin/slide')."/".$data['value']->image }}" 
+                                                alt="your image" style="width: 500px; height: 200px"/>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Description</label>
                                             <div class="col-lg-10">
-                                                <textarea rows="3" cols="3" class="form-control" name="desc" placeholder="description"></textarea>
+                                                <textarea rows="3" cols="3" class="form-control" name="desc" placeholder="description">{{ $data['job'] == 'Add' ? "" : $data['value']->desc }}</textarea>
                                             </div>
                                         </div>
                                 </form>
@@ -88,4 +95,18 @@
     <!-- /content area -->
 
 </div>
+<script>
+    CKEDITOR.replace('content');
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 @endsection
