@@ -10,7 +10,14 @@ class Slide extends Model
 {
     use Translatable;
     protected $guarded = [];
-    public $translatedAttributes = ['name','description'];
+    public $translatedAttributes = ['title','description','slug'];
+    protected $appends 	= array('ImagePath');
+
+
+    public function getImagePathAttribute()
+    {
+        return url('/')."/public/image/slide/".$this->logo;
+    }
 }
 
 class SlideTranslation extends Model {

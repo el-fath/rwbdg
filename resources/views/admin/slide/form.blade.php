@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form id="formInput" action="{{ ($data['typeForm'] =="create") ? route('admin.slide.store') : route('admin.slide.update',$dataModel->id) }}" method="POST" enctype="multipart/form-data">
+                        <form id="formInput" action="{{ ($data['typeForm'] =="create") ? route('admin.slide.store') : route('admin.slide.update',$data['dataModel']->id) }}" method="POST" enctype="multipart/form-data">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item"><a href="#formid" class="nav-link rounded-top active" data-toggle="tab">id</a></li>
                                 <li class="nav-item"><a href="#formen" class="nav-link rounded-top" data-toggle="tab">en</a></li>
@@ -61,13 +61,13 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Title</label>
                                             <div class="col-lg-10">
-                                                <input type="text" class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $dataModel->{'title:id'} }}" placeholder="Title banner" name="id[title]">
+                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:id'} }}" placeholder="Title banner" name="id[title]">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Description</label>
                                             <div class="col-lg-10">
-                                                <textarea rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $dataModel->{'description:id'} }}</textarea>
+                                                <textarea rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:id'} }}</textarea>
                                             </div>
                                         </div>
                                 </div>
@@ -76,13 +76,13 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Title</label>
                                             <div class="col-lg-10">
-                                                <input type="text" class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $dataModel->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Description</label>
                                             <div class="col-lg-10">
-                                                <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $dataModel->{'description:en'} }}</textarea>
+                                                <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea>
                                             </div>
                                         </div>
                                 </div>
@@ -139,6 +139,9 @@
                 $('#formInput').unblock();
                 if(data.Code == 200){
                     showNotif("success","Success",data.Message);
+                    setTimeout(function(){ 
+                        redirect('{{route('admin.slide.index')}}');
+                    }, 2000);
                 }else{
                     showNotif("error","Error",data.Message);
                 }
@@ -152,18 +155,4 @@
 </script>
         
 </div>
-<script>
-    CKEDITOR.replace('content');
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#preview').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
 @endsection

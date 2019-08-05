@@ -14,7 +14,7 @@ class CreateSlidesTable extends Migration
     public function up()
     {
         Schema::create('slides', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->text('image')->nullable();
             $table->timestamps();
         });
@@ -31,7 +31,6 @@ class CreateSlidesTable extends Migration
             $table->unique(['slide_id','locale']);
             $table->foreign('slide_id')->references('id')->on('slides')->onDelete('cascade');
         });
-    }
     }
 
     /**

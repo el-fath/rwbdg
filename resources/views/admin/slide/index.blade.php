@@ -73,14 +73,16 @@
                 <tbody>
                     @php $no = 1; @endphp
                     @foreach ($data['data'] as $val)
+
+                    
                     <tr>
                         <td>{{$no}}</td>
                         <td>
                             <img src="{{url('public/image/admin/slide')."/".$val->image}}" alt="" style="width:120px;">
                         </td>
-                        <td><a href="#">{{$val->title}}</a></td>
-                        <td>{{$val->slug}}</td>
-                        <td>{{$val->desc}}</td>
+                        <td><a href="#">{{ $val->{'title:id'} }}</a></td>
+                        <td>{{ $val->{'slug:id'} }}</td>
+                        <td>{{  $val->{'description:id'} }}</td>
                         <td class="text-center">
                             <div class="list-icons">
                                 <div class="dropdown">

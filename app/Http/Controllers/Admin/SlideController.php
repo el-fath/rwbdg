@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Slide;
+use Illuminate\Support\Str;
+use Yajra\Datatables\Datatables;
+
 
 class SlideController extends Controller
 {
     public function __construct()
     {
-        $this->img_location = "public/image/admin/";
+        $this->img_location = "public/image/";
     }
     /**
      * Display a listing of the resource.
@@ -23,6 +26,11 @@ class SlideController extends Controller
         $data['title'] = $this->img_location;
         $data['data'] = Slide::all()->sortByDesc('id');
         return view("admin/slide/index",compact('data'));
+    }
+
+    public function anyData()
+    {
+        return Datatables::of(Slide::query())->make(true);
     }
 
     /**
@@ -45,6 +53,7 @@ class SlideController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         if ($request->file('image')) {
             $file    = $request->file('image');
             $ext     = $file->getClientOriginalExtension();
@@ -54,15 +63,32 @@ class SlideController extends Controller
             $newName = NULL;
         }
 
+        
+
         $data = [
-            'title' => $request->title,
-            'desc'  => $request->desc,
             'image' => $newName
         ];
 
+        
+
         $data = Slide::create($data);
 
-        return redirect('admin/slide')->with('alert', 'New Data Added...!');
+        $requestindo = $request->input('id');
+        $requestindo['slug'] = Str::slug($requestindo['title'].'-'.$data->id, '-');
+        $requesteng = $request->input('en');
+        $requesteng['slug'] = Str::slug($requesteng['title'].'-'.$data->id, '-');
+
+        $dataTrans = [
+            'id' => $requestindo,
+            'en' => $requesteng,
+        ];
+
+        $data->fill($dataTrans);
+        $data->save();
+        return response()->json([
+            'Code'             => 200,
+            'Message'          => "Success Added"
+        ]);
     }
 
     /**
@@ -73,10 +99,9 @@ class SlideController extends Controller
      */
     public function show($id)
     {
-        $data['value'] = Slide::find($id);
+        $data['dataModel'] = Slide::find($id);
+        $data['typeForm'] = "Edit";
         $data['title'] = "Slide";
-        $data['job'] = "Edit";
-        $data['action'] = route('admin.slide.update', $id);
         return view("admin/slide/form",compact('data'));
     }
 

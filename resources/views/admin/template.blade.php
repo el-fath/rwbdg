@@ -31,16 +31,20 @@
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/ui/moment/moment.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/pickers/daterangepicker.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/uploaders/dropzone.min.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/notifications/jgrowl.min.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/notifications/noty.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/uploaders/fileinput/plugins/purify.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/notifications/sweet_alert.min.js"></script>
 
 	<script src="{{ url('public/assets/admin') }}/assets/js/app.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/extra_jgrowl_noty.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/extra_sweetalert.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/dashboard.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/uploader_bootstrap.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/tables/datatables/datatables.min.js"></script>
+	<script src="{{ url('public') }}/js/cakcode.js"></script>
 
 	{{-- <script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/datatables_basic.js"></script> --}}
 	<!-- /theme JS files -->
