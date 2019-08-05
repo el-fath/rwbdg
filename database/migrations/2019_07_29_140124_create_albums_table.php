@@ -20,6 +20,18 @@ class CreateAlbumsTable extends Migration
 
             $table->timestamps();
         });
+
+        Schema::create('album_translations', function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('album_id')->unsigned();
+            
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+
+            $table->string('locale')->index();
+            $table->unique(['album_id','locale']);
+            $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
+        });
     }
 
     /**

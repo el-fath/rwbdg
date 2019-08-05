@@ -14,7 +14,9 @@ class CreatePropertyMarketplacesTable extends Migration
     public function up()
     {
         Schema::create('property_marketplaces', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->string('title');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

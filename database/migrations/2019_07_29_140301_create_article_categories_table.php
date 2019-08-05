@@ -14,10 +14,20 @@ class CreateArticleCategoriesTable extends Migration
     public function up()
     {
         Schema::create('article_categories', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->text('description');
+            $table->increments('id');
             $table->timestamps();
+        });
+
+        Schema::create('article_category_translations', function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('article_category_id')->unsigned();
+            
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+
+            $table->string('locale')->index();
+            $table->unique(['article_category_id','locale']);
+            $table->foreign('article_category_id')->references('id')->on('article_categories')->onDelete('cascade');
         });
     }
 
