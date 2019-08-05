@@ -19,8 +19,8 @@ class SlideController extends Controller
      */
     public function index()
     {
-        $data['title'] = "Slide";
-        $data['path'] = $this->img_location;
+        $data['typeForm'] = "Slide";
+        $data['title'] = $this->img_location;
         $data['data'] = Slide::all()->sortByDesc('id');
         return view("admin/slide/index",compact('data'));
     }
@@ -32,8 +32,8 @@ class SlideController extends Controller
      */
     public function create()
     {
+        $data['typeForm'] = "create";
         $data['title'] = "Slide";
-        $data['action'] = route('admin.slide.store');
         return view("admin/slide/form",compact('data'));
     }
 

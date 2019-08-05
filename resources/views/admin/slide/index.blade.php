@@ -40,10 +40,13 @@
         <!-- alert -->
         @endif
     
-        <!-- Basic datatable -->
+
+        <div class="content">
+
+            <!-- Basic datatable -->
         <div class="card">
             <div class="card-header header-elements-inline">
-                <h5 class="card-title">Master {{$data['title']}} / <a href="{{ url('admin/slide/create') }}">Add</a></h5>
+                <h5 class="card-title">Master {{$data['title']}}</h5>
                 
                 <div class="header-elements">
                     <div class="list-icons">
@@ -53,7 +56,9 @@
                     </div>
                 </div>
             </div>
-
+            <div class="card-body">
+                <a href="{{ url('admin/slide/create') }}"><button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left"><b><i class="icon-plus-circle2"></i></b> Labeled</button></a>
+            </div>
             <table class="table datatable-basic">
                 <thead>
                     <tr>
@@ -96,6 +101,7 @@
             </table>
         </div>
         <!-- /basic datatable -->
+        </div>
     </div>
 </div>
 @endsection

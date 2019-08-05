@@ -15,8 +15,24 @@ class CreateSlidesTable extends Migration
     {
         Schema::create('slides', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('image')->nullable();
+            $table->text('slug')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('slide_translations', function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('slide_id')->unsigned();
+            
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            
+
+            $table->string('locale')->index();
+            $table->unique(['profile_id','locale']);
+            $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade');
+        });
+    }
     }
 
     /**
