@@ -3,8 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
-use Astrotomic\Translatable\Translatable;
+
 
 class Config extends Model
 {

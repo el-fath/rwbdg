@@ -16,7 +16,6 @@ class CreateSlidesTable extends Migration
         Schema::create('slides', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('image')->nullable();
-            $table->text('slug')->nullable();
             $table->timestamps();
         });
 
@@ -26,11 +25,11 @@ class CreateSlidesTable extends Migration
             
             $table->string('title')->nullable();
             $table->text('description')->nullable();
-            
+            $table->text('slug')->nullable();
 
             $table->string('locale')->index();
-            $table->unique(['profile_id','locale']);
-            $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade');
+            $table->unique(['slide_id','locale']);
+            $table->foreign('slide_id')->references('id')->on('slides')->onDelete('cascade');
         });
     }
     }
