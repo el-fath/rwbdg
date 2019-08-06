@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <a href="{{ url('admin/slide/create') }}"><button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left"><b><i class="icon-plus-circle2"></i></b> Labeled</button></a>
+                <a href="{{ url('admin/slide/create') }}"><button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left"><b><i class="icon-plus-circle2"></i></b> Add {{$data['title']}}</button></a>
             </div>
             <table class="table datatable-basic">
                 <thead>
@@ -78,7 +78,7 @@
                     <tr>
                         <td>{{$no}}</td>
                         <td>
-                            <img src="{{url('public/image/admin/slide')."/".$val->image}}" alt="" style="width:120px;">
+                            <img src="{{$val->ImagePathSmall}}" alt="" style="width:120px;">
                         </td>
                         <td><a href="#">{{ $val->{'title:id'} }}</a></td>
                         <td>{{ $val->{'slug:id'} }}</td>

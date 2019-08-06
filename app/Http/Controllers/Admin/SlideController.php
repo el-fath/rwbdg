@@ -22,8 +22,7 @@ class SlideController extends Controller
      */
     public function index()
     {
-        $data['typeForm'] = "Slide";
-        $data['title'] = $this->img_location;
+        $data['title'] = "Slide";
         $data['data'] = Slide::all()->sortByDesc('id');
         return view("admin/slide/index",compact('data'));
     }
@@ -128,8 +127,11 @@ class SlideController extends Controller
         $data = Slide::find($id);
 
         if ($request->file('image')) {
+
             $myFile = $this->img_location.'slide/'.$data->image;
-            unlink($myFile);
+            if (file_exists($myFile)){
+                unlink($myFile);
+            }
 
             $file    = $request->file('image');
             $ext     = $file->getClientOriginalExtension();
@@ -139,15 +141,23 @@ class SlideController extends Controller
             $newFile = [ 'image' => $newName ];
             $data->update($newFile);
         }
+        
+        $requestindo = $request->input('id');
+        $requestindo['slug'] = Str::slug($requestindo['title'].'-'.$data->id, '-');
+        $requesteng = $request->input('en');
+        $requesteng['slug'] = Str::slug($requesteng['title'].'-'.$data->id, '-');
 
-        $newData = [
-            'title' => $request->title,
-            'desc'  => $request->desc
+        $dataTrans = [
+            'id' => $requestindo,
+            'en' => $requesteng,
         ];
 
-        $data->update($newData);
-
-        return redirect('admin/slide')->with('alert', 'Data with id '.$data->id.' edited...!');
+        $data->fill($dataTrans);
+        $data->save();
+        return response()->json([
+            'Code'             => 200,
+            'Message'          => "Success Added"
+        ]);
     }
 
     /**

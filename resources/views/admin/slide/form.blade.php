@@ -90,8 +90,13 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-lg-2">Image</label>
                                     <div class="col-lg-10">
+                                        @if($data['typeForm'] != "create")
+                                            <img src="{{$data['dataModel']->ImagePath}}" style="width: 200px;" alt="">
+                                            <br>
+                                            <br>
+                                        @endif
                                         <input type="file" class="file-input" name="image">
-                                        <span class="form-text text-muted">Automatically convert a file input to a bootstrap file input widget by setting its class as <code>file-input</code>.</span>
+                                        <span class="form-text text-muted">Recomendation for size is <code>1900x920</code>.</span>
                                     </div>
                                 </div>
                             </div>
