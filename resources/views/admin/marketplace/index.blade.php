@@ -57,16 +57,14 @@
                 </div>
             </div>
             <div class="card-body">
-                <a href="{{ url('admin/slide/create') }}"><button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left"><b><i class="icon-plus-circle2"></i></b> Add {{$data['title']}}</button></a>
+                <a href="{{ route('admin.property-marketplace.create') }}"><button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left"><b><i class="icon-plus-circle2"></i></b> Add {{$data['title']}}</button></a>
             </div>
-            <table class="table datatable-basic" id="tableData">
+            <table class="table datatable-basic-3-column" id="tableData">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Image</th>
                         <th>Title</th>
-                        <th>Slug</th>
-                        <th>Desc</th>
+                        <th>Description</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -76,13 +74,9 @@
 
                     
                     <tr>
-                        <td>{{$no}}</td>
-                        <td>
-                            <img src="{{$val->ImagePathSmall}}" alt="" style="width:120px;">
-                        </td>
-                        <td><a href="#">{{ $val->{'title:id'} }}</a></td>
-                        <td>{{ $val->{'slug:id'} }}</td>
-                        <td>{{  $val->{'description:id'} }}</td>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $val->title }}</td>
+                        <td>{{  $val->description }}</td>
                         <td class="text-center">
                             <div class="list-icons">
                                 <div class="dropdown">
@@ -90,10 +84,10 @@
                                         <i class="icon-menu9"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="{{ route('admin.slide.show', $val->id) }}" class="dropdown-item">
+                                        <a href="{{ route('admin.property-marketplace.edit', $val->id) }}" class="dropdown-item">
                                             <i class="icon-file-pdf"></i> Edit
                                         </a>
-                                        <a href="{{ route('admin.slide.destroy', $val->id) }}" data-id="{{ $val->id }}" class="dropdown-item btnDelete">
+                                        <a href="{{ route('admin.property-marketplace.destroy', $val->id) }}" data-id="{{ $val->id }}" class="dropdown-item btnDelete">
                                             <i class="icon-file-pdf"></i> Delete
                                         </a>
                                     </div>
@@ -101,7 +95,6 @@
                             </div>
                         </td>
                     </tr>
-                    @php $no++; @endphp
                     @endforeach
                 </tbody>
             </table>
@@ -113,8 +106,16 @@
 <script>
 $(document).ready( function () {
     $('#table').DataTable();
+    $('.datatable-basic-3-column').DataTable({
+        pageLength: 10,
+        paging: true,
+        searching: true,
+        order: [[0, "asc"]],
+        columnDefs: [{
+            targets: [ 3 ]
+            }]
+    });
 });
-
 $(".btnDelete").click(function(e){
     e.preventDefault();
     var objBtn = $(this);
@@ -155,7 +156,7 @@ $(".btnDelete").click(function(e){
                         showNotif("error","Error",data.Message);
                     }
                     setTimeout(function(){ 
-                        redirect('{{route('admin.slide.index')}}');
+                        redirect('{{route('admin.property-marketplace.index')}}');
                     }, 1500);
                 })
                 .fail(function(e) {

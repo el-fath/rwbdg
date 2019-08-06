@@ -43,12 +43,10 @@ Route::prefix(parseLocale())->group(function () {
 Route::get('/admin/login', 'Auth\LoginController@showLoginForm');
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/dashboard', 'Admin\DashboardController@index');
-    
     Route::resource('admin/config', 'Admin\ConfigController',['as' => 'admin']);
     Route::resource('admin/profile', 'Admin\ProfileController',['as' => 'admin']);
-
-    Route::get('admin/slide/datatable', ['uses'=>'Admin\SlideController@anyData', 'as'=>'admin.slide.datatable']);
     Route::resource('admin/slide', 'Admin\SlideController',['as' => 'admin']);
+    Route::resource('admin/property-marketplace', 'Admin\PropertyMarketPlaceController',['as' => 'admin']);
 });
 
 

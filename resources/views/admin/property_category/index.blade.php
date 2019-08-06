@@ -59,7 +59,7 @@
             <div class="card-body">
                 <a href="{{ url('admin/slide/create') }}"><button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left"><b><i class="icon-plus-circle2"></i></b> Add {{$data['title']}}</button></a>
             </div>
-            <table class="table datatable-basic" id="tableData">
+            <table class="table datatable-basic">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -93,9 +93,13 @@
                                         <a href="{{ route('admin.slide.show', $val->id) }}" class="dropdown-item">
                                             <i class="icon-file-pdf"></i> Edit
                                         </a>
-                                        <a href="{{ route('admin.slide.destroy', $val->id) }}" data-id="{{ $val->id }}" class="dropdown-item btnDelete">
-                                            <i class="icon-file-pdf"></i> Delete
-                                        </a>
+                                        <form action="{{ route('admin.slide.destroy', $val->id) }}" id="delete{{ $val->id }}" method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button type="button" class="dropdown-item" id="{{ $val->id }}" onClick="hapus(this.id)">
+                                            <i class="icon-file-excel"></i> Delete
+                                        </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -114,10 +118,7 @@
 $(document).ready( function () {
     $('#table').DataTable();
 });
-
-$(".btnDelete").click(function(e){
-    e.preventDefault();
-    var objBtn = $(this);
+function hapus(id){
     swal({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -130,43 +131,23 @@ $(".btnDelete").click(function(e){
         buttonsStyling: false
     }).then(function(result) {
         if(result.value) {
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
+            swal({
+                title: "Okey",
+                text: "Data will be deleted",
+                type: "success",
+            }).then(function(){
+                // console.log('asssem');
+                document.getElementById("delete"+id).submit();
             });
-
-            $.ajax({
-                type: "POST",
-                url: objBtn.attr("href"),
-                data: {
-                    id:objBtn.attr("data-id"),
-                    _method: 'DELETE'
-                },
-                beforeSend: function(){
-                    blockMessage($('#tableData'),'Please Wait , {{ "Processing to delete data" }}','#fff');
-                }
-                }).done(function(data){
-                    $('#tableData').unblock();
-                    if(data.Code == 200){
-                        showNotif("success","Success",data.Message);
-                    }else{
-                        showNotif("error","Error",data.Message);
-                    }
-                    setTimeout(function(){ 
-                        redirect('{{route('admin.slide.index')}}');
-                    }, 1500);
-                })
-                .fail(function(e) {
-                    $('#tableData').unblock();
-                    showNotif("error","Error",e.responseText);
-                });
         }
         else if(result.dismiss === swal.DismissReason.cancel) {
-            showNotif("default","Message","Delete Canceled");
+            swal(
+                'Cancelled',
+                'Your imaginary file is safe :)',
+                'error'
+            );
         }
     });
-});
+}
 </script>
 @endsection

@@ -168,12 +168,16 @@ class SlideController extends Controller
      */
     public function destroy($id)
     {
+        
         $data = Slide::find($id);
         if ($data->image != NULL) {
             $myFile = $this->img_location.'slide/'.$data->image;
             unlink($myFile);
         }
         $data->delete();
-        return redirect('admin/slide')->with('alert', 'Data with id '.$data->id.' deleted...!');
+        return response()->json([
+            'Code'             => 200,
+            'Message'          => "Delete Success"
+        ]);
     }
 }
