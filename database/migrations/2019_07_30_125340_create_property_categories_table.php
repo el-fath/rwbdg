@@ -18,7 +18,7 @@ class CreatePropertyCategoriesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('property_category_translations', function(Blueprint $table){
+        Schema::create('prop_category_translations', function(Blueprint $table){
             $table->increments('id');
             $table->integer('property_category_id')->unsigned();
             
