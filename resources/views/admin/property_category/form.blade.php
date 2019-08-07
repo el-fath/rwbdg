@@ -39,7 +39,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header header-elements-inline">
-                        <h6 class="card-title">{{$data['typeForm']}} {{$data['title']}} </h6>
+                        <h6 class="card-title">{{($data['typeForm'] != "created") ? "Create" : "Edit"}} {{$data['title']}} </h6>
                         <div class="header-elements">
                             <div class="list-icons">
                                 <a class="list-icons-item" data-action="collapse"></a>
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form id="formInput" action="{{ ($data['typeForm'] =="create") ? route('admin.slide.store') : route('admin.slide.update',$data['dataModel']->id) }}" method="POST" enctype="multipart/form-data">
+                        <form id="formInput" action="{{ ($data['typeForm'] =="create") ? route('admin.property-category.store') : route('admin.property-category.update',$data['dataModel']->id) }}" method="POST" enctype="multipart/form-data">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item"><a href="#formid" class="nav-link rounded-top active" data-toggle="tab">id</a></li>
                                 <li class="nav-item"><a href="#formen" class="nav-link rounded-top" data-toggle="tab">en</a></li>
@@ -76,7 +76,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Title</label>
                                             <div class="col-lg-10">
-                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Category" name="en[title]">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -145,8 +145,8 @@
                 if(data.Code == 200){
                     showNotif("success","Success",data.Message);
                     setTimeout(function(){ 
-                        redirect('{{route('admin.slide.index')}}');
-                    }, 2000);
+                        redirect('{{route('admin.property-category.index')}}');
+                    }, 1500);
                 }else{
                     showNotif("error","Error",data.Message);
                 }

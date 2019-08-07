@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>Limitless - @yield('title')</title>
+	<title>{{$config->name}} - @yield('title')</title>
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -173,7 +173,8 @@
 						<li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-pencil3"></i> <span>Master</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Form components">
-								<li class="nav-item"><a href="form_inputs.html" class="nav-link">Category Property</a></li>
+								<li class="nav-item"><a href="{{ route('admin.marketing-level.index') }}" class="nav-link">Level Marketing</a></li>
+								<li class="nav-item"><a href="{{ route('admin.property-category.index') }}" class="nav-link">Category Property</a></li>
 								<li class="nav-item"><a href="{{ route('admin.property-marketplace.index') }}" class="nav-link {{ Request::segment(2) == 'property-marketplace' ? 'active':'' }}">Marketplace Property</a></li>
 							</ul>
 						</li>

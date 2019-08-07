@@ -15,15 +15,17 @@ class CreatePropertyCategoriesTable extends Migration
     {
         Schema::create('property_categories', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('image')->nullable();
             $table->timestamps();
         });
 
-        Schema::create('prop_category_translations', function(Blueprint $table){
+        Schema::create('property_category_translations', function(Blueprint $table){
             $table->increments('id');
             $table->integer('property_category_id')->unsigned();
             
             $table->string('title')->nullable();
             $table->text('description')->nullable();
+            $table->text('slug')->nullable();
 
             $table->string('locale')->index();
             $table->unique(['property_category_id','locale']);
@@ -39,5 +41,6 @@ class CreatePropertyCategoriesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('property_categories');
+        Schema::dropIfExists('prop_category_translations');
     }
 }
