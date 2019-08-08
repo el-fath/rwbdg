@@ -50,56 +50,20 @@
                     </div>
 
                     <div class="card-body">
-                        <form id="formInput" action="{{ ($data['typeForm'] =="create") ? route('admin.slide.store') : route('admin.slide.update',$data['dataModel']->id) }}" method="POST" enctype="multipart/form-data">
-                            <ul class="nav nav-tabs">
-                                <li class="nav-item"><a href="#formid" class="nav-link rounded-top active" data-toggle="tab">id</a></li>
-                                <li class="nav-item"><a href="#formen" class="nav-link rounded-top" data-toggle="tab">en</a></li>
-                            </ul>
-
-                            <div class="tab-content">
-                                <div class="tab-pane fade show active" id="formid">
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Title</label>
-                                            <div class="col-lg-10">
-                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:id'} }}" placeholder="Title banner" name="id[title]">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Description</label>
-                                            <div class="col-lg-10">
-                                                <textarea rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:id'} }}</textarea>
-                                            </div>
-                                        </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="formen">
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Title</label>
-                                            <div class="col-lg-10">
-                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Description</label>
-                                            <div class="col-lg-10">
-                                                <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea>
-                                            </div>
-                                        </div>
-                                </div>
-                                <hr>
+                        <form id="formInput" action="{{ ($data['typeForm'] =="create") ? route('admin.marketing-level.store') : route('admin.marketing-level.update',$data['dataModel']->id) }}" method="POST" enctype="multipart/form-data">
                                 <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Image</label>
+                                    <label class="col-form-label col-lg-2">Title</label>
                                     <div class="col-lg-10">
-                                        @if($data['typeForm'] != "create")
-                                            <img src="{{$data['dataModel']->ImagePath}}" style="width: 200px;" alt="">
-                                            <br>
-                                            <br>
-                                        @endif
-                                        <input type="file" class="file-input" name="image">
-                                        <span class="form-text text-muted">Recomendation for size is <code>1900x920</code>.</span>
+                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->title }}" placeholder="Title banner" name="title">
                                     </div>
                                 </div>
-                            </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Description</label>
+                                    <div class="col-lg-10">
+                                        <textarea rows="3" cols="3" class="form-control" name="description" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->description }}</textarea>
+                                    </div>
+                                </div>
+                            
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
                             </div>
@@ -145,7 +109,7 @@
                 if(data.Code == 200){
                     showNotif("success","Success",data.Message);
                     setTimeout(function(){ 
-                        redirect('{{route('admin.slide.index')}}');
+                        redirect('{{route('admin.marketing-level.index')}}');
                     }, 2000);
                 }else{
                     showNotif("error","Error",data.Message);
