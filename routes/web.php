@@ -46,6 +46,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/config', 'Admin\ConfigController',['as' => 'admin']);
     Route::resource('admin/profile', 'Admin\ProfileController',['as' => 'admin']);
     Route::resource('admin/slide', 'Admin\SlideController',['as' => 'admin']);
+    Route::resource('admin/user', 'Admin\UserController',['as' => 'admin']);
     Route::resource('admin/property-marketplace', 'Admin\PropertyMarketPlaceController',['as' => 'admin']);
 });
 
