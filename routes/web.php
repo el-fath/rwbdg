@@ -49,6 +49,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/property-marketplace', 'Admin\PropertyMarketPlaceController',['as' => 'admin']);
     Route::resource('admin/property-category', 'Admin\PropertyCategoryController',['as' => 'admin']);
     Route::resource('admin/marketing-level', 'Admin\MarketingLevelController',['as' => 'admin']);
+    Route::resource('admin/news', 'Admin\NewsController',['as' => 'admin']);
 });
 
 
