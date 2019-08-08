@@ -38,6 +38,7 @@
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/notifications/sweet_alert.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/tables/datatables/datatables.min.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/forms/selects/select2.min.js"></script>
 
 	<script src="{{ url('public/assets/admin') }}/assets/js/app.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/extra_jgrowl_noty.js"></script>
@@ -45,6 +46,7 @@
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/dashboard.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/uploader_bootstrap.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/datatables_basic.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/form_select2.js"></script>
 	<script src="{{ url('public') }}/js/cakcode.js"></script>
 
 	{{-- <script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/datatables_basic.js"></script> --}}
@@ -171,10 +173,10 @@
 						<!-- Forms -->
 						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Property Stuf</div> <i class="icon-menu" title="Forms"></i></li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-pencil3"></i> <span>Master</span></a>
+							<a href="#" class="nav-link {{ Request::segment(2) == 'marketing-level' || Request::segment(2) == 'property-category' ? 'active':'' || Request::segment(2) == 'property-marketplace' ? 'active':'' }}"><i class="icon-pencil3"></i> <span>Master</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Form components">
-								<li class="nav-item"><a href="{{ route('admin.marketing-level.index') }}" class="nav-link">Level Marketing</a></li>
-								<li class="nav-item"><a href="{{ route('admin.property-category.index') }}" class="nav-link">Category Property</a></li>
+								<li class="nav-item"><a href="{{ route('admin.marketing-level.index') }}" class="nav-link {{ Request::segment(2) == 'marketing-level' ? 'active':'' }}">Level Marketing</a></li>
+								<li class="nav-item"><a href="{{ route('admin.property-category.index') }}" class="nav-link {{ Request::segment(2) == 'property-category' ? 'active':'' }}">Category Property</a></li>
 								<li class="nav-item"><a href="{{ route('admin.property-marketplace.index') }}" class="nav-link {{ Request::segment(2) == 'property-marketplace' ? 'active':'' }}">Marketplace Property</a></li>
 							</ul>
 						</li>
@@ -192,16 +194,16 @@
 						<!-- Components -->
 						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Basic</div> <i class="icon-menu" title="Components"></i></li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-spell-check"></i> <span>Article (News)</span></a>
+							<a href="#" class="nav-link {{ Request::segment(2) == 'news' || Request::segment(2) == 'news-category' ? 'active':'' }}"><i class="icon-spell-check"></i> <span>Article (News)</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Text editors">
-								<li class="nav-item"><a href="editor_summernote.html" class="nav-link">Article </a></li>
-								<li class="nav-item"><a href="editor_ckeditor.html" class="nav-link">Category Article</a></li>
+								<li class="nav-item"><a href="{{ route('admin.news.index') }}" class="nav-link {{ Request::segment(2) == 'news' ? 'active':'' }}">Article </a></li>
+								<li class="nav-item"><a href="{{ route('admin.news-category.index') }}" class="nav-link {{ Request::segment(2) == 'news-category' ? 'active':'' }}">Category Article</a></li>
 							</ul>
 						</li>
 						<li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-select2"></i> <span>Gallery</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Pickers">
-								<li class="nav-item"><a href="picker_date.html" class="nav-link">Album</a></li>
+								<li class="nav-item"><a href="{{ route('admin.album.index') }}" class="nav-link">Album</a></li>
 							</ul>
 						</li>
 						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>Contact Message</span></a></li>

@@ -4,17 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\News;
 use App\Model\NewsCategory;
 use Illuminate\Support\Str;
-use Yajra\Datatables\Datatables;
 
-class NewsController extends Controller
+class NewsCategoryController extends Controller
 {
-    public function __construct()
-    {
-        $this->img_location = "public/news/";
-    }
     /**
      * Display a listing of the resource.
      *
@@ -22,10 +16,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $data['title'] = "News";
-        $data['data'] = News::all()->sortByDesc('id');
-        
-        return view("admin/news/index",compact('data'));
+        $data['title'] = "News Category";
+        $data['data'] = NewsCategory::all()->sortByDesc('id');
+        return view("admin/news_category/index",compact('data'));
     }
 
     /**
@@ -36,9 +29,8 @@ class NewsController extends Controller
     public function create()
     {
         $data['typeForm'] = "create";
-        $data['title'] = "News";
-        $data['category'] = NewsCategory::all()->sortByDesc('id');
-        return view("admin/news/form",compact('data'));
+        $data['title'] = "News Category";
+        return view("admin/news_category/form",compact('data'));
     }
 
     /**
@@ -49,24 +41,8 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->file('image')) {
-            $file    = $request->file('image');
-            $ext     = $file->getClientOriginalExtension();
-            $newName = rand(100000,1001238912).".".$ext;
-            $file->move($this->img_location.'news',$newName);
-        }else{
-            $newName = NULL;
-        }
-
-        
-
-        $data = [
-            'image' => $newName
-        ];
-
-        
-
-        $data = News::create($data);
+        $data = [];
+        $data = NewsCategory::create($data);
 
         $requestindo = $request->input('id');
         $requestindo['slug'] = Str::slug($requestindo['title'].'-'.$data->id, '-');
@@ -94,7 +70,10 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['dataModel'] = NewsCategory::find($id);
+        $data['typeForm'] = "Edit";
+        $data['title'] = "News Category";
+        return view("admin/news_category/form",compact('data'));
     }
 
     /**
@@ -105,11 +84,7 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $data['dataModel'] = News::find($id);
-        $data['typeForm'] = "Edit";
-        $data['title'] = "News";
-        $data['category'] = NewsCategory::all()->sortByDesc('id');
-        return view("admin/news/form",compact('data'));
+        //
     }
 
     /**
@@ -121,24 +96,8 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = News::find($id);
+        $data = NewsCategory::find($id);
 
-        if ($request->file('image')) {
-
-            $myFile = $this->img_location.'news/'.$data->image;
-            if (file_exists($myFile)){
-                unlink($myFile);
-            }
-
-            $file    = $request->file('image');
-            $ext     = $file->getClientOriginalExtension();
-            $newName = rand(100000,1001238912).".".$ext;
-            $file->move($this->img_location.'news',$newName);
-            
-            $newFile = [ 'image' => $newName ];
-            $data->update($newFile);
-        }
-        
         $requestindo = $request->input('id');
         $requestindo['slug'] = Str::slug($requestindo['title'].'-'.$data->id, '-');
         $requesteng = $request->input('en');
@@ -165,11 +124,7 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        $data = News::find($id);
-        if ($data->image != NULL) {
-            $myFile = $this->img_location.'news/'.$data->image;
-            unlink($myFile);
-        }
+        $data = NewsCategory::find($id);
         $data->delete();
         return response()->json([
             'Code'             => 200,

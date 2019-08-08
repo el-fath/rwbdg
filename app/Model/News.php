@@ -15,6 +15,12 @@ class News extends Model
     public $translatedAttributes = ['title','description','slug'];
     protected $appends 	= array('ImagePath','ImagePathSmall','ImagePathMedium');
 
+
+    public function Category()
+    {
+        return $this->hasOne('App\Model\NewsCategory', 'category_id', 'id');
+    }
+
     public function getImagePathAttribute()
     {
         $url = url('/')."/public/image/news/".$this->image;
