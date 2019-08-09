@@ -57,15 +57,14 @@
                 </div>
             </div>
             <div class="card-body">
-                <a href="{{ url('admin/user/create') }}"><button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left"><b><i class="icon-plus-circle2"></i></b> Add {{$data['title']}}</button></a>
+                <a href="{{ url('admin/group/create') }}"><button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left"><b><i class="icon-plus-circle2"></i></b> Add {{$data['title']}}</button></a>
             </div>
             <table class="table datatable-basic-3-column" id="tableData">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Group</th>
+                        <th>Name Group</th>
+                        <th>Description</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -76,8 +75,7 @@
                     <tr>
                         <td>{{$no}}</td>
                         <td>{{ $val->name }}</td>
-                        <td>{{ $val->email }}</td>
-                        <td>{{ $val->group['name'] }}</td>
+                        <td>{{ $val->description }}</td>
                         <td class="text-center">
                             <div class="list-icons">
                                 <div class="dropdown">
@@ -85,10 +83,10 @@
                                         <i class="icon-menu9"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="{{ route('admin.user.show', $val->id) }}" class="dropdown-item">
+                                        <a href="{{ route('admin.group.show', $val->id) }}" class="dropdown-item">
                                             <i class="icon-file-pdf"></i> Edit
                                         </a>
-                                        <a href="{{ route('admin.user.destroy', $val->id) }}" data-id="{{ $val->id }}" class="dropdown-item btnDelete">
+                                        <a href="{{ route('admin.group.destroy', $val->id) }}" data-id="{{ $val->id }}" class="dropdown-item btnDelete">
                                             <i class="icon-file-pdf"></i> Delete
                                         </a>
                                     </div>
@@ -160,7 +158,7 @@ $(".btnDelete").click(function(e){
                         showNotif("error","Error",data.Message);
                     }
                     setTimeout(function(){ 
-                        redirect('{{route('admin.user.index')}}');
+                        redirect('{{route('admin.group.index')}}');
                     }, 1500);
                 })
                 .fail(function(e) {

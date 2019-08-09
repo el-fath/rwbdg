@@ -168,6 +168,7 @@
 						</li>
 						<li class="nav-item"><a href="{{ route('admin.slide.index') }}" class="nav-link {{ Request::segment(2) == 'slide' ? 'active':'' }}"><i class="icon-width"></i> <span>Slider</span></a></li>
 						<li class="nav-item"><a href="{{ route('admin.user.index') }}" class="nav-link {{ Request::segment(2) == 'user' ? 'active':'' }}"><i class="icon-width"></i> <span>User</span></a></li>
+						<li class="nav-item"><a href="{{ route('admin.group.index') }}" class="nav-link {{ Request::segment(2) == 'group' ? 'active':'' }}"><i class="icon-width"></i> <span>Group</span></a></li>
 						<!-- /main -->
 
 						<!-- Forms -->

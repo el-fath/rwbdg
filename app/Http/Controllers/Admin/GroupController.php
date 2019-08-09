@@ -5,12 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use App\Model\User;
 use App\Model\Group_user;
 use Illuminate\Support\Str;
 use Yajra\Datatables\Datatables;
 
-class UserController extends Controller
+class GroupController extends Controller
 {
     public function __construct()
     {
@@ -23,9 +22,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data['title'] = "User";
-        $data['data'] = User::with('group')->get()->sortByDesc('id');
-        return view("admin/user/index",compact('data'));
+        $data['title'] = "Group User";
+        $data['data'] = Group_user::all()->sortByDesc('id');
+        return view("admin/group/index",compact('data'));
     }
 
     /**
@@ -36,10 +35,8 @@ class UserController extends Controller
     public function create()
     {
         $data['typeForm'] = "Create";
-        $data['title'] = "User";
-        $data['group'] = Group_user::all();
-
-        return view("admin/user/form",compact('data'));
+        $data['title'] = "Group User";
+        return view("admin/group/form",compact('data'));
     }
 
     /**
@@ -52,12 +49,10 @@ class UserController extends Controller
     {
         $data = [
             'name' => $request->name,
-            'email' => $request->email,
-            'group_id' => $request->group,
-            'password' => Hash::make($request->get('password'))
+            'description' => $request->description
         ];
 
-        $data = User::create($data);
+        $data = Group_user::create($data);
 
         return response()->json([
             'Code'    => 200,
@@ -73,11 +68,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $data['dataModel'] = User::find($id);
-        $data['group'] = Group_user::all();
+        $data['dataModel'] = Group_user::find($id);
         $data['typeForm'] = "Edit";
-        $data['title'] = "User";
-        return view("admin/user/form",compact('data'));
+        $data['title'] = "Group User";
+        return view("admin/group/form",compact('data'));
     }
 
     /**
@@ -100,12 +94,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = User::find($id);
+        $data = Group_user::find($id);
 
         $newData = [
             'name' => $request->name,
-            'email' => $request->email,
-            'group_id' => $request->group
+            'description' => $request->description
         ];
 
         $data->update($newData);
@@ -124,7 +117,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $data = User::find($id);
+        $data = Group_user::find($id);
         $data->delete();
         
         return response()->json([

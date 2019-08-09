@@ -51,50 +51,24 @@
 
                     <div class="card-body">
                         <form id="formInput" 
-                            action="{{ ($data['typeForm'] =="Create") ? route('admin.user.store') : route('admin.user.update',$data['dataModel']->id) }}" 
+                            action="{{ ($data['typeForm'] =="Create") ? route('admin.group.store') : route('admin.group.update',$data['dataModel']->id) }}" 
                             method="POST" enctype="multipart/form-data">
 
                             <div class="form-group row">
-                                <label class="col-form-label col-lg-2">Name</label>
+                                <label class="col-form-label col-lg-2">Group Name</label>
                                 <div class="col-lg-10">
                                     <input type="text" required class="form-control" 
                                         value="{{ ($data['typeForm'] =="Create") ? "" : $data['dataModel']->name }}" 
-                                        placeholder="name" name="name">
+                                        placeholder="group name" name="name">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-form-label col-lg-2">Email</label>
+                                <label class="col-form-label col-lg-2">Description</label>
                                 <div class="col-lg-10">
-                                    <input type="email" required class="form-control" 
-                                        value="{{ ($data['typeForm'] =="Create") ? "" : $data['dataModel']->email }}" 
-                                        placeholder="email" name="email">
+                                    <textarea rows="3" cols="3" class="form-control" name="description" placeholder="Description">{{ ($data['typeForm'] =="Create") ? "" : $data['dataModel']->description }}</textarea>
                                 </div>
                             </div>
-
-                            <div class="form-group row">
-                                <label class="col-form-label col-lg-2">Group</label>
-                                <div class="col-lg-10">
-                                    <select name="group" id="" class="form-control">
-                                        @foreach ($data['group'] as $val)
-                                            <option value="{{$val->id}}" {{ ($data['dataModel']->group_id == $val->id) ? "selected" : "" }}>
-                                                {{$val->name}}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            @if ($data['typeForm'] =="Create")
-                                <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Password</label>
-                                    <div class="col-lg-10">
-                                        <input type="password" required class="form-control" 
-                                            value="{{ ($data['typeForm'] =="Create") ? "" : $data['dataModel']->password }}" 
-                                            placeholder="password" name="password">
-                                    </div>
-                                </div>
-                            @endif
 
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
@@ -141,7 +115,7 @@
                 if(data.Code == 200){
                     showNotif("success","Success",data.Message);
                     setTimeout(function(){ 
-                        redirect('{{route('admin.user.index')}}');
+                        redirect('{{route('admin.group.index')}}');
                     }, 2000);
                 }else{
                     showNotif("error","Error",data.Message);
