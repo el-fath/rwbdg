@@ -53,7 +53,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/marketing-level', 'Admin\MarketingLevelController',['as' => 'admin']);
     Route::resource('admin/news', 'Admin\NewsController',['as' => 'admin']);
     Route::resource('admin/news-category', 'Admin\NewsCategoryController',['as' => 'admin']);
-    Route::resource('admin/album', 'Admin\NewsCategoryController',['as' => 'admin']);
+    Route::resource('admin/album', 'Admin\AlbumController',['as' => 'admin']);
+    Route::resource('admin/album-photo', 'Admin\AlbumPhotoController',['as' => 'admin']);
 });
 
 

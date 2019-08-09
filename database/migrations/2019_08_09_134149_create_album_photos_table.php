@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlbumsTable extends Migration
+class CreateAlbumPhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,23 @@ class CreateAlbumsTable extends Migration
      */
     public function up()
     {
-        Schema::create('albums', function (Blueprint $table) {
+        Schema::create('album_photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('description');
-
+            $table->text('image');
+            $table->integer('album_id')->unsigned()->default('0');
             $table->timestamps();
         });
 
-        Schema::create('album_translations', function(Blueprint $table){
+        Schema::create('album_photo_translations', function(Blueprint $table){
             $table->increments('id');
-            $table->integer('album_id')->unsigned();
+            $table->integer('album_photo_id')->unsigned();
             
             $table->string('title')->nullable();
             $table->text('description')->nullable();
 
             $table->string('locale')->index();
-            $table->unique(['album_id','locale']);
-            $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
+            $table->unique(['album_photo_id','locale']);
+            $table->foreign('album_photo_id')->references('id')->on('album_photos')->onDelete('cascade');
         });
     }
 
@@ -41,6 +40,6 @@ class CreateAlbumsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('albums');
+        Schema::dropIfExists('album_photos');
     }
 }
