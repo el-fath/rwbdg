@@ -54,7 +54,26 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/news', 'Admin\NewsController',['as' => 'admin']);
     Route::resource('admin/news-category', 'Admin\NewsCategoryController',['as' => 'admin']);
     Route::resource('admin/album', 'Admin\AlbumController',['as' => 'admin']);
-    Route::resource('admin/album-photo', 'Admin\AlbumPhotoController',['as' => 'admin']);
+    Route::get('admin/album-photo/{id_album}', [
+        'as' => 'admin.album-photo.index',
+        'uses' => 'Admin\AlbumPhotoController@index'
+        ]);
+    Route::get('admin/album-photo/get-photo/{id_album}', [
+        'as' => 'admin.album-photo.get_photo',
+        'uses' => 'Admin\AlbumPhotoController@get_photo'
+        ]);
+    Route::post('admin/album-photo/add-photo/{id_album}', [
+        'as' => 'admin.album-photo.add_photo',
+        'uses' => 'Admin\AlbumPhotoController@add_photo'
+        ]);
+    Route::post('admin/album-photo/delete-photo/{id_album}', [
+        'as' => 'admin.album-photo.delete_photo',
+        'uses' => 'Admin\AlbumPhotoController@delete_photo'
+        ]);
+    Route::resource('admin/album-photo', 'Admin\AlbumPhotoController',[
+        'as' => 'admin',
+        'except' => 'index'
+    ]);
 });
 
 

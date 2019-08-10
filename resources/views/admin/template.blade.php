@@ -167,8 +167,17 @@
 							</ul>
 						</li>
 						<li class="nav-item"><a href="{{ route('admin.slide.index') }}" class="nav-link {{ Request::segment(2) == 'slide' ? 'active':'' }}"><i class="icon-width"></i> <span>Slider</span></a></li>
-						<li class="nav-item"><a href="{{ route('admin.user.index') }}" class="nav-link {{ Request::segment(2) == 'user' ? 'active':'' }}"><i class="icon-width"></i> <span>User</span></a></li>
-						<li class="nav-item"><a href="{{ route('admin.group.index') }}" class="nav-link {{ Request::segment(2) == 'group' ? 'active':'' }}"><i class="icon-width"></i> <span>Group</span></a></li>
+						
+
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link {{ Request::segment(2) == 'user' || Request::segment(2) == 'group' ? 'active':'' }}"><i class="icon-select2"></i> <span>Users</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Pickers">
+								<li class="nav-item"><a href="{{ route('admin.user.index') }}" class="nav-link {{ Request::segment(2) == 'user' ? 'active':'' }}">User</a></li>
+								<li class="nav-item"><a href="{{ route('admin.group.index') }}" class="nav-link {{ Request::segment(2) == 'group' ? 'active':'' }}">Group</a></li>
+							</ul>
+						</li>
+
+						
 						<!-- /main -->
 
 						<!-- Forms -->
@@ -202,9 +211,9 @@
 							</ul>
 						</li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-select2"></i> <span>Gallery</span></a>
+							<a href="#" class="nav-link {{ Request::segment(2) == 'album' ? 'active':'' }}"><i class="icon-select2"></i> <span>Gallery</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Pickers">
-								<li class="nav-item"><a href="{{ route('admin.album.index') }}" class="nav-link">Album</a></li>
+								<li class="nav-item"><a href="{{ route('admin.album.index') }}" class="nav-link {{ Request::segment(2) == 'album' ? 'active':'' }}">Album</a></li>
 							</ul>
 						</li>
 						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>Contact Message</span></a></li>

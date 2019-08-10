@@ -24,6 +24,7 @@ class CreateAlbumsTable extends Migration
             
             $table->string('title')->nullable();
             $table->text('description')->nullable();
+            $table->text('slug')->nullable();
 
             $table->string('locale')->index();
             $table->unique(['album_id','locale']);
