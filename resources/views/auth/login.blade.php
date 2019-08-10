@@ -46,7 +46,7 @@
 					<div class="card mb-0">
 						<div class="card-body">
 							<div class="text-center mb-3">
-								<i style="background-image: {{$config->LogoPath}}" class=" icon-2x text-slate-300 border-slate-300 border-3 rounded-round p-3 mb-3 mt-1"></i>
+								<img src="{{$config->LogoPath}}" alt="" class=" icon-2x border-slate-300 border-3 rounded-round mt-1" style="height: 100px;">
 								<h5 class="mb-0">Login to {{$config->name}}</h5>
 								<span class="d-block text-muted">Enter your credentials below</span>
 							</div>
@@ -88,7 +88,7 @@
 							</div>
 
 							<div class="text-center">
-								<a href="{{ url('register') }}">Register</a>
+								{{-- <a href="{{ url('register') }}">Register</a> --}}
                             </div>
                             
                             {{-- <div class="text-center">
