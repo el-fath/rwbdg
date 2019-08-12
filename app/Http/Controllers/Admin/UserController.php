@@ -54,7 +54,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'group_id' => $request->group,
-            'password' => Hash::make($request->get('password'))
+            'password' => Hash::make($request->password)
         ];
 
         $data = User::create($data);
@@ -102,11 +102,17 @@ class UserController extends Controller
     {
         $data = User::find($id);
 
-        $newData = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'group_id' => $request->group
-        ];
+        if (isset($request->password)) {
+            $newData = [
+                'password' => Hash::make($request->password)
+            ];
+        }else{
+            $newData = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'group_id' => $request->group
+            ];
+        }
 
         $data->update($newData);
 

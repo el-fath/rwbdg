@@ -87,7 +87,7 @@
 
 					<div class="dropdown-menu dropdown-menu-right">
 						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
+						<a href="{{ route('admin.user.destroy', Auth::user()->id) }}" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
 						<a href="{{ route('logout') }}" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
 					</div>
 				</li>
