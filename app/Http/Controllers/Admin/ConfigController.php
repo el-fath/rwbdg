@@ -115,6 +115,7 @@ class ConfigController extends Controller
                 $data->update($newdata);
             }
 
+
             return response()->json([
                 'Code'             => 200,
                 'Message'          => "Success updated"
