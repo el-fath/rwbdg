@@ -77,9 +77,15 @@
                                 <div class="col-lg-10">
                                     <select name="group" id="" class="form-control">
                                         @foreach ($data['group'] as $val)
+                                            @if (isset($data['dataModel']))
                                             <option value="{{$val->id}}" {{ ($data['dataModel']->group_id == $val->id) ? "selected" : "" }}>
                                                 {{$val->name}}
                                             </option>
+                                            @else
+                                            <option value="{{$val->id}}">
+                                                {{$val->name}}
+                                            </option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>
@@ -102,6 +108,39 @@
                         </form>
                     </div>
                 </div>
+
+                @if ($data['typeForm'] != "Create")
+                <div class="card">
+                    <div class="card-header header-elements-inline">
+                        <h6 class="card-title">{{$data['typeForm']}} Password </h6>
+                        <div class="header-elements">
+                            <div class="list-icons">
+                                <a class="list-icons-item" data-action="collapse"></a>
+                                <a class="list-icons-item" data-action="reload"></a>
+                                <a class="list-icons-item" data-action="remove"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <form id="formPassword"
+                            action="{{ route('admin.user.update',$data['dataModel']->id) }}" method="POST">
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">New Password</label>
+                                <div class="col-lg-10">
+                                    <input type="password" required class="form-control" value="" minlength="8" placeholder="type new password" name="password">
+                                </div>
+                            </div>
+
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @endif
+
             </div>
         </div>
         <!-- /rounded basic tabs -->    
@@ -151,7 +190,51 @@
                 $('#formInput').unblock();
                 showNotif("error","Error",e.responseText);
             })   
-        }) 
+        })
+
+        $("#formPassword").submit(function(e){
+            e.preventDefault();
+            var formData = new FormData(this);
+            
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            @if($data['typeForm'] != "Create")
+                formData.append('_method', 'PUT');
+            @endif
+
+            $.ajax({
+                url: $("#formPassword").attr('action'),
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType : 'json',
+                encode  : true,
+                beforeSend: function(){
+                    blockMessage($('#formPassword'),'Please Wait , Processing to update password', '#fff');
+                }
+            })
+            .done(function(data){
+                $('#formPassword').unblock();
+                if(data.Code == 200){
+                    showNotif("success","Success",data.Message);
+                    setTimeout(function(){ 
+                        redirect('{{route('admin.user.index')}}');
+                    }, 2000);
+                }else{
+                    showNotif("error","Error",data.Message);
+                }
+            })
+            .fail(function(e) {
+                $('#formPassword').unblock();
+                showNotif("error","Error",e.responseText);
+            })   
+        })
+
     })
 </script>
         
