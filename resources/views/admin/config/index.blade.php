@@ -65,6 +65,11 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Logo</label>
                                             <div class="col-lg-10">
+                                                @if($typeForm != "create")
+                                                    <img src="{{$dataModel->LogoPath}}" style="width: 200px;" alt="">
+                                                    <br>
+                                                    <br>
+                                                @endif
                                                 <input type="file" class="file-input" id="inputlogo" data-url="{{$dataModel->LogoPath}}"  data-fouc name="imglogo">
                                                 <span class="form-text text-muted">Recomendation size <code>512px x 512px</code>.</span>
                                             </div>
@@ -72,6 +77,11 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Favicon</label>
                                             <div class="col-lg-10">
+                                                @if($typeForm != "create")
+                                                    <img src="{{$dataModel->FaviconPath}}" style="width: 200px;" alt="">
+                                                    <br>
+                                                    <br>
+                                                @endif
                                                 <input type="file" class="file-input" data-url="{{$dataModel->FaviconPath}}" data-fouc name="imgfavicon">
                                                 <span class="form-text text-muted">Recomendation size <code>512px x 512px</code>.</span>
                                             </div>

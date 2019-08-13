@@ -34,6 +34,11 @@ var CKEditor = function() {
             extraPlugins: 'forms'
         });
 
+        CKEDITOR.replace('editor-full2', {
+            height: 400,
+            extraPlugins: 'forms'
+        });
+
 
         // Readonly editor
         // ------------------------------

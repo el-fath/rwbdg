@@ -15,22 +15,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profile = new Profile();
-
-        $profile->save();
-        $profile->fill([
-            'id' => [
-                'name' => 'nama ku',
-            ],
-            'en' => [
-                'name' => 'my name',
-            ],
-        ]);
-        $profile->fill([
-            'id' => $profile->id,
-        ]);
-        $profile->save();
-        dd($profile->translate('id'));
+        
     }
 
     /**

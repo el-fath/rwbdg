@@ -67,7 +67,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Description</label>
                                             <div class="col-lg-10">
-                                                <textarea rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:id'} }}</textarea>
+                                                <textarea id="editorId" rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:id'} }}</textarea>
                                             </div>
                                         </div>
                                 </div>
@@ -82,13 +82,13 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Description</label>
                                             <div class="col-lg-10">
-                                                <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea>
+                                                <textarea id="editorEn" rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea>
                                             </div>
                                         </div>
                                 </div>
                                 <hr>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Description</label>
+                                    <label class="col-form-label col-lg-2">Category</label>
                                     <div class="col-lg-10">
                                         <select class="form-control select-search" name="category_id" data-fouc>
                                                 @foreach ($data['category'] as $item)
@@ -129,6 +129,15 @@
 <script>
     $(document).ready(function(){
         
+        var options = {
+            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+            filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+            filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        };
+
+        CKEDITOR.replace('editorId', options);
+
         $("#formInput").submit(function(e){
             e.preventDefault();
             var formData = new FormData(this);

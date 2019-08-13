@@ -13,26 +13,25 @@
 
 Route::get('/', 'User\HomeController@index');
 
+// //FRONT END
+// // Route::prefix(parseLocale())->group(function () {
+//     Auth::routes();
+//     Route::get('/about', 'User\AboutController@index');
+//     Route::get('/landing-page', 'User\HomeController@index');
 
-//FRONT END
-Route::prefix(parseLocale())->group(function () {
-    Auth::routes();
-    Route::get('/about', 'User\AboutController@index');
-    Route::get('/landing-page', 'User\HomeController@index');
 
+//     //ARTISAN CALL
+//     Route::get('/clear', function() {
 
-    //ARTISAN CALL
-    Route::get('/clear', function() {
+//         Artisan::call('cache:clear');
+//         Artisan::call('config:clear');
+//         Artisan::call('config:cache');
+//         Artisan::call('view:clear');
 
-        Artisan::call('cache:clear');
-        Artisan::call('config:clear');
-        Artisan::call('config:cache');
-        Artisan::call('view:clear');
+//         return "Cleared!";
 
-        return "Cleared!";
-
-    });
-});
+//     });
+// // });
 
 
 
@@ -42,6 +41,7 @@ Route::prefix(parseLocale())->group(function () {
 //ADMIN
 Route::get('/admin/login', 'Auth\LoginController@showLoginForm');
 Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin', 'Admin\DashboardController@index');
     Route::get('/admin/dashboard', 'Admin\DashboardController@index');
     Route::resource('admin/config', 'Admin\ConfigController',['as' => 'admin']);
     Route::resource('admin/profile', 'Admin\ProfileController',['as' => 'admin']);
@@ -83,12 +83,12 @@ Route::group(['middleware' => 'admin'], function () {
 
 
 
-Route::get('/migrate', function() {
+// Route::get('/migrate', function() {
 
-    Artisan::call('migrate');
-    return "Migration success!";
+//     Artisan::call('migrate');
+//     return "Migration success!";
 
-});
+// });
 
 
 //OTHER
@@ -98,15 +98,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //CUSTOM FUNCTION
-function parseLocale()
-{
-    $locale = Request::segment(1);
-    $languages = ['id', 'en'];
+// function parseLocale()
+// {
+//     $locale = Request::segment(1);
+//     $languages = ['id', 'en'];
 
-    if (in_array($locale, $languages)) {
-        App::setLocale($locale);
-        return $locale;
-    }
+//     if (in_array($locale, $languages)) {
+//         App::setLocale($locale);
+//         return $locale;
+//     }
 
-    return '/';
-}
+//     return '/';
+// }

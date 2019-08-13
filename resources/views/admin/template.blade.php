@@ -39,6 +39,7 @@
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/notifications/sweet_alert.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/tables/datatables/datatables.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/forms/selects/select2.min.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/editors/ckeditor/ckeditor.js"></script>
 
 	<script src="{{ url('public/assets/admin') }}/assets/js/app.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/extra_jgrowl_noty.js"></script>
@@ -47,6 +48,7 @@
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/uploader_bootstrap.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/datatables_basic.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/form_select2.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/editor_ckeditor.js"></script>
 	<script src="{{ url('public') }}/js/cakcode.js"></script>
 
 	{{-- <script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/datatables_basic.js"></script> --}}
