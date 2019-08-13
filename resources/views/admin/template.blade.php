@@ -190,6 +190,14 @@
 								<li class="nav-item"><a href="{{ route('admin.marketing-level.index') }}" class="nav-link {{ Request::segment(2) == 'marketing-level' ? 'active':'' }}">Level Marketing</a></li>
 								<li class="nav-item"><a href="{{ route('admin.property-category.index') }}" class="nav-link {{ Request::segment(2) == 'property-category' ? 'active':'' }}">Category Property</a></li>
 								<li class="nav-item"><a href="{{ route('admin.property-marketplace.index') }}" class="nav-link {{ Request::segment(2) == 'property-marketplace' ? 'active':'' }}">Marketplace Property</a></li>
+								<li class="nav-item nav-item-submenu nav-item-open">
+									<a href="#" class="nav-link">Locations</a>
+									<ul class="nav nav-group-sub" style="display: block;">
+										<li class="nav-item"><a href="{{ route('admin.province.index') }}" class="nav-link">Province</a></li>
+										<li class="nav-item"><a href="{{ route('admin.city.index') }}" class="nav-link">City</a></li>
+										<li class="nav-item"><a href="{{ route('admin.district.index') }}" class="nav-link">District</a></li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>Marketing Executive</span></a></li>

@@ -21,17 +21,18 @@ Route::get('/', 'User\HomeController@index');
 
 
 //     //ARTISAN CALL
-//     Route::get('/clear', function() {
+    Route::get('/clear', function() {
 
-//         Artisan::call('cache:clear');
-//         Artisan::call('config:clear');
-//         Artisan::call('config:cache');
-//         Artisan::call('view:clear');
+        Artisan::call('cache:clear');
+        Artisan::call('config:clear');
+        Artisan::call('config:cache');
+        Artisan::call('route:clear');
+        Artisan::call('view:clear');
 
-//         return "Cleared!";
+        return "Cleared!";
 
-//     });
-// // });
+    });
+// });
 
 
 
@@ -54,6 +55,37 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/news', 'Admin\NewsController',['as' => 'admin']);
     Route::resource('admin/news-category', 'Admin\NewsCategoryController',['as' => 'admin']);
     Route::resource('admin/album', 'Admin\AlbumController',['as' => 'admin']);
+
+    Route::get('admin/province/sync', [
+        'as' => 'admin.province.sync',
+        'uses' => 'Admin\ProvinceController@sync'
+    ]);
+    Route::resource('admin/province', 'Admin\ProvinceController',['as' => 'admin']);
+
+    Route::get('admin/city/sync', [
+        'as' => 'admin.city.sync',
+        'uses' => 'Admin\CityController@sync'
+    ]);
+    Route::resource('admin/city', 'Admin\CityController',['as' => 'admin']);
+
+    Route::get('admin/district/sync', [
+        'as' => 'admin.district.sync',
+        'uses' => 'Admin\DistrictController@sync'
+    ]);
+    Route::resource('admin/district', 'Admin\DistrictController',['as' => 'admin']);
+
+
+
+    // Route::get('admin/city/{province_id}', [
+    //     'as' => 'admin.city.index',
+    //     'uses' => 'Admin\CityController@index'
+    // ]);
+
+    // Route::get('admin/district/{city_id}', [
+    //     'as' => 'admin.district.index',
+    //     'uses' => 'Admin\DistrictController@index'
+    // ]);
+
     Route::get('admin/album-photo/{id_album}', [
         'as' => 'admin.album-photo.index',
         'uses' => 'Admin\AlbumPhotoController@index'
