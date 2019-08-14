@@ -12,6 +12,7 @@
 	<link href="{{ url('public/assets/admin') }}/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
 	<link href="{{ url('public/assets/admin') }}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="{{ url('public/assets/admin') }}/assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
+	<link href="{{ url('public/assets/admin') }}/assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
 	<link href="{{ url('public/assets/admin') }}/assets/css/layout.min.css" rel="stylesheet" type="text/css">
 	<link href="{{ url('public/assets/admin') }}/assets/css/components.min.css" rel="stylesheet" type="text/css">
 	<link href="{{ url('public/assets/admin') }}/assets/css/colors.min.css" rel="stylesheet" type="text/css">
@@ -161,18 +162,18 @@
 							</a>
 						</li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link {{ Request::segment(2) == 'config' || Request::segment(2) == 'website' ? 'active':'' }}"><i class="icon-copy"></i> <span>Setting</span></a>
+							<a href="#" class="nav-link {{ Request::segment(2) == 'config' || Request::segment(2) == 'website' ? 'active':'' }}"><i class="icon-gear"></i> <span>Setting</span></a>
 
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
 								<li class="nav-item"><a href="{{ route('admin.config.index') }}" class="nav-link {{ Request::segment(2) == 'config' ? 'active':'' }}">Config</a></li>
 								<li class="nav-item"><a href="{{ route('admin.profile.index') }}" class="nav-link {{ Request::segment(2) == 'profile' ? 'active':'' }}">Website</a></li>
 							</ul>
 						</li>
-						<li class="nav-item"><a href="{{ route('admin.slide.index') }}" class="nav-link {{ Request::segment(2) == 'slide' ? 'active':'' }}"><i class="icon-width"></i> <span>Slider</span></a></li>
+						<li class="nav-item"><a href="{{ route('admin.slide.index') }}" class="nav-link {{ Request::segment(2) == 'slide' ? 'active':'' }}"><i class="icon-images2"></i> <span>Slider</span></a></li>
 						
 
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link {{ Request::segment(2) == 'user' || Request::segment(2) == 'group' ? 'active':'' }}"><i class="icon-select2"></i> <span>Users</span></a>
+							<a href="#" class="nav-link {{ Request::segment(2) == 'user' || Request::segment(2) == 'group' ? 'active':'' }}"><i class="icon-users"></i> <span>Users</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Pickers">
 								<li class="nav-item"><a href="{{ route('admin.user.index') }}" class="nav-link {{ Request::segment(2) == 'user' ? 'active':'' }}">User</a></li>
 								<li class="nav-item"><a href="{{ route('admin.group.index') }}" class="nav-link {{ Request::segment(2) == 'group' ? 'active':'' }}">Group</a></li>
@@ -185,7 +186,7 @@
 						<!-- Forms -->
 						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Property Stuf</div> <i class="icon-menu" title="Forms"></i></li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link {{ Request::segment(2) == 'marketing-level' || Request::segment(2) == 'property-category' ? 'active':'' || Request::segment(2) == 'property-marketplace' ? 'active':'' }}"><i class="icon-pencil3"></i> <span>Master</span></a>
+							<a href="#" class="nav-link {{ Request::segment(2) == 'marketing-level' || Request::segment(2) == 'property-category' ? 'active':'' || Request::segment(2) == 'property-marketplace' ? 'active':'' }}"><i class="icon-database2"></i> <span>Master</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Form components">
 								<li class="nav-item"><a href="{{ route('admin.marketing-level.index') }}" class="nav-link {{ Request::segment(2) == 'marketing-level' ? 'active':'' }}">Level Marketing</a></li>
 								<li class="nav-item"><a href="{{ route('admin.property-category.index') }}" class="nav-link {{ Request::segment(2) == 'property-category' ? 'active':'' }}">Category Property</a></li>
@@ -200,9 +201,9 @@
 								</li>
 							</ul>
 						</li>
-						<li class="nav-item"><a href="{{ route('admin.marketing.index') }}" class="nav-link"><i class="icon-width"></i> <span>Marketing Executive</span></a></li>
+						<li class="nav-item"><a href="{{ route('admin.marketing.index') }}" class="nav-link"><i class="icon-user-tie"></i> <span>Marketing Executive</span></a></li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-file-css"></i> <span>Property</span></a>
+							<a href="#" class="nav-link"><i class="fa fa-building-o mr-2"></i> <span>Property</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="JSON forms">
 								<li class="nav-item"><a href="alpaca_basic.html" class="nav-link">Secondary</a></li>
 								<li class="nav-item"><a href="alpaca_advanced.html" class="nav-link">Primary</a></li>
@@ -214,19 +215,19 @@
 						<!-- Components -->
 						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Basic</div> <i class="icon-menu" title="Components"></i></li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link {{ Request::segment(2) == 'news' || Request::segment(2) == 'news-category' ? 'active':'' }}"><i class="icon-spell-check"></i> <span>Article (News)</span></a>
+							<a href="#" class="nav-link {{ Request::segment(2) == 'news' || Request::segment(2) == 'news-category' ? 'active':'' }}"><i class="icon-magazine"></i> <span>Article (News)</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Text editors">
 								<li class="nav-item"><a href="{{ route('admin.news.index') }}" class="nav-link {{ Request::segment(2) == 'news' ? 'active':'' }}">Article </a></li>
 								<li class="nav-item"><a href="{{ route('admin.news-category.index') }}" class="nav-link {{ Request::segment(2) == 'news-category' ? 'active':'' }}">Category Article</a></li>
 							</ul>
 						</li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link {{ Request::segment(2) == 'album' ? 'active':'' }}"><i class="icon-select2"></i> <span>Gallery</span></a>
+							<a href="#" class="nav-link {{ Request::segment(2) == 'album' ? 'active':'' }}"><i class="icon-images3"></i> <span>Gallery</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Pickers">
 								<li class="nav-item"><a href="{{ route('admin.album.index') }}" class="nav-link {{ Request::segment(2) == 'album' ? 'active':'' }}">Album</a></li>
 							</ul>
 						</li>
-						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>Contact Message</span></a></li>
+						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-mailbox"></i> <span>Contact Message</span></a></li>
 						<!-- /page kits -->
 
 					</ul>

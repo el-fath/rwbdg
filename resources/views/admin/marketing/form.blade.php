@@ -58,6 +58,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Level</label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control select-search" name="level_id" data-fouc>
+                                                @foreach ($data['level'] as $item)
+                                                    @if($data['typeForm'] != "create")
+                                                        <option {{($data['dataModel']->level_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
+                                                    @else
+                                                    <option value="{{$item->id}}">{{$item->title}}</option>
+                                                    @endif
+                                                @endforeach
+                                        </select>
+                                        {{-- <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea> --}}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-form-label col-lg-2">Phone</label>
                                     <div class="col-lg-10">
                                         <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->phone }}" placeholder="Phone" name="phone">

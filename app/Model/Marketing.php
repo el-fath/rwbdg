@@ -15,6 +15,12 @@ class Marketing extends Model
     public $translatedAttributes = ['description'];
     protected $appends 	= array('ImagePath','ImagePathSmall','ImagePathMedium');
 
+    public function level()
+    {
+        return $this->hasOne('App\Model\MarketingLevel','id','level_id');
+    }
+
+
     public function getImagePathAttribute()
     {
         $url = url('/')."/public/image/marketing/".$this->image;

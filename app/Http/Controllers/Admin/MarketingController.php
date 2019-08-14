@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Marketing;
+use App\Model\MarketingLevel;
 use Illuminate\Support\Str;
 
 class MarketingController extends Controller
@@ -22,6 +23,7 @@ class MarketingController extends Controller
     {
         $data['title'] = "Marketing";
         $data['data'] = Marketing::all()->sortByDesc('id');
+        
         return view("admin/marketing/index",compact('data'));
     }
 
@@ -34,6 +36,7 @@ class MarketingController extends Controller
     {
         $data['typeForm'] = "create";
         $data['title'] = "Marketing";
+        $data['level'] = MarketingLevel::all()->sortByDesc('id');
         return view("admin/marketing/form",compact('data'));
     }
 
@@ -97,6 +100,7 @@ class MarketingController extends Controller
     public function edit($id)
     {
         $data['dataModel'] = Marketing::find($id);
+        $data['level'] = MarketingLevel::all()->sortByDesc('id');
         $data['typeForm'] = "Edit";
         $data['title'] = "Marketing";
         return view("admin/marketing/form",compact('data'));
@@ -129,8 +133,10 @@ class MarketingController extends Controller
             $data->update($newFile);
         }
         
-        $data = $request->all();
-        $data['slug'] = Str::slug($data['name'].'-'.$data->id, '-');
+        $dataArr = $request->all();
+        $dataArr['slug'] = Str::slug($dataArr['name'].'-'.$data->id, '-');
+
+        $data->update($dataArr);
 
         $requestindo = $request->input('id');
         $requesteng = $request->input('en');

@@ -66,6 +66,7 @@
                         <th>Photo</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Level</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -79,6 +80,7 @@
                         <td> <img src="{{ $val->ImagePathSmall }}" alt="" class="img-responsive" style="max-height: 100px;"> </td>
                         <td>{{  $val->name }}</td>
                         <td>{{  $val->email }}</td>
+                        <td>{{  $val->level->title }}</td>
                         <td class="text-center">
                             <div class="list-icons">
                                 <div class="dropdown">

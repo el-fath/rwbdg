@@ -46,9 +46,11 @@
 					<div class="card mb-0">
 						<div class="card-body">
 							<div class="text-center mb-3">
-								<img src="{{$config->LogoPath}}" alt="" class=" icon-2x border-slate-300 border-3 rounded-round mt-1" style="height: 100px;">
+								<img src="{{$config->LogoPath}}" alt="" class=" icon-2x border-slate-300 border-3 mt-1" style="height: 100px;">
+								<br>
+								<br>
 								<h5 class="mb-0">Login to {{$config->name}}</h5>
-								<span class="d-block text-muted">Enter your credentials below</span>
+								<span class="d-block text-muted">Administrator Page</span>
 							</div>
 
 							<div class="form-group form-group-feedback form-group-feedback-left">
