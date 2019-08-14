@@ -86,10 +86,10 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a href="{{ route('admin.user.show', $val->id) }}" class="dropdown-item">
-                                            <i class="icon-file-pdf"></i> Edit
+                                            <i class="icon-pencil7"></i> Edit
                                         </a>
                                         <a href="{{ route('admin.user.destroy', $val->id) }}" data-id="{{ $val->id }}" class="dropdown-item btnDelete">
-                                            <i class="icon-file-pdf"></i> Delete
+                                            <i class="icon-trash"></i> Delete
                                         </a>
                                     </div>
                                 </div>

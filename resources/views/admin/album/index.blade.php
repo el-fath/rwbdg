@@ -85,13 +85,13 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a href="{{ route('admin.album.show', $val->id) }}" class="dropdown-item">
-                                            <i class="icon-file-pdf"></i> Edit
+                                            <i class="icon-pencil7"></i> Edit
                                         </a>
                                         <a href="{{ route('admin.album.destroy', $val->id) }}" data-id="{{ $val->id }}" class="dropdown-item btnDelete">
-                                                <i class="icon-file-pdf"></i> Delete
+                                            <i class="icon-trash"></i> Delete
                                         </a>
                                         <a href="{{ route('admin.album-photo.index', $val->id) }}" class="dropdown-item">
-                                            <i class="icon-file-pdf"></i> Photos
+                                            <i class="icon-images3"></i> Photos
                                         </a>
                                     </div>
                                 </div>

@@ -200,7 +200,7 @@
 								</li>
 							</ul>
 						</li>
-						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>Marketing Executive</span></a></li>
+						<li class="nav-item"><a href="{{ route('admin.marketing.index') }}" class="nav-link"><i class="icon-width"></i> <span>Marketing Executive</span></a></li>
 						<li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-file-css"></i> <span>Property</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="JSON forms">

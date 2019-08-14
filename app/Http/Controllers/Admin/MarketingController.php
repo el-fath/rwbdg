@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Album;
+use App\Model\Marketing;
 use Illuminate\Support\Str;
 
-class AlbumController extends Controller
+class MarketingController extends Controller
 {
     public function __construct()
     {
@@ -20,12 +20,10 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        $data['title'] = "Album";
-        $data['data'] = Album::all()->sortByDesc('id');
-        return view("admin/album/index",compact('data'));
+        $data['title'] = "Marketing";
+        $data['data'] = Marketing::all()->sortByDesc('id');
+        return view("admin/marketing/index",compact('data'));
     }
-
-    
 
     /**
      * Show the form for creating a new resource.
@@ -35,8 +33,8 @@ class AlbumController extends Controller
     public function create()
     {
         $data['typeForm'] = "create";
-        $data['title'] = "Album";
-        return view("admin/album/form",compact('data'));
+        $data['title'] = "Marketing";
+        return view("admin/marketing/form",compact('data'));
     }
 
     /**
@@ -47,13 +45,25 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        $data = [];
-        $data = Album::create($data);
-        $requestindo = $request->input('id');
-        $requestindo['slug'] = Str::slug($requestindo['title'].'-'.$data->id, '-');
-        $requesteng = $request->input('en');
-        $requesteng['slug'] = Str::slug($requesteng['title'].'-'.$data->id, '-');
+        if ($request->file('image')) {
+            $file    = $request->file('image');
+            $ext     = $file->getClientOriginalExtension();
+            $newName = rand(100000,1001238912).".".$ext;
+            $file->move($this->img_location.'marketing',$newName);
+        }else{
+            $newName = NULL;
+        }
 
+        $data = $request->all();
+
+        $data['image'] = $newName;
+       
+        $data = Marketing::create($data);
+        $data['slug'] = Str::slug($data['name'].'-'.$data->id, '-');
+
+        $requestindo = $request->input('id');
+        $requesteng = $request->input('en');
+        
         $dataTrans = [
             'id' => $requestindo,
             'en' => $requesteng,
@@ -75,10 +85,7 @@ class AlbumController extends Controller
      */
     public function show($id)
     {
-        $data['dataModel'] = Album::find($id);
-        $data['typeForm'] = "Edit";
-        $data['title'] = "Album";
-        return view("admin/album/form",compact('data'));
+        
     }
 
     /**
@@ -89,7 +96,10 @@ class AlbumController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['dataModel'] = Marketing::find($id);
+        $data['typeForm'] = "Edit";
+        $data['title'] = "Marketing";
+        return view("admin/marketing/form",compact('data'));
     }
 
     /**
@@ -101,13 +111,30 @@ class AlbumController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Album::find($id);
-        
-        $requestindo = $request->input('id');
-        $requestindo['slug'] = Str::slug($requestindo['title'].'-'.$data->id, '-');
-        $requesteng = $request->input('en');
-        $requesteng['slug'] = Str::slug($requesteng['title'].'-'.$data->id, '-');
+        $data = Marketing::find($id);
 
+        if ($request->file('image')) {
+
+            $myFile = $this->img_location.'marketing/'.$data->image;
+            if (file_exists($myFile)){
+                unlink($myFile);
+            }
+
+            $file    = $request->file('image');
+            $ext     = $file->getClientOriginalExtension();
+            $newName = rand(100000,1001238912).".".$ext;
+            $file->move($this->img_location.'marketing',$newName);
+            
+            $newFile = [ 'image' => $newName ];
+            $data->update($newFile);
+        }
+        
+        $data = $request->all();
+        $data['slug'] = Str::slug($data['name'].'-'.$data->id, '-');
+
+        $requestindo = $request->input('id');
+        $requesteng = $request->input('en');
+        
         $dataTrans = [
             'id' => $requestindo,
             'en' => $requesteng,
@@ -129,7 +156,11 @@ class AlbumController extends Controller
      */
     public function destroy($id)
     {
-        $data = Album::find($id);
+        $data = Marketing::find($id);
+        if ($data->image != NULL) {
+            $myFile = $this->img_location.'marketing/'.$data->image;
+            unlink($myFile);
+        }
         $data->delete();
         return response()->json([
             'Code'             => 200,

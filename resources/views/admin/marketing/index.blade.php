@@ -57,14 +57,15 @@
                 </div>
             </div>
             <div class="card-body">
-                <a href="{{ route('admin.district.create') }}"><button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left"><b><i class="icon-plus-circle2"></i></b> Add {{$data['title']}}</button></a>
+                <a href="{{ route('admin.marketing.create') }}"><button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left"><b><i class="icon-plus-circle2"></i></b> Add {{$data['title']}}</button></a>
             </div>
             <table class="table datatable-basic-3-column" id="tableData">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Title</th>
-                        <th>Description</th>
+                        <th>Photo</th>
+                        <th>Name</th>
+                        <th>Email</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -75,8 +76,9 @@
                     
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $val->title }}</td>
-                        <td>{{  $val->description }}</td>
+                        <td> <img src="{{ $val->ImagePathSmall }}" alt="" class="img-responsive" style="max-height: 100px;"> </td>
+                        <td>{{  $val->name }}</td>
+                        <td>{{  $val->email }}</td>
                         <td class="text-center">
                             <div class="list-icons">
                                 <div class="dropdown">
@@ -84,10 +86,10 @@
                                         <i class="icon-menu9"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="{{ route('admin.district.edit', $val->id) }}" class="dropdown-item">
+                                        <a href="{{ route('admin.marketing.edit', $val->id) }}" class="dropdown-item">
                                             <i class="icon-pencil7"></i> Edit
                                         </a>
-                                        <a href="{{ route('admin.district.destroy', $val->id) }}" data-id="{{ $val->id }}" class="dropdown-item btnDelete">
+                                        <a href="{{ route('admin.marketing.destroy', $val->id) }}" data-id="{{ $val->id }}" class="dropdown-item btnDelete">
                                             <i class="icon-trash"></i> Delete
                                         </a>
                                     </div>
@@ -156,7 +158,7 @@ $(".btnDelete").click(function(e){
                         showNotif("error","Error",data.Message);
                     }
                     setTimeout(function(){ 
-                        redirect('{{route('admin.district.index')}}');
+                        redirect('{{route('admin.marketing.index')}}');
                     }, 1500);
                 })
                 .fail(function(e) {
