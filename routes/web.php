@@ -42,8 +42,8 @@ Route::get('/', 'User\HomeController@index');
 //ADMIN
 Route::get('/admin/login', 'Auth\LoginController@showLoginForm');
 Route::group(['middleware' => 'admin'], function () {
-    Route::get('/admin', 'Admin\DashboardController@index');
-    Route::get('/admin/dashboard', 'Admin\DashboardController@index');
+    Route::get('/admin', 'Admin\DashboardController@index')->name('admin.index');
+    Route::get('/admin/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
     Route::resource('admin/config', 'Admin\ConfigController',['as' => 'admin']);
     Route::resource('admin/profile', 'Admin\ProfileController',['as' => 'admin']);
     Route::resource('admin/slide', 'Admin\SlideController',['as' => 'admin']);
@@ -56,6 +56,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/news-category', 'Admin\NewsCategoryController',['as' => 'admin']);
     Route::resource('admin/album', 'Admin\AlbumController',['as' => 'admin']);
     Route::resource('admin/marketing', 'Admin\MarketingController',['as' => 'admin']);
+    Route::resource('admin/contact-message', 'Admin\ContactMessageController',['as' => 'admin']);
 
     Route::get('admin/province/sync', [
         'as' => 'admin.province.sync',

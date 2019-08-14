@@ -154,7 +154,7 @@
 						<!-- Main -->
 						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
 						<li class="nav-item">
-							<a href="index.html" class="nav-link {{ Request::segment(2) == 'dashboard' ? 'active':'' }}">
+							<a href="{{ route('admin.dashboard') }}" class="nav-link {{ Request::segment(2) == 'dashboard' ? 'active':'' }}">
 								<i class="icon-home4"></i>
 								<span>
 									Dashboard
@@ -227,7 +227,7 @@
 								<li class="nav-item"><a href="{{ route('admin.album.index') }}" class="nav-link {{ Request::segment(2) == 'album' ? 'active':'' }}">Album</a></li>
 							</ul>
 						</li>
-						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-mailbox"></i> <span>Contact Message</span></a></li>
+						<li class="nav-item"><a href="{{ route('admin.contact-message.index') }}" class="nav-link"><i class="icon-mailbox"></i> <span>Contact Message</span></a></li>
 						<!-- /page kits -->
 
 					</ul>
