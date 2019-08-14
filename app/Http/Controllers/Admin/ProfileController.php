@@ -15,7 +15,10 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        
+        $title = "Profile";
+        $typeForm = "edit";
+        $dataModel = Profile::find(1);
+        return view("admin/profile/index",compact('title','typeForm','dataModel'));
     }
 
     /**
@@ -70,7 +73,30 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
-        //
+        try {
+            $data = Profile::find(1);
+            $newdata = [
+                'address'          => $request->address,
+                'email'            => $request->email,
+                'phone'            => $request->phone,
+                'social_facebook'  => $request->social_facebook,
+                'social_twitter'   => $request->social_twitter,
+                'social_instagram' => $request->social_instagram
+                // 'latitude'         => $request->latitude,
+                // 'longitude'        => $request->longitude,
+            ];
+            $data->update($newdata);
+
+            return response()->json([
+                'Code'             => 200,
+                'Message'          => "Success updated"
+            ]);
+        } catch (Esception $e) {
+            return response()->json([
+                'Code'             => 401,
+                'Message'          => $e->getMessage()
+            ]);
+        }
     }
 
     /**
