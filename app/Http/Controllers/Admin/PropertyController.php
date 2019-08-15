@@ -15,7 +15,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $data['title'] = "Contact Message";
+        $data['title'] = "Property";
         $data['data'] = Property::all()->sortByDesc('id');
         
         return view("admin/property/index",compact('data'));
@@ -28,7 +28,9 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        //
+        $data['typeForm'] = "create";
+        $data['title'] = "Property";
+        return view("admin/property/form",compact('data'));
     }
 
     /**

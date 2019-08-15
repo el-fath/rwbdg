@@ -16,6 +16,7 @@
 	<link href="{{ url('public/assets/admin') }}/assets/css/layout.min.css" rel="stylesheet" type="text/css">
 	<link href="{{ url('public/assets/admin') }}/assets/css/components.min.css" rel="stylesheet" type="text/css">
 	<link href="{{ url('public/assets/admin') }}/assets/css/colors.min.css" rel="stylesheet" type="text/css">
+	<link href="{{ url('public/assets/admin') }}/assets/css/cakcode.css" rel="stylesheet" type="text/css">
 	<!-- /global stylesheets -->
 
 	<!-- Core JS files -->
@@ -41,6 +42,9 @@
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/tables/datatables/datatables.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/forms/selects/select2.min.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/editors/ckeditor/ckeditor.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/forms/styling/uniform.min.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/forms/styling/switchery.min.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/plugins/forms/styling/switch.min.js"></script>
 
 	<script src="{{ url('public/assets/admin') }}/assets/js/app.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/extra_jgrowl_noty.js"></script>
@@ -50,6 +54,7 @@
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/datatables_basic.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/form_select2.js"></script>
 	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/editor_ckeditor.js"></script>
+	<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/form_checkboxes_radios.js"></script>
 	<script src="{{ url('public') }}/js/cakcode.js"></script>
 
 	{{-- <script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/datatables_basic.js"></script> --}}

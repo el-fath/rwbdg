@@ -51,6 +51,38 @@
 
                     <div class="card-body">
                         <form id="formInput" action="{{ ($data['typeForm'] =="create") ? route('admin.property.store') : route('admin.property.update',$data['dataModel']->id) }}" method="POST" enctype="multipart/form-data">
+                            <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Options</label>
+                                    <div class="col-lg-4">
+                                            <div class="form-check form-check-switchery">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+                                                    Publised
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-switchery">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+                                                    Status
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-switchery">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+                                                    Popular
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-switchery">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+                                                    Featured
+                                                </label>
+                                            </div>
+                                    </div>
+                            </div>
+                            <hr>
+                            
+                            <hr>
                             <ul class="nav nav-tabs">
                                 <li class="nav-item"><a href="#formid" class="nav-link rounded-top active" data-toggle="tab">id</a></li>
                                 <li class="nav-item"><a href="#formen" class="nav-link rounded-top" data-toggle="tab">en</a></li>
@@ -85,6 +117,130 @@
                                                 <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea>
                                             </div>
                                         </div>
+                                </div>
+                                <hr>
+                                <div class="form-group row">
+                                        <label class="col-form-label col-lg-2">Number & Code Listing</label>
+                                        <div class="col-lg-10">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-form-label col-lg-2">Number</label>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Second row, first input">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-md-6">
+                                                        <label class="col-form-label col-lg-2">Code</label>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Second row, second input">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Address</label>
+                                    <div class="col-lg-10">
+                                        <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Region</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Certificate</label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control select-search" name="category_id" data-fouc>
+                                                {{-- @foreach ($data['category'] as $item)
+                                                    @if($data['typeForm'] != "create")
+                                                        <option {{($data['dataModel']->category_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
+                                                    @else
+                                                    <option value="{{$item->id}}">{{$item->title}}</option>
+                                                    @endif
+                                                @endforeach --}}
+                                        </select>
+                                        {{-- <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea> --}}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Dimension</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Land Area</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Building Area</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Floor</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Electricity</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Bedroom</label>
+                                    <div class="col-lg-10">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="col-form-label col-lg-2">Main</label>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Second row, first input">
+                                                    </div>
+                                                </div>
+                
+                                                <div class="col-md-6">
+                                                    <label class="col-form-label col-lg-2">Extra</label>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Second row, second input">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Bathroom</label>
+                                    <div class="col-lg-10">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="col-form-label col-lg-2">Main</label>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Second row, first input">
+                                                    </div>
+                                                </div>
+                
+                                                <div class="col-md-6">
+                                                    <label class="col-form-label col-lg-2">Extra</label>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Second row, second input">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Floor</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                    </div>
                                 </div>
                                 <hr>
                                 <div class="form-group row">
