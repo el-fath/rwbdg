@@ -49,6 +49,42 @@
 
                             <div class="card-body">
                                 <form action="{{ ($typeForm =="create") ? "" : route('admin.profile.update',$dataModel->id) }}" id="formInput" enctype="multipart/form-data" action="post">
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="#formid" class="nav-link rounded-top active" data-toggle="tab">id</a></li>
+                                        <li class="nav-item"><a href="#formen" class="nav-link rounded-top" data-toggle="tab">en</a></li>
+                                    </ul>
+        
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="formid">
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-lg-2">Title</label>
+                                                    <div class="col-lg-10">
+                                                        <input type="text" required class="form-control" value="{{ ($typeForm =="create") ? "" : $dataModel->{'name:id'} }}" placeholder="Title id" name="id[name]">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-lg-2">Description</label>
+                                                    <div class="col-lg-10">
+                                                        <textarea rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description id">{{ ($typeForm =="create") ? "" : $dataModel->{'description:id'} }}</textarea>
+                                                    </div>
+                                                </div>
+                                        </div>
+        
+                                        <div class="tab-pane fade" id="formen">
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-lg-2">Title</label>
+                                                    <div class="col-lg-10">
+                                                        <input type="text" required class="form-control" value="{{ ($typeForm =="create") ? "" : $dataModel->{'name:en'} }}" placeholder="Title en" name="en[name]">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-lg-2">Description</label>
+                                                    <div class="col-lg-10">
+                                                        <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description en">{{ ($typeForm =="create") ? "" : $dataModel->{'description:en'} }}</textarea>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
                                     <fieldset class="mb-3">
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Email</label>

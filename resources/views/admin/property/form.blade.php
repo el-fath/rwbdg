@@ -50,40 +50,58 @@
                     </div>
 
                     <div class="card-body">
-                        <form id="formInput" action="{{ ($data['typeForm'] =="create") ? route('admin.contact-message.store') : route('admin.contact-message.update',$data['dataModel']->id) }}" method="POST" enctype="multipart/form-data">
+                        <form id="formInput" action="{{ ($data['typeForm'] =="create") ? route('admin.property.store') : route('admin.property.update',$data['dataModel']->id) }}" method="POST" enctype="multipart/form-data">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item"><a href="#formid" class="nav-link rounded-top active" data-toggle="tab">id</a></li>
+                                <li class="nav-item"><a href="#formen" class="nav-link rounded-top" data-toggle="tab">en</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="formid">
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Title</label>
+                                            <div class="col-lg-10">
+                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:id'} }}" placeholder="Title banner" name="id[title]">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Description</label>
+                                            <div class="col-lg-10">
+                                                <textarea rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:id'} }}</textarea>
+                                            </div>
+                                        </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="formen">
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Title</label>
+                                            <div class="col-lg-10">
+                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Description</label>
+                                            <div class="col-lg-10">
+                                                <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea>
+                                            </div>
+                                        </div>
+                                </div>
+                                <hr>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Subject</label>
+                                    <label class="col-form-label col-lg-2">Image</label>
                                     <div class="col-lg-10">
-                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->subject }}" placeholder="Subject" name="subject">
+                                        @if($data['typeForm'] != "create")
+                                            <img src="{{$data['dataModel']->ImagePath}}" style="width: 200px;" alt="">
+                                            <br>
+                                            <br>
+                                        @endif
+                                        <input type="file" class="file-input" name="image">
+                                        <span class="form-text text-muted">Recomendation for size is <code>1900x920</code>.</span>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Name</label>
-                                    <div class="col-lg-10">
-                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->name }}" placeholder="Name" name="name">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Phone</label>
-                                    <div class="col-lg-10">
-                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->phone }}" placeholder="Phone" name="phone">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Email</label>
-                                    <div class="col-lg-10">
-                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->email }}" placeholder="Email" name="email">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Message</label>
-                                    <div class="col-lg-10">
-                                            <textarea rows="3" cols="3" class="form-control" name="message" placeholder="Message">{{ ($data['typeForm'] =="Create") ? "" : $data['dataModel']->message }}</textarea>
-                                    </div>
-                                </div>
-                            
+                            </div>
                             <div class="text-right">
-                                {{-- <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button> --}}
+                                <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
                             </div>
                         </form>
                     </div>
@@ -127,7 +145,7 @@
                 if(data.Code == 200){
                     showNotif("success","Success",data.Message);
                     setTimeout(function(){ 
-                        redirect('{{route('admin.contact-message.index')}}');
+                        redirect('{{route('admin.property.index')}}');
                     }, 2000);
                 }else{
                     showNotif("error","Error",data.Message);

@@ -1,6 +1,6 @@
 @extends('admin/template')
 @section('title')
-{{$title}}
+{{$data['title']}}
 @endsection
 @section('content')
 <div class="content-wrapper">
@@ -46,18 +46,12 @@
                         <div class="card bg-teal-400">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <h3 class="font-weight-semibold mb-0">3,450</h3>
-                                    <span class="badge bg-teal-800 badge-pill align-self-center ml-auto">+53,6%</span>
+                                    <h1 class="font-weight-semibold mb-0">{{$data['countMarketing']}}</h1>
                                 </div>
 
                                 <div>
-                                    Marketing Executive
-                                    <div class="font-size-sm opacity-75">489 avg</div>
+                                    <h4>Marketing Executive</h4>
                                 </div>
-                            </div>
-
-                            <div class="container-fluid">
-                                <div id="members-online"></div>
                             </div>
                         </div>
                         <!-- /members online -->
@@ -70,32 +64,14 @@
                         <div class="card bg-pink-400">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <h3 class="font-weight-semibold mb-0">49.4%</h3>
-                                    <div class="list-icons ml-auto">
-                                        <div class="list-icons-item dropdown">
-                                            <a href="#" class="list-icons-item dropdown-toggle"
-                                                data-toggle="dropdown"><i class="icon-cog3"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a href="#" class="dropdown-item"><i class="icon-sync"></i> Update
-                                                    data</a>
-                                                <a href="#" class="dropdown-item"><i class="icon-list-unordered"></i>
-                                                    Detailed log</a>
-                                                <a href="#" class="dropdown-item"><i class="icon-pie5"></i>
-                                                    Statistics</a>
-                                                <a href="#" class="dropdown-item"><i class="icon-cross3"></i> Clear
-                                                    list</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h1 class="font-weight-semibold mb-0">{{$data['countSecondaryProperty']}}</h1>
+                                   
                                 </div>
 
                                 <div>
-                                    Secondary Property
-                                    <div class="font-size-sm opacity-75">34.6% avg</div>
+                                    <h4>Secondary Property</h4>
                                 </div>
                             </div>
-
-                            <div id="server-load"></div>
                         </div>
                         <!-- /current server load -->
 
@@ -107,19 +83,13 @@
                         <div class="card bg-blue-400">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <h3 class="font-weight-semibold mb-0">$18,390</h3>
-                                    <div class="list-icons ml-auto">
-                                        <a class="list-icons-item" data-action="reload"></a>
-                                    </div>
+                                    <h1 class="font-weight-semibold mb-0">{{$data['countPrimaryProperty']}}</h1>
                                 </div>
 
                                 <div>
-                                    Primary Property
-                                    <div class="font-size-sm opacity-75">$37,578 avg</div>
+                                    <h4>Primary Property</h4>
                                 </div>
                             </div>
-
-                            <div id="today-revenue"></div>
                         </div>
                         <!-- /today's revenue -->
 
@@ -134,8 +104,8 @@
                     <div class="card-header header-elements-inline">
                         <h6 class="card-title">Messages</h6>
                         <div class="header-elements">
-                            <span><i class="icon-history text-warning mr-2"></i> Jul 7, 10:30</span>
-                            <span class="badge bg-success align-self-start ml-3">Online</span>
+                            {{-- <span><i class="icon-history text-warning mr-2"></i> Jul 7, 10:30</span>
+                            <span class="badge bg-success align-self-start ml-3">Online</span> --}}
                         </div>
                     </div>
                     
@@ -145,16 +115,18 @@
                     <div class="tab-content card-body">
                         <div class="tab-pane active fade show" id="messages-tue">
                             <ul class="media-list">
+                                @foreach ($data['messages'] as $item)
                                 <li class="media">
                                     <div class="media-body">
                                         <div class="d-flex justify-content-between">
-                                            <a href="#">James Alexander</a>
-                                            <span class="font-size-sm text-muted">14:58</span>
+                                        <a href="{{ route('admin.contact-message.show', $item->id) }}">{{$item->name}} - {{$item->email}}</a>
+                                            <span class="font-size-sm text-muted">{{$item->created_at}}</span>
                                         </div>
-
+                                        
                                         The constitutionally inventoried precariously...
                                     </div>
                                 </li>
+                                @endforeach
                             </ul>
                         </div>
                     <!-- /tabs content -->
@@ -164,7 +136,7 @@
                     <ul
                         class="nav nav-tabs nav-tabs-solid nav-justified bg-indigo-400 border-x-0 border-bottom-0 border-top-indigo-300 mb-0">
                         <li class="nav-item">
-                            <a href="#messages-tue" class="nav-link font-size-sm text-uppercase active"
+                            <a href="{{ route('admin.contact-message.index') }}" class="nav-link font-size-sm text-uppercase active"
                                 data-toggle="tab">
                                 More
                             </a>

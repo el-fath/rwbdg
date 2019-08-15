@@ -82,10 +82,19 @@ class ProfileController extends Controller
                 'social_facebook'  => $request->social_facebook,
                 'social_twitter'   => $request->social_twitter,
                 'social_instagram' => $request->social_instagram
-                // 'latitude'         => $request->latitude,
-                // 'longitude'        => $request->longitude,
             ];
             $data->update($newdata);
+
+            $requestindo = $request->input('id');
+            $requesteng = $request->input('en');
+            
+            $dataTrans = [
+                'id' => $requestindo,
+                'en' => $requesteng,
+            ];
+
+            $data->fill($dataTrans);
+            $data->save();
 
             return response()->json([
                 'Code'             => 200,

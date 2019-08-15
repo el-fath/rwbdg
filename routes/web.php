@@ -57,6 +57,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/album', 'Admin\AlbumController',['as' => 'admin']);
     Route::resource('admin/marketing', 'Admin\MarketingController',['as' => 'admin']);
     Route::resource('admin/contact-message', 'Admin\ContactMessageController',['as' => 'admin']);
+    Route::resource('admin/property', 'Admin\PropertyController',['as' => 'admin']);
 
     Route::get('admin/province/sync', [
         'as' => 'admin.province.sync',

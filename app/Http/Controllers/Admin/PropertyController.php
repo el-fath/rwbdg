@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\ContactMessage;
+use App\Model\Property;
 
-class ContactMessageController extends Controller
+class PropertyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class ContactMessageController extends Controller
     public function index()
     {
         $data['title'] = "Contact Message";
-        $data['data'] = ContactMessage::all()->sortByDesc('id');
+        $data['data'] = Property::all()->sortByDesc('id');
         
-        return view("admin/contact_message/index",compact('data'));
+        return view("admin/property/index",compact('data'));
     }
 
     /**
@@ -39,7 +39,7 @@ class ContactMessageController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
@@ -50,10 +50,7 @@ class ContactMessageController extends Controller
      */
     public function show($id)
     {
-        $data['dataModel'] = ContactMessage::find($id);
-        $data['typeForm'] = "Show";
-        $data['title'] = "Contact Message";
-        return view("admin/contact_message/form",compact('data'));
+        //
     }
 
     /**

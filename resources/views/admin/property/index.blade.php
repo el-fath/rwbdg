@@ -57,17 +57,16 @@
                 </div>
             </div>
             <div class="card-body">
-                {{-- <a href="{{ route('admin.contact-message.create') }}"><button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left"><b><i class="icon-plus-circle2"></i></b> Add {{$data['title']}}</button></a> --}}
+                <a href="{{ url('admin/property/create') }}"><button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left"><b><i class="icon-plus-circle2"></i></b> Add {{$data['title']}}</button></a>
             </div>
-            <table class="table datatable-basic-3-column" id="tableData">
+            <table class="table datatable-basic" id="tableData">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Date</th>
-                        <th>Name</th>
-                        <th>Subject</th>
-                        <th>Email</th>
-                        <th>Phone</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Slug</th>
+                        <th>Desc</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -77,12 +76,13 @@
 
                     
                     <tr>
-                        <td>{{ $no++ }}</td>
-                        <td>{{ $val->created_at }}</td>
-                        <td>{{ $val->name }}</td>
-                        <td>{{ $val->subject }}</td>
-                        <td>{{ $val->email }}</td>
-                        <td>{{ $val->phone }}</td>
+                        <td>{{$no}}</td>
+                        <td>
+                            <img src="{{$val->ImagePathSmall}}" alt="" style="width:120px;">
+                        </td>
+                        <td><a href="#">{{ $val->{'title:id'} }}</a></td>
+                        <td>{{ $val->{'slug:id'} }}</td>
+                        <td>{{  $val->{'description:id'} }}</td>
                         <td class="text-center">
                             <div class="list-icons">
                                 <div class="dropdown">
@@ -90,10 +90,10 @@
                                         <i class="icon-menu9"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="{{ route('admin.contact-message.show', $val->id) }}" class="dropdown-item">
+                                        <a href="{{ route('admin.property.show', $val->id) }}" class="dropdown-item">
                                             <i class="icon-pencil7"></i> Edit
                                         </a>
-                                        <a href="{{ route('admin.contact-message.destroy', $val->id) }}" data-id="{{ $val->id }}" class="dropdown-item btnDelete">
+                                        <a href="{{ route('admin.property.destroy', $val->id) }}" data-id="{{ $val->id }}" class="dropdown-item btnDelete">
                                             <i class="icon-trash"></i> Delete
                                         </a>
                                     </div>
@@ -101,6 +101,7 @@
                             </div>
                         </td>
                     </tr>
+                    @php $no++; @endphp
                     @endforeach
                 </tbody>
             </table>
@@ -112,16 +113,8 @@
 <script>
 $(document).ready( function () {
     $('#table').DataTable();
-    $('.datatable-basic-3-column').DataTable({
-        pageLength: 10,
-        paging: true,
-        searching: true,
-        order: [[0, "asc"]],
-        columnDefs: [{
-            targets: [ 3 ]
-            }]
-    });
 });
+
 $(".btnDelete").click(function(e){
     e.preventDefault();
     var objBtn = $(this);
@@ -162,7 +155,7 @@ $(".btnDelete").click(function(e){
                         showNotif("error","Error",data.Message);
                     }
                     setTimeout(function(){ 
-                        redirect('{{route('admin.contact-message.index')}}');
+                        redirect('{{route('admin.property.index')}}');
                     }, 1500);
                 })
                 .fail(function(e) {

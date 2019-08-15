@@ -202,13 +202,7 @@
 							</ul>
 						</li>
 						<li class="nav-item"><a href="{{ route('admin.marketing.index') }}" class="nav-link"><i class="icon-user-tie"></i> <span>Marketing Executive</span></a></li>
-						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="fa fa-building-o mr-2"></i> <span>Property</span></a>
-							<ul class="nav nav-group-sub" data-submenu-title="JSON forms">
-								<li class="nav-item"><a href="alpaca_basic.html" class="nav-link">Secondary</a></li>
-								<li class="nav-item"><a href="alpaca_advanced.html" class="nav-link">Primary</a></li>
-							</ul>
-						</li>
+						<li class="nav-item"><a href="{{ route('admin.property.index') }}" class="nav-link"><i class="fa fa-building-o mr-2"></i> <span>Property</span></a></li>
 						
 						<!-- /forms -->
 
