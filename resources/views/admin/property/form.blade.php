@@ -51,38 +51,6 @@
 
                     <div class="card-body">
                         <form id="formInput" action="{{ ($data['typeForm'] =="create") ? route('admin.property.store') : route('admin.property.update',$data['dataModel']->id) }}" method="POST" enctype="multipart/form-data">
-                            <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Options</label>
-                                    <div class="col-lg-4">
-                                            <div class="form-check form-check-switchery">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
-                                                    Publised
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-switchery">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
-                                                    Status
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-switchery">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
-                                                    Popular
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-switchery">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
-                                                    Featured
-                                                </label>
-                                            </div>
-                                    </div>
-                            </div>
-                            <hr>
-                            
-                            <hr>
                             <ul class="nav nav-tabs">
                                 <li class="nav-item"><a href="#formid" class="nav-link rounded-top active" data-toggle="tab">id</a></li>
                                 <li class="nav-item"><a href="#formen" class="nav-link rounded-top" data-toggle="tab">en</a></li>
@@ -99,7 +67,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Description</label>
                                             <div class="col-lg-10">
-                                                <textarea rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:id'} }}</textarea>
+                                                <textarea id="editor-full" rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:id'} }}</textarea>
                                             </div>
                                         </div>
                                 </div>
@@ -116,6 +84,118 @@
                                             <div class="col-lg-10">
                                                 <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea>
                                             </div>
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Marketing</label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control select-search" name="marketing_id" data-fouc>
+                                                <option value="">Choose Marketing</option>
+                                                @if(isset($data['marketings']))
+                                                    @foreach ($data['marketings'] as $item)
+                                                        @if($data['typeForm'] != "create")
+                                                            <option {{($data['dataModel']->marketing_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->name}}</option>
+                                                        @else
+                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label class="col-form-label col-lg-2">Category</label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control select-search" name="category_id" data-fouc>
+                                                    <option value="">Choose Category</option>
+                                                    @if(isset($data['categories']))
+                                                        @foreach ($data['categories'] as $item)
+                                                            @if($data['typeForm'] != "create")
+                                                                <option {{($data['dataModel']->category_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
+                                                            @else
+                                                            <option value="{{$item->id}}">{{$item->title}}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
+                                            </select>
+                                        </div>
+                                    </div>
+                                <div class="form-group row">
+                                        <label class="col-form-label col-lg-2">Options</label>
+                                        <div class="col-lg-4">
+                                                <div class="form-check form-check-switchery">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+                                                        Publised
+                                                    </label>
+                                                </div>
+                                                <div class="form-check form-check-switchery">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+                                                        Status
+                                                    </label>
+                                                </div>
+                                                <div class="form-check form-check-switchery">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+                                                        Popular
+                                                    </label>
+                                                </div>
+                                                <div class="form-check form-check-switchery">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+                                                        Featured
+                                                    </label>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label class="col-form-label col-lg-2">Type Transaction</label>
+                                        <div class="col-lg-4">
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" class="custom-control-input" name="custom-inline-radio" id="custom_radio_inline_unchecked" checked>
+                                                    <label class="custom-control-label" for="custom_radio_inline_unchecked">Sale</label>
+                                                </div>
+            
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" class="custom-control-input" name="custom-inline-radio" id="custom_radio_inline_checked">
+                                                    <label class="custom-control-label" for="custom_radio_inline_checked">Rent</label>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label class="col-form-label col-lg-2">Type Property</label>
+                                        <div class="col-lg-4">
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" class="custom-control-input" name="type_property" id="type_property_unchecked" checked>
+                                                    <label class="custom-control-label" for="type_property_unchecked">Secondary</label>
+                                                </div>
+            
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" class="custom-control-input" name="type_property" id="type_property_checked">
+                                                    <label class="custom-control-label" for="type_property_checked">Primary</label>
+                                                </div>
+                                        </div>
+                                </div>
+                                <hr>
+                                <div class="form-group row">
+                                        <label class="col-form-label col-lg-2">Price</label>
+                                        <div class="col-lg-10">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-form-label col-lg-2">Sale</label>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Second row, first input">
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-md-6">
+                                                        <label class="col-form-label col-lg-2">Rent</label>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Second row, second input">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                         </div>
                                 </div>
                                 <hr>
@@ -140,6 +220,64 @@
                                         </div>
                                 </div>
                                 <div class="form-group row">
+                                        <label class="col-form-label col-lg-2">Location</label>
+                                        <div class="col-lg-10">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label class="col-form-label col-lg-12">Province</label>
+                                                        <div class="form-group">
+                                                                <select class="form-control select-search" name="province_id" data-fouc>
+                                                                        <option value="">Choose Province</option>
+                                                                        @foreach ($data['province'] as $item)
+                                                                            @if($data['typeForm'] != "create")
+                                                                                <option {{($data['dataModel']->province_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
+                                                                            @else
+                                                                            <option value="{{$item->id}}">{{$item->title}}</option>
+                                                                            @endif
+                                                                        @endforeach
+                                                                </select>
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="col-md-4">
+                                                        <label class="col-form-label col-lg-12">City</label>
+                                                        <div class="form-group">
+                                                                <select class="form-control select-search" name="city_id" data-fouc>
+                                                                        <option value="">Choose City</option>
+                                                                        @if(isset($data['city']))
+                                                                            @foreach ($data['city'] as $item)
+                                                                                @if($data['typeForm'] != "create")
+                                                                                    <option {{($data['dataModel']->city_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
+                                                                                @else
+                                                                                <option value="{{$item->id}}">{{$item->title}}</option>
+                                                                                @endif
+                                                                            @endforeach
+                                                                        @endif
+                                                                </select>
+                                                        </div>
+                                                    </div>
+    
+                                                    <div class="col-md-4">
+                                                        <label class="col-form-label col-lg-12">District</label>
+                                                        <div class="form-group">
+                                                                <select class="form-control select-search" name="district_id" data-fouc>
+                                                                        <option value="">Choose District</option>
+                                                                        @if(isset($data['city']))
+                                                                            @foreach ($data['district'] as $item)
+                                                                                @if($data['typeForm'] != "create")
+                                                                                    <option {{($data['dataModel']->district_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
+                                                                                @else
+                                                                                <option value="{{$item->id}}">{{$item->title}}</option>
+                                                                                @endif
+                                                                            @endforeach
+                                                                        @endif
+                                                                </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-form-label col-lg-2">Address</label>
                                     <div class="col-lg-10">
                                         <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea>
@@ -155,13 +293,16 @@
                                     <label class="col-form-label col-lg-2">Certificate</label>
                                     <div class="col-lg-10">
                                         <select class="form-control select-search" name="category_id" data-fouc>
-                                                {{-- @foreach ($data['category'] as $item)
-                                                    @if($data['typeForm'] != "create")
-                                                        <option {{($data['dataModel']->category_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
-                                                    @else
-                                                    <option value="{{$item->id}}">{{$item->title}}</option>
-                                                    @endif
-                                                @endforeach --}}
+                                                <option value="">Choose Certificate</option>
+                                                @if(isset($data['category']))
+                                                    @foreach ($data['category'] as $item)
+                                                        @if($data['typeForm'] != "create")
+                                                            <option {{($data['dataModel']->category_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
+                                                        @else
+                                                        <option value="{{$item->id}}">{{$item->title}}</option>
+                                                        @endif
+                                                    @endforeach
+                                                @endif
                                         </select>
                                         {{-- <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea> --}}
                                     </div>
@@ -255,6 +396,18 @@
                                         <span class="form-text text-muted">Recomendation for size is <code>1900x920</code>.</span>
                                     </div>
                                 </div>
+                                <hr>
+                                <h2>Marketplaces</h2>
+                                @if(isset($data['marketplaces']))
+                                    @foreach ($data['marketplaces'] as $item)
+                                        <div class="form-group row">
+                                        <label class="col-form-label col-lg-2">{{$item->title}}</label>
+                                            <div class="col-lg-10">
+                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>

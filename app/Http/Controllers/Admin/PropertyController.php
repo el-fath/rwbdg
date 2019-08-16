@@ -5,9 +5,21 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Property;
+use App\Model\PropertyCategory;
+use App\Model\Marketing;
+use App\Model\PropertyMarketplace;
+use App\Model\Province;
 
 class PropertyController extends Controller
 {
+    public function __construct()
+    {
+        $this->img_location = "public/image/";
+        $this->data['categories'] = PropertyCategory::all();
+        $this->data['marketings'] = Marketing::all();
+        $this->data['marketplaces'] = PropertyMarketplace::all();
+        $this->data['province'] = Province::all();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +27,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
+        $data = $this->data;
         $data['title'] = "Property";
         $data['data'] = Property::all()->sortByDesc('id');
         
@@ -28,6 +41,7 @@ class PropertyController extends Controller
      */
     public function create()
     {
+        $data = $this->data;
         $data['typeForm'] = "create";
         $data['title'] = "Property";
         return view("admin/property/form",compact('data'));
