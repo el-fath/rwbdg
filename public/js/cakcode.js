@@ -8,30 +8,24 @@ $(document).ready(function(){
         return number;
     }
     
-    function formatAmount( number ) {
-
-        // remove all the characters except the numeric values
-        number = number.replace( /[^0-9]/g, '' );
-    
-        // set the default value
-        if( number.length == 0 ) number = "";
-        else if( number.length == 1 ) number = "" + number;
-        else if( number.length == 2 ) number = "" + number;
-        else number = number.substring( 0, number.length - 2 ) + '.' + number.substring( number.length - 2, number.length );
-    
-        // set the precision
-        // number = new Number( number );
-        // number = number.toFixed( 2 );    // only works with the "."
-    
-        // change the splitter to ","
-        // number = number.replace( /\./g, ',' );
-    
-        // format the amount
-        x = number.split( ',' );
-        x1 = x[0];
-        x2 = x.length > 1 ? ',' + x[1] : '';
-    
-        return formatAmountNoDecimals( x1 ) + x2;
+    function formatAmount( num ) {
+        var str = num.toString().replace("$", ""), parts = false, output = [], i = 1, formatted = null;
+        if(str.indexOf(".") > 0) {
+            parts = str.split(".");
+            str = parts[0];
+        }
+        str = str.split("").reverse();
+        for(var j = 0, len = str.length; j < len; j++) {
+            if(str[j] != ",") {
+                output.push(str[j]);
+                if(i%3 == 0 && j < (len - 1)) {
+                    output.push(",");
+                }
+                i++;
+            }
+        }
+        formatted = output.reverse().join("");
+        return( formatted + ((parts) ? "." + parts[1].substr(0, 2) : ""));
     }
     
     $( '.CurrencyFormat' ).keyup( function() {

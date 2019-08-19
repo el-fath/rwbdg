@@ -125,25 +125,25 @@
                                         <div class="col-lg-4">
                                                 <div class="form-check form-check-switchery">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input-switchery" name="is_publised" checked data-fouc>
+                                                        <input type="checkbox" class="form-check-input-switchery" name="is_publised"  {{($data['dataModel']->is_publised == 1) ? "checked" : ""}} data-fouc>
                                                         Publised
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-switchery">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input-switchery" name="status" checked data-fouc>
+                                                        <input type="checkbox" class="form-check-input-switchery" name="status" {{($data['dataModel']->status == 1) ? "checked" : ""}} data-fouc>
                                                         Status
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-switchery">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input-switchery" name="is_popular" checked data-fouc>
+                                                        <input type="checkbox" class="form-check-input-switchery" name="is_popular" {{($data['dataModel']->is_popular == 1) ? "checked" : ""}} data-fouc>
                                                         Popular
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-switchery">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input-switchery" name="is_featured" checked data-fouc>
+                                                        <input type="checkbox" class="form-check-input-switchery" name="is_featured" {{($data['dataModel']->is_featured == 1) ? "checked" : ""}} data-fouc>
                                                         Featured
                                                     </label>
                                                 </div>
@@ -152,45 +152,31 @@
                                 <div class="form-group row">
                                         <label class="col-form-label col-lg-2">Type Transaction</label>
                                         <div class="col-lg-4">
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    @if($data['typeForm'] != "create")
-                                                        <input type="radio" class="custom-control-input" name="type_transaction" value="sale" id="custom_radio_inline_unchecked" {{($data['dataModel']->type_property == 'sale') ? "checked" : ""}}>
-                                                    @else
-                                                        <input type="radio" class="custom-control-input" name="type_transaction" value="sale" id="custom_radio_inline_unchecked">
-                                                    @endif
-                                                    <label class="custom-control-label" for="custom_radio_inline_unchecked">Sale</label>
-                                                </div>
-            
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    @if($data['typeForm'] != "create")
-                                                        <input type="radio" class="custom-control-input" name="type_transaction" value="rent" id="custom_radio_inline_checked" {{($data['dataModel']->type_property == 'rent') ? "checked" : ""}}>
-                                                    @else
-                                                        <input type="radio" class="custom-control-input" name="type_transaction" value="rent" id="custom_radio_inline_checked">
-                                                    @endif
-                                                    <label class="custom-control-label" for="custom_radio_inline_checked">Rent</label>
-                                                </div>
+                                                <select class="form-control select-search" name="type_transaction" data-fouc>
+                                                        <option value="">Choose Type Transaction</option>
+                                                        @foreach ($data['type_transaction'] as $key => $item)
+                                                            @if($data['typeForm'] != "create")
+                                                                <option {{($data['dataModel']->type_transaction == $key) ? "selected" : ""}} value="{{$key}}">{{$item}}</option>
+                                                            @else
+                                                            <option value="{{$key}}">{{$item}}</option>
+                                                            @endif
+                                                        @endforeach
+                                                </select>
                                         </div>
                                 </div>
                                 <div class="form-group row">
                                         <label class="col-form-label col-lg-2">Type Property</label>
                                         <div class="col-lg-4">
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    @if($data['typeForm'] != "create")
-                                                        <input type="radio" class="custom-control-input" name="type_property" value="secondary" id="type_property_unchecked" {{($data['dataModel']->type_property == 'secondary') ? "checked" : ""}} >
-                                                    @else
-                                                        <input type="radio" class="custom-control-input" name="type_property" value="secondary" id="type_property_unchecked" >
-                                                    @endif
-                                                    <label class="custom-control-label" for="type_property_unchecked">Secondary</label>
-                                                </div>
-            
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                        @if($data['typeForm'] != "create")
-                                                        <input type="radio" class="custom-control-input" name="type_property" value="primary" id="type_property_checked" {{($data['dataModel']->type_property == 'primary') ? "checked" : ""}} >
-                                                    @else
-                                                        <input type="radio" class="custom-control-input" name="type_property" value="primary" id="type_property_checked" >
-                                                    @endif
-                                                    <label class="custom-control-label" for="type_property_checked">Primary</label>
-                                                </div>
+                                                <select class="form-control select-search" name="type_property" data-fouc>
+                                                        <option value="">Choose Type Property</option>
+                                                        @foreach ($data['type_property'] as $key => $item)
+                                                            @if($data['typeForm'] != "create")
+                                                                <option {{($data['dataModel']->type_property == $key) ? "selected" : ""}} value="{{$key}}">{{$item}}</option>
+                                                            @else
+                                                            <option value="{{$key}}">{{$item}}</option>
+                                                            @endif
+                                                        @endforeach
+                                                </select>
                                         </div>
                                 </div>
                                 <hr>
@@ -201,7 +187,7 @@
                                                     <div class="col-md-6">
                                                         <label class="col-form-label col-lg-2">Sale</label>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control CurrencyFormat" name="sale_price" placeholder="Sale Price">
+                                                            <input type="text" class="form-control CurrencyFormat" name="sale_price" placeholder="Sale Price" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->sale_price }}">
                                                             <span class="form-text text-muted">no need to use currency like Rp or $ only number </span>
                                                         </div>
                                                     </div>
@@ -209,7 +195,7 @@
                                                     <div class="col-md-6">
                                                         <label class="col-form-label col-lg-2">Rent</label>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control CurrencyFormat" name="rent_price" placeholder="Rent Price">
+                                                            <input type="text" class="form-control CurrencyFormat" name="rent_price" placeholder="Rent Price" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->rent_price }}">
                                                             <span class="form-text text-muted">no need to use currency like Rp or $ only number </span>
                                                         </div>
                                                     </div>
@@ -224,14 +210,14 @@
                                                     <div class="col-md-6">
                                                         <label class="col-form-label col-lg-2">Number</label>
                                                         <div class="form-group">
-                                                            <input type="number" class="form-control" placeholder="Number of listing">
+                                                            <input type="number" class="form-control" placeholder="Number of listing" name="listing_number" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->listing_number }}">
                                                         </div>
                                                     </div>
                     
                                                     <div class="col-md-6">
                                                         <label class="col-form-label col-lg-2">Code</label>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Code of listing">
+                                                            <input type="text" class="form-control" placeholder="Code of listing" name="listing_code" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->listing_code }}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -280,7 +266,7 @@
                                                         <div class="form-group">
                                                                 <select class="form-control select-search" name="district_id" data-fouc>
                                                                         <option value="">Choose District</option>
-                                                                        @if(isset($data['city']))
+                                                                        @if(isset($data['district']))
                                                                             @foreach ($data['district'] as $item)
                                                                                 @if($data['typeForm'] != "create")
                                                                                     <option {{($data['dataModel']->district_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
@@ -366,14 +352,14 @@
                                                 <div class="col-md-6">
                                                     <label class="col-form-label col-lg-2">Main</label>
                                                     <div class="form-group">
-                                                        <input type="number" class="form-control" name="bedroom" placeholder="Bedroom">
+                                                        <input type="number" class="form-control" name="bedroom" placeholder="Bedroom"  value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->bedroom }}">
                                                     </div>
                                                 </div>
                 
                                                 <div class="col-md-6">
                                                     <label class="col-form-label col-lg-2">Extra</label>
                                                     <div class="form-group">
-                                                        <input type="number" class="form-control" name="extra_bedroom" placeholder="Extra Bedroom">
+                                                        <input type="number" class="form-control" name="extra_bedroom" placeholder="Extra Bedroom"  value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->extra_bedroom }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -386,14 +372,14 @@
                                                 <div class="col-md-6">
                                                     <label class="col-form-label col-lg-2">Main</label>
                                                     <div class="form-group">
-                                                        <input type="number" class="form-control" name="bathroom" placeholder="Bathroom">
+                                                        <input type="number" class="form-control" name="bathroom" placeholder="Bathroom" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->bathroom }}">
                                                     </div>
                                                 </div>
                 
                                                 <div class="col-md-6">
                                                     <label class="col-form-label col-lg-2">Extra</label>
                                                     <div class="form-group">
-                                                        <input type="number" class="form-control" name="extra_bathroom" placeholder="Extra Bathroom">
+                                                        <input type="number" class="form-control" name="extra_bathroom" placeholder="Extra Bathroom" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->extra_bathroom }}">
                                                     </div>
                                                 </div>
                                             </div>

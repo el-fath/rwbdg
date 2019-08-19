@@ -10,18 +10,23 @@ use App\Model\PropertyCategory;
 use App\Model\Marketing;
 use App\Model\PropertyMarketplace;
 use App\Model\Province;
+use App\Model\City;
+use App\Model\District;
 use Globals;
 
 class PropertyController extends Controller
 {
     public function __construct()
     {
-        $this->img_location = "public/image/";
-        $this->data['categories'] = PropertyCategory::all();
-        $this->data['marketings'] = Marketing::all();
-        $this->data['marketplaces'] = PropertyMarketplace::all();
-        $this->data['province'] = Province::all();
-        $this->data['certificate'] = Globals::CERTIFICATE_PROPERY;
+        $this->img_location             = "public/image/";
+        $this->data['categories']       = PropertyCategory::all();
+        $this->data['marketings']       = Marketing::all();
+        $this->data['marketplaces']     = PropertyMarketplace::all();
+        $this->data['province']         = Province::all();
+        $this->data['certificate']      = Globals::CERTIFICATE_PROPERTY;
+        $this->data['type_property']    = Globals::TYPE_PROPERTY;
+        $this->data['type_transaction'] = Globals::TYPE_TRANSACTION;
+        
     }
     /**
      * Display a listing of the resource.
@@ -71,8 +76,8 @@ class PropertyController extends Controller
 
         $data['image']       = $newName;
 
-        $data['sale_price']  = (isset($data['sale_price'])) ? str_replace(".","",$data['sale_price']): 0;
-        $data['rent_price']  = (isset($data['rent_price'])) ? str_replace(".","",$data['rent_price']): 0;
+        $data['sale_price']  = (isset($data['sale_price'])) ? str_replace(",","",$data['sale_price']): 0;
+        $data['rent_price']  = (isset($data['rent_price'])) ? str_replace(",","",$data['rent_price']): 0;
 
         $data['status']      = (isset($data['status']) && $data['status'] == "on") ? 1: 0;
         $data['is_publised'] = (isset($data['is_publised']) && $data['is_publised'] == "on") ? 1: 0;
@@ -124,9 +129,18 @@ class PropertyController extends Controller
      */
     public function edit($id)
     {
+        $data = $this->data;
         $data['dataModel'] = Property::find($id);
         $data['typeForm'] = "Edit";
         $data['title'] = "Property";
+        if($data['dataModel']->province_id){
+            $data['city'] = City::where("province_id",$data['dataModel']->province_id)->get();
+        }
+
+        if($data['dataModel']->city_id){
+            $data['district'] = District::where("city_id",$data['dataModel']->city_id)->get();
+        }
+
         return view("admin/property/form",compact('data'));
     }
 
@@ -159,15 +173,20 @@ class PropertyController extends Controller
             $data->update($newFile);
         }
 
-        $dataReq['sale_price']  = (isset($dataReq['sale_price'])) ? str_replace(".","",$dataReq['sale_price']): 0;
-        $dataReq['rent_price']  = (isset($dataReq['rent_price'])) ? str_replace(".","",$dataReq['rent_price']): 0;
+        $dataReq['sale_price']  = (isset($dataReq['sale_price'])) ? str_replace(",","",$dataReq['sale_price']): 0;
+        $dataReq['rent_price']  = (isset($dataReq['rent_price'])) ? str_replace(",","",$dataReq['rent_price']): 0;
 
         $dataReq['status']      = (isset($dataReq['status']) && $dataReq['status'] == "on") ? 1: 0;
         $dataReq['is_publised'] = (isset($dataReq['is_publised']) && $dataReq['is_publised'] == "on") ? 1: 0;
         $dataReq['is_popular']  = (isset($dataReq['is_popular']) && $dataReq['is_popular'] == "on") ? 1: 0;
         $dataReq['is_featured'] = (isset($dataReq['is_featured']) && $dataReq['is_featured'] == "on") ? 1: 0;
 
-        
+        $dataReq['province_id'] = (isset($dataReq['province_id'])) ? $dataReq['province_id']: 0;
+        $dataReq['city_id']     = (isset($dataReq['city_id'])) ? $dataReq['city_id']        : 0;
+        $dataReq['district_id'] = (isset($dataReq['district_id'])) ? $dataReq['district_id']: 0;
+
+        $marketplaces = $dataReq['marketplace'];
+        unset($dataReq['marketplace']);
         $requestindo = $request->input('id');
         $requestindo['slug'] = Str::slug($requestindo['title'].'-'.$data->id, '-');
         $requesteng = $request->input('en');
@@ -178,7 +197,8 @@ class PropertyController extends Controller
             'en' => $requesteng,
         ];
 
-
+        
+        
         $data->update($dataReq);
         $data->fill($dataTrans);
         $data->save();
