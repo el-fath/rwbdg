@@ -61,13 +61,13 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Title</label>
                                             <div class="col-lg-10">
-                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:id'} }}" placeholder="Title banner" name="id[title]">
+                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:id'} }}" placeholder="Title Property" name="id[title]">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Description</label>
                                             <div class="col-lg-10">
-                                                <textarea id="editor-full" rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:id'} }}</textarea>
+                                                <textarea id="editorId" rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:id'} }}</textarea>
                                             </div>
                                         </div>
                                 </div>
@@ -76,13 +76,13 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Title</label>
                                             <div class="col-lg-10">
-                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Property" name="en[title]">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Description</label>
                                             <div class="col-lg-10">
-                                                <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea>
+                                                <textarea id="editorEn" rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea>
                                             </div>
                                         </div>
                                 </div>
@@ -125,25 +125,25 @@
                                         <div class="col-lg-4">
                                                 <div class="form-check form-check-switchery">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+                                                        <input type="checkbox" class="form-check-input-switchery" name="is_publised" checked data-fouc>
                                                         Publised
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-switchery">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+                                                        <input type="checkbox" class="form-check-input-switchery" name="status" checked data-fouc>
                                                         Status
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-switchery">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+                                                        <input type="checkbox" class="form-check-input-switchery" name="is_popular" checked data-fouc>
                                                         Popular
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-switchery">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+                                                        <input type="checkbox" class="form-check-input-switchery" name="is_featured" checked data-fouc>
                                                         Featured
                                                     </label>
                                                 </div>
@@ -153,12 +153,20 @@
                                         <label class="col-form-label col-lg-2">Type Transaction</label>
                                         <div class="col-lg-4">
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" class="custom-control-input" name="custom-inline-radio" id="custom_radio_inline_unchecked" checked>
+                                                    @if($data['typeForm'] != "create")
+                                                        <input type="radio" class="custom-control-input" name="type_transaction" value="sale" id="custom_radio_inline_unchecked" {{($data['dataModel']->type_property == 'sale') ? "checked" : ""}}>
+                                                    @else
+                                                        <input type="radio" class="custom-control-input" name="type_transaction" value="sale" id="custom_radio_inline_unchecked">
+                                                    @endif
                                                     <label class="custom-control-label" for="custom_radio_inline_unchecked">Sale</label>
                                                 </div>
             
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" class="custom-control-input" name="custom-inline-radio" id="custom_radio_inline_checked">
+                                                    @if($data['typeForm'] != "create")
+                                                        <input type="radio" class="custom-control-input" name="type_transaction" value="rent" id="custom_radio_inline_checked" {{($data['dataModel']->type_property == 'rent') ? "checked" : ""}}>
+                                                    @else
+                                                        <input type="radio" class="custom-control-input" name="type_transaction" value="rent" id="custom_radio_inline_checked">
+                                                    @endif
                                                     <label class="custom-control-label" for="custom_radio_inline_checked">Rent</label>
                                                 </div>
                                         </div>
@@ -167,12 +175,20 @@
                                         <label class="col-form-label col-lg-2">Type Property</label>
                                         <div class="col-lg-4">
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" class="custom-control-input" name="type_property" id="type_property_unchecked" checked>
+                                                    @if($data['typeForm'] != "create")
+                                                        <input type="radio" class="custom-control-input" name="type_property" value="secondary" id="type_property_unchecked" {{($data['dataModel']->type_property == 'secondary') ? "checked" : ""}} >
+                                                    @else
+                                                        <input type="radio" class="custom-control-input" name="type_property" value="secondary" id="type_property_unchecked" >
+                                                    @endif
                                                     <label class="custom-control-label" for="type_property_unchecked">Secondary</label>
                                                 </div>
             
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" class="custom-control-input" name="type_property" id="type_property_checked">
+                                                        @if($data['typeForm'] != "create")
+                                                        <input type="radio" class="custom-control-input" name="type_property" value="primary" id="type_property_checked" {{($data['dataModel']->type_property == 'primary') ? "checked" : ""}} >
+                                                    @else
+                                                        <input type="radio" class="custom-control-input" name="type_property" value="primary" id="type_property_checked" >
+                                                    @endif
                                                     <label class="custom-control-label" for="type_property_checked">Primary</label>
                                                 </div>
                                         </div>
@@ -185,14 +201,16 @@
                                                     <div class="col-md-6">
                                                         <label class="col-form-label col-lg-2">Sale</label>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Second row, first input">
+                                                            <input type="text" class="form-control CurrencyFormat" name="sale_price" placeholder="Sale Price">
+                                                            <span class="form-text text-muted">no need to use currency like Rp or $ only number </span>
                                                         </div>
                                                     </div>
                     
                                                     <div class="col-md-6">
                                                         <label class="col-form-label col-lg-2">Rent</label>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Second row, second input">
+                                                            <input type="text" class="form-control CurrencyFormat" name="rent_price" placeholder="Rent Price">
+                                                            <span class="form-text text-muted">no need to use currency like Rp or $ only number </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -206,14 +224,14 @@
                                                     <div class="col-md-6">
                                                         <label class="col-form-label col-lg-2">Number</label>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Second row, first input">
+                                                            <input type="number" class="form-control" placeholder="Number of listing">
                                                         </div>
                                                     </div>
                     
                                                     <div class="col-md-6">
                                                         <label class="col-form-label col-lg-2">Code</label>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Second row, second input">
+                                                            <input type="text" class="form-control" placeholder="Code of listing">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -280,26 +298,26 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-lg-2">Address</label>
                                     <div class="col-lg-10">
-                                        <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea>
+                                        <textarea rows="3" cols="3" class="form-control" name="address" placeholder="Address">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->address}}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-lg-2">Region</label>
                                     <div class="col-lg-10">
-                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->region }}" placeholder="Region" name="region">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-lg-2">Certificate</label>
                                     <div class="col-lg-10">
-                                        <select class="form-control select-search" name="category_id" data-fouc>
+                                        <select class="form-control select-search" name="certificate" data-fouc>
                                                 <option value="">Choose Certificate</option>
-                                                @if(isset($data['category']))
-                                                    @foreach ($data['category'] as $item)
+                                                @if(isset($data['certificate']))
+                                                    @foreach ($data['certificate'] as $key => $item)
                                                         @if($data['typeForm'] != "create")
-                                                            <option {{($data['dataModel']->category_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
+                                                            <option {{($data['dataModel']->certificate == $key) ? "selected" : ""}} value="{{$key}}">{{$item}}</option>
                                                         @else
-                                                        <option value="{{$item->id}}">{{$item->title}}</option>
+                                                        <option value="{{$key}}">{{$item}}</option>
                                                         @endif
                                                     @endforeach
                                                 @endif
@@ -310,31 +328,35 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-lg-2">Dimension</label>
                                     <div class="col-lg-10">
-                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->dimension }}" placeholder="Dimension" name="dimension">
+                                        <span class="form-text text-muted">Example <code>120x120</code>. no need to use m<sup>2</sup> </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-lg-2">Land Area</label>
                                     <div class="col-lg-10">
-                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                        <input type="number" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->land_area }}" placeholder="Land Area" name="land_area">
+                                        <span class="form-text text-muted">Example <code>120</code>. no need to use m<sup>2</sup> </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Building Area</label>
+                                    <label class="col-form-label col-lg-2">Building Area (m<sup>2</sup> )</label>
                                     <div class="col-lg-10">
-                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                        <input type="number" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->building_area }}" placeholder="Building Area" name="building_area">
+                                        <span class="form-text text-muted">Example <code>120</code>. no need to use m<sup>2</sup> </span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-lg-2">Floor</label>
                                     <div class="col-lg-10">
-                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                        <input type="number" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->floor }}" placeholder="Floor" name="floor">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-lg-2">Electricity</label>
                                     <div class="col-lg-10">
-                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                        <input type="number" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->electricity }}" placeholder="Electricity" name="electricity">
+                                        <span class="form-text text-muted">Example <code>900</code>. no need to use KWH</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -344,14 +366,14 @@
                                                 <div class="col-md-6">
                                                     <label class="col-form-label col-lg-2">Main</label>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Second row, first input">
+                                                        <input type="number" class="form-control" name="bedroom" placeholder="Bedroom">
                                                     </div>
                                                 </div>
                 
                                                 <div class="col-md-6">
                                                     <label class="col-form-label col-lg-2">Extra</label>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Second row, second input">
+                                                        <input type="number" class="form-control" name="extra_bedroom" placeholder="Extra Bedroom">
                                                     </div>
                                                 </div>
                                             </div>
@@ -364,23 +386,17 @@
                                                 <div class="col-md-6">
                                                     <label class="col-form-label col-lg-2">Main</label>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Second row, first input">
+                                                        <input type="number" class="form-control" name="bathroom" placeholder="Bathroom">
                                                     </div>
                                                 </div>
                 
                                                 <div class="col-md-6">
                                                     <label class="col-form-label col-lg-2">Extra</label>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Second row, second input">
+                                                        <input type="number" class="form-control" name="extra_bathroom" placeholder="Extra Bathroom">
                                                     </div>
                                                 </div>
                                             </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Floor</label>
-                                    <div class="col-lg-10">
-                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
                                     </div>
                                 </div>
                                 <hr>
@@ -403,7 +419,7 @@
                                         <div class="form-group row">
                                         <label class="col-form-label col-lg-2">{{$item->title}}</label>
                                             <div class="col-lg-10">
-                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Slide" name="en[title]">
+                                            <input type="text" required class="form-control" value="" placeholder="URL {{$item->title}}" name="marketplace['{{$item->id}}']">
                                             </div>
                                         </div>
                                     @endforeach
@@ -423,8 +439,26 @@
 <script>
     $(document).ready(function(){
         
+
+        var options = {
+            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+            filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+            filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        };
+
+        CKEDITOR.replace('editorId', options);
+        CKEDITOR.replace('editorEn', options);
+
+
+
         $("#formInput").submit(function(e){
             e.preventDefault();
+            
+            for (var i in CKEDITOR.instances) {
+                CKEDITOR.instances[i].updateElement();
+            };
+
             var formData = new FormData(this);
             
             $.ajaxSetup({

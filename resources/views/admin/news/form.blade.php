@@ -137,9 +137,18 @@
         };
 
         CKEDITOR.replace('editorId', options);
+        CKEDITOR.replace('editorEn', options);
+
+
 
         $("#formInput").submit(function(e){
             e.preventDefault();
+
+
+            for (var i in CKEDITOR.instances) {
+                CKEDITOR.instances[i].updateElement();
+            };
+
             var formData = new FormData(this);
             
             $.ajaxSetup({
