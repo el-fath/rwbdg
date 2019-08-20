@@ -16,7 +16,9 @@ Route::get('/', 'User\HomeController@index');
 // //FRONT END
 // // Route::prefix(parseLocale())->group(function () {
 //     Auth::routes();
-//     Route::get('/about', 'User\AboutController@index');
+    Route::get('/about', 'User\AboutController@index');
+    Route::get('/contact-us', 'User\ContactController@index');
+    Route::post('/contact-us', 'User\ContactController@store');
 //     Route::get('/landing-page', 'User\HomeController@index');
 
 
