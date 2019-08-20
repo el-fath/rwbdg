@@ -20,8 +20,8 @@ class DashboardController extends Controller
         $data['title'] =  "Dashboard";
         $data['messages'] = ContactMessage::limit(10);
         $data['countMarketing'] = Marketing::count();
-        $data['countSecondaryProperty'] = Property::where("type_property",Globals::TYPE_PROPERY['SECONDARY'])->count();
-        $data['countPrimaryProperty'] = Property::where("type_property",Globals::TYPE_PROPERY['PRIMARY'])->count();
+        $data['countSecondaryProperty'] = Property::where("type_property",Globals::TYPE_PROPERTY['secondary'])->count();
+        $data['countPrimaryProperty'] = Property::where("type_property",Globals::TYPE_PROPERTY['primary'])->count();
         return view("admin/dashboard",compact('data'));
     }
 }

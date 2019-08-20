@@ -90,7 +90,7 @@
                                         <i class="icon-menu9"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="{{ route('admin.property.show', $val->id) }}" class="dropdown-item">
+                                        <a href="{{ route('admin.property.edit', $val->id) }}" class="dropdown-item">
                                             <i class="icon-pencil7"></i> Edit
                                         </a>
                                         <a href="{{ route('admin.property.destroy', $val->id) }}" data-id="{{ $val->id }}" class="dropdown-item btnDelete">
