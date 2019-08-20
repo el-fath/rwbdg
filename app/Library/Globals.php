@@ -14,7 +14,8 @@ class Globals {
 
     const CERTIFICATE_PROPERTY = array(
         'shm' => "Sertifikat Hak Milik (SHM)",
-        'hgb' => "Sertifikat Hak Guna Bangunan (HGB)",
+        'shgb' => "Sertifikat Hak Guna Bangunan (SHGB)",
+        'shsrs' => "Sertifikat Hak Satuan Rumah Susun (SHSRS)",
         'girik' => "Girik",
         'ajb' => "Akta Jual Beli (AJB)",
     );

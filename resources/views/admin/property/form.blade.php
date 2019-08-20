@@ -405,7 +405,7 @@
                                         <div class="form-group row">
                                         <label class="col-form-label col-lg-2">{{$item->title}}</label>
                                             <div class="col-lg-10">
-                                            <input type="text" required class="form-control" value="" placeholder="URL {{$item->title}}" name="marketplace['{{$item->id}}']">
+                                            <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $item->url }}" placeholder="URL {{$item->title}}" name="marketplace[{{$item->id}}]">
                                             </div>
                                         </div>
                                     @endforeach
