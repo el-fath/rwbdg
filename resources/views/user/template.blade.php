@@ -18,6 +18,11 @@
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/search.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/style.css">
 <link rel="icon" href="{{ url('public/assets/user') }}/images/icon.png">
+<script src="{{ url('public/assets/user') }}/js/jquery-2.1.4.js"></script>
+<script src="{{ url('public/assets/admin') }}/assets/js/plugins/loaders/blockui.min.js"></script>
+<script src="{{ url('public/assets/admin') }}/assets/js/plugins/notifications/jgrowl.min.js"></script>
+<script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/extra_jgrowl_noty.js"></script>
+<script src="{{ url('public') }}/js/cakcode.js"></script>
 </head>
 <body>
 
@@ -206,7 +211,7 @@
               <li><a href="{{url("about")}}">Find specialist</a></li>
               <li><a href="{{url("about")}}">Carrer with us</a></li>
               <li><a href="{{url("about")}}">What's up today</a></li>
-              <li><a href="{{url("about")}}">Contact Us</a></li>
+              <li><a href="{{url("contact-us")}}">Contact Us</a></li>
             </ul>
           </div>
         </div>
@@ -346,7 +351,6 @@
 
 
 
-<script src="{{ url('public/assets/user') }}/js/jquery-2.1.4.js"></script> 
 <script src="{{ url('public/assets/user') }}/js/bootstrap.min.js"></script> 
 <script src="{{ url('public/assets/user') }}/js/jquery.appear.js"></script>
 <script src="{{ url('public/assets/user') }}/js/jquery-countTo.js"></script>
