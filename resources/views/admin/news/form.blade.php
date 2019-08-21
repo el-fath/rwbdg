@@ -111,7 +111,7 @@
                                             <br>
                                             <br>
                                         @endif
-                                        <input type="file" class="file-input" name="image">
+                                        <input type="file" class="file-input-noupload" name="image">
                                         <span class="form-text text-muted">Recomendation for size is <code>1900x920</code>.</span>
                                     </div>
                                 </div>

@@ -13,7 +13,7 @@ class NewsController extends Controller
 {
     public function __construct()
     {
-        $this->img_location = "public/news/";
+        $this->img_location = "public/image/";
     }
     /**
      * Display a listing of the resource.
