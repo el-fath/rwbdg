@@ -116,7 +116,7 @@ class MarketingController extends Controller
     public function update(Request $request, $id)
     {
         $data = Marketing::find($id);
-
+        $newFile = [];
         if ($request->file('image')) {
 
             $myFile = $this->img_location.'marketing/'.$data->image;
@@ -130,14 +130,18 @@ class MarketingController extends Controller
             $file->move($this->img_location.'marketing',$newName);
             
             $newFile = [ 'image' => $newName ];
-            $data->update($newFile);
+            // $data->update($newFile);
         }
         
         $dataArr = $request->all();
+        if(count($newFile)){
+            $dataArr = array_merge($dataArr,$newFile);
+        }
+
         $dataArr['slug'] = Str::slug($dataArr['name'].'-'.$data->id, '-');
 
         $data->update($dataArr);
-
+       
         $requestindo = $request->input('id');
         $requesteng = $request->input('en');
         

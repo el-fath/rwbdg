@@ -125,25 +125,25 @@
                                         <div class="col-lg-4">
                                                 <div class="form-check form-check-switchery">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input-switchery" name="is_publised"  {{($data['dataModel']->is_publised == 1) ? "checked" : ""}} data-fouc>
+                                                        <input type="checkbox" class="form-check-input-switchery" name="is_publised"  {{(isset($data['dataModel']) && $data['dataModel']->is_publised == 1) ? "checked" : ""}} data-fouc>
                                                         Publised
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-switchery">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input-switchery" name="status" {{($data['dataModel']->status == 1) ? "checked" : ""}} data-fouc>
+                                                        <input type="checkbox" class="form-check-input-switchery" name="status" {{(isset($data['dataModel']) && $data['dataModel']->status == 1) ? "checked" : ""}} data-fouc>
                                                         Status
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-switchery">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input-switchery" name="is_popular" {{($data['dataModel']->is_popular == 1) ? "checked" : ""}} data-fouc>
+                                                        <input type="checkbox" class="form-check-input-switchery" name="is_popular" {{(isset($data['dataModel']) && $data['dataModel']->is_popular == 1) ? "checked" : ""}} data-fouc>
                                                         Popular
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-switchery">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input-switchery" name="is_featured" {{($data['dataModel']->is_featured == 1) ? "checked" : ""}} data-fouc>
+                                                        <input type="checkbox" class="form-check-input-switchery" name="is_featured" {{(isset($data['dataModel']) && $data['dataModel']->is_featured == 1) ? "checked" : ""}} data-fouc>
                                                         Featured
                                                     </label>
                                                 </div>

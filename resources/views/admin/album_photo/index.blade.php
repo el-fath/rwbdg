@@ -166,7 +166,7 @@ $(document).ready( function () {
         initialPreviewConfig: initPrevConfig,
         initialPreviewAsData: true,
         overwriteInitial: false,
-        maxFileSize: 100,
+        maxFileSize: 1000,
         previewZoomButtonClasses: previewZoomButtonClasses,
         previewZoomButtonIcons: previewZoomButtonIcons,
         fileActionSettings: fileActionSettings

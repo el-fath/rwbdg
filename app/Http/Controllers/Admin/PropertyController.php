@@ -181,7 +181,7 @@ class PropertyController extends Controller
         $data = Property::find($id);
 
         $dataReq = $request->all();
-
+        $newFile = [];
         if ($request->file('image')) {
 
             $myFile = $this->img_location.'property/'.$data->image;
@@ -195,7 +195,11 @@ class PropertyController extends Controller
             $file->move($this->img_location.'property',$newName);
             
             $newFile = [ 'image' => $newName ];
-            $data->update($newFile);
+            // $data->update($newFile);
+        }
+
+        if(count($newFile)){
+            $dataReq = array_merge($dataReq,$newFile);
         }
 
         $dataReq['sale_price']  = (isset($dataReq['sale_price'])) ? str_replace(",","",$dataReq['sale_price']): 0;

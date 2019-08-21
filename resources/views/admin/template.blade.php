@@ -5,6 +5,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta property="og:title" content="{{$config->name}}">
+	<meta property="og:description" content="{{$config->description}}">
+	<meta property="og:image" content="{{$config->LogoPath}}">
+	<meta property="og:image" content="{{$config->FaviconPath}}">
+	<meta property="og:url" content="{{ url('/') }}">
+
+	<meta name="description" content="{{$config->description}}">
+	<link rel="shortcut icon" href="{{$config->FaviconPath}}">
 	<title>{{$config->name}} - @yield('title')</title>
 
 	<!-- Global stylesheets -->
@@ -96,7 +104,12 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<div class="dropdown-divider"></div>
 						<a href="{{ route('admin.user.destroy', Auth::user()->id) }}" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
-						<a href="{{ route('logout') }}" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+						<a href="{{ route('logout') }}" onclick="event.preventDefault();
+						document.getElementById('logout-form').submit();" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+							@csrf
+						</form>
 					</div>
 				</li>
 			</ul>
