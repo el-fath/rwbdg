@@ -18,7 +18,7 @@
         <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
             <div class="d-flex">
                 <div class="breadcrumb">
-                    <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                    <a href="{{route('admin.dashboard')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
                     <span class="breadcrumb-item active">{{$data['title']}}</span>
                 </div>
 
@@ -80,7 +80,7 @@
                         <td> <img src="{{ $val->ImagePathSmall }}" alt="" class="img-responsive" style="max-height: 100px;"> </td>
                         <td>{{  $val->name }}</td>
                         <td>{{  $val->email }}</td>
-                        <td>{{  $val->level->title }}</td>
+                        <td>{{  (isset($val->level) ) ? $val->level->title : "" }}</td>
                         <td class="text-center">
                             <div class="list-icons">
                                 <div class="dropdown">

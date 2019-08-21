@@ -18,7 +18,7 @@
         <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
             <div class="d-flex">
                 <div class="breadcrumb">
-                    <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                    <a href="{{route('admin.dashboard')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
                     <span class="breadcrumb-item active">{{$data['title']}}</span>
                 </div>
 
@@ -75,7 +75,7 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Group</label>
                                 <div class="col-lg-10">
-                                    <select name="group" id="" class="form-control">
+                                    <select name="group" id="" class="form-control" required>
                                         @foreach ($data['group'] as $val)
                                             @if (isset($data['dataModel']))
                                             <option value="{{$val->id}}" {{ ($data['dataModel']->group_id == $val->id) ? "selected" : "" }}>

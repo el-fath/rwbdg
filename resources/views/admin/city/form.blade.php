@@ -18,7 +18,7 @@
         <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
             <div class="d-flex">
                 <div class="breadcrumb">
-                    <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                    <a href="{{route('admin.dashboard')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
                     <span class="breadcrumb-item active">{{$data['title']}}</span>
                 </div>
 
@@ -58,9 +58,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Description</label>
+                                    <label class="col-form-label col-lg-2">Province</label>
                                     <div class="col-lg-10">
-                                        <textarea rows="3" cols="3" class="form-control" name="description" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->description }}</textarea>
+                                        <select class="form-control select-search" name="province_id" data-fouc required>
+                                                <option value="">Choose Province</option>
+                                                @foreach ($data['province'] as $item)
+                                                    @if($data['typeForm'] != "create")
+                                                        <option {{($data['dataModel']->province_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
+                                                    @else
+                                                        <option value="{{$item->id}}">{{$item->title}}</option>
+                                                    @endif
+                                                @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             

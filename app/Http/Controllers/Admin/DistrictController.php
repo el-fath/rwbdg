@@ -13,6 +13,12 @@ use GuzzleHttp\Exception\RequestException;
 
 class DistrictController extends Controller
 {
+    public function __construct()
+    {
+        $this->img_location             = "public/image/";
+        $this->data['city']         = City::all();
+        
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +26,7 @@ class DistrictController extends Controller
      */
     public function index()
     {
+        $data = $this->data;
         $data['title'] = "District";
         $data['data'] = District::all()->sortByDesc('id');
         return view("admin/district/index",compact('data'));
@@ -32,6 +39,7 @@ class DistrictController extends Controller
      */
     public function create()
     {
+        $data = $this->data;
         $data['typeForm'] = "create";
         $data['title'] = "District";
         return view("admin/district/form",compact('data'));
@@ -105,6 +113,7 @@ class DistrictController extends Controller
      */
     public function edit($id)
     {
+        $data = $this->data;
         $data['dataModel'] = District::find($id);
         $data['typeForm'] = "Edit";
         $data['title'] = "District";
