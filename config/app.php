@@ -165,6 +165,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Astrotomic\Translatable\TranslatableServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -231,6 +232,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
 
     ],
 

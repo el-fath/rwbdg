@@ -4,10 +4,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+{!! SEO::generate() !!}
 <title>Castle</title>
-
-
 
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/font-awesome.min.css">
@@ -21,7 +19,7 @@
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/range-Slider.min.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/search.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/style.css">
-<link rel="icon" href="{{ url('public/assets/user') }}/images/icon.png">
+<link rel="icon" href="{{ $config->FaviconPath }}">
 <script src="{{ url('public/assets/user') }}/js/jquery-2.1.4.js"></script>
 <script src="{{ url('public/assets/admin') }}/assets/js/plugins/loaders/blockui.min.js"></script>
 <script src="{{ url('public/assets/admin') }}/assets/js/plugins/notifications/jgrowl.min.js"></script>
@@ -61,7 +59,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
             <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="index6.html"><img src="{{ url('public/assets/user') }}/images/logo.png" class="logo" alt=""></a>
+            <a class="navbar-brand" href=""><img src="{{ $config->LogoPath }}" style="max-height: 70px;width: 70px;" class="logo" alt=""></a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
