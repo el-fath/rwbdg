@@ -23,6 +23,7 @@
 <script src="{{ url('public/assets/admin') }}/assets/js/plugins/notifications/jgrowl.min.js"></script>
 <script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/extra_jgrowl_noty.js"></script>
 <script src="{{ url('public') }}/js/cakcode.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 
@@ -373,6 +374,13 @@
 <script src="{{ url('public/assets/user') }}/js/revolution.extension.video.min.js"></script>
 <script src="{{ url('public/assets/user') }}/js/custom.js"></script>
 <script src="{{ url('public/assets/user') }}/js/functions.js"></script>
+
+<script src="{{ url('public/assets/user') }}/js/neary-by-place.js"></script> 
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script> 
+<script src="{{ url('public/assets/user') }}/js/gmaps.js.js"></script>
+<script src="{{ url('public/assets/user') }}/js/contact.js"></script>
+
+<script src="{{ url('public/assets/user') }}/js/google-map.js"></script> 
 
 </body>
 </html>

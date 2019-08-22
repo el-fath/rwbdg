@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ReCaptchaFormRequest;
 use App\Http\Controllers\Controller;
 use App\Model\ContactMessage;
 
@@ -13,7 +14,7 @@ class ContactController extends Controller
         return view("user/contact");
     }
     
-    public function store(Request $request)
+    public function store(ReCaptchaFormRequest $request)
     {
         try{
             $data = [
@@ -23,7 +24,7 @@ class ContactController extends Controller
                 'message' => $request->message
             ];
             
-            $data = ContactMessage::create($data);
+            // $data = ContactMessage::create($data);
             
             return response()->json([
                 'Code'             => 200,
