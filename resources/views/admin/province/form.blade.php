@@ -18,7 +18,7 @@
         <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
             <div class="d-flex">
                 <div class="breadcrumb">
-                    <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                    <a href="{{route('admin.dashboard')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
                     <span class="breadcrumb-item active">{{$data['title']}}</span>
                 </div>
 
@@ -57,12 +57,7 @@
                                         <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->title }}" placeholder="Title banner" name="title">
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Description</label>
-                                    <div class="col-lg-10">
-                                        <textarea rows="3" cols="3" class="form-control" name="description" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->description }}</textarea>
-                                    </div>
-                                </div>
+                                
                             
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>

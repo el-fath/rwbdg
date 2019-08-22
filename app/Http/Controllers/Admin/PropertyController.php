@@ -9,6 +9,7 @@ use App\Model\Property;
 use App\Model\PropertyCategory;
 use App\Model\Marketing;
 use App\Model\PropertyMarketplace;
+use App\Model\MarketplaceProperty;
 use App\Model\Province;
 use App\Model\City;
 use App\Model\District;
@@ -88,6 +89,7 @@ class PropertyController extends Controller
         $data['city_id']     = (isset($data['city_id'])) ? $data['city_id']        : 0;
         $data['district_id'] = (isset($data['district_id'])) ? $data['district_id']: 0;
         
+        $marketplaces = $dataReq['marketplace'];
         unset($data['marketplace']);
         $data = Property::create($data);
 
@@ -103,6 +105,16 @@ class PropertyController extends Controller
 
         $data->fill($dataTrans);
         $data->save();
+
+
+        foreach ($marketplaces as $key => $row) {
+            $dataDetail = [
+                "property_id" => $data->id,
+                'marketplace_id' => $key,
+                'url' => $row
+            ];
+            $dataDetail = MarketplaceProperty::create($dataDetail);
+        }
 
         return response()->json([
             'Code'             => 200,
@@ -133,6 +145,19 @@ class PropertyController extends Controller
         $data['dataModel'] = Property::find($id);
         $data['typeForm'] = "Edit";
         $data['title'] = "Property";
+
+        $arrMarketplace = [];
+        foreach ($data['marketplaces'] as $key => $value) {
+            $value->url = "";
+            $detail = MarketplaceProperty::where("property_id",$id)->where('marketplace_id', $value->id)->first();
+            if($detail){
+                $value->url = $detail->url;
+            }
+            $arrMarketplace[] = $value;
+        }
+
+        $data['marketplaces'] = $arrMarketplace;
+
         if($data['dataModel']->province_id){
             $data['city'] = City::where("province_id",$data['dataModel']->province_id)->get();
         }
@@ -202,6 +227,18 @@ class PropertyController extends Controller
         $data->update($dataReq);
         $data->fill($dataTrans);
         $data->save();
+        if($marketplaces){
+            foreach ($marketplaces as $key => $row) {
+                MarketplaceProperty::where("property_id",$data->id)->delete();
+                $dataDetail = [
+                    "property_id" => $data->id,
+                    "marketplace_id" => $key,
+                    "url" => $row
+                ];
+                $dataDetail = MarketplaceProperty::create($dataDetail);
+            }
+        }
+
         return response()->json([
             'Code'             => 200,
             'Message'          => "Success Added"

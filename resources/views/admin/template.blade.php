@@ -67,8 +67,8 @@
 	<!-- Main navbar -->
 	<div class="navbar navbar-expand-md navbar-dark">
 		<div class="navbar-brand">
-			<a href="index.html" class="d-inline-block">
-				<img src="{{ url('public/assets/admin') }}/assets/images/logo_light.png" alt="">
+			<a href="{{route('admin.dashboard')}}" class="d-inline-block">
+				<img src="{{$config->LogoPath}}" style="height:30px;" alt="">
 			</a>
 		</div>
 

@@ -10,8 +10,16 @@ use Illuminate\Support\Str;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
+
 class CityController extends Controller
 {
+    public function __construct()
+    {
+        $this->img_location             = "public/image/";
+        $this->data['province']         = Province::all();
+        
+    }
+    /**
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +27,7 @@ class CityController extends Controller
      */
     public function index()
     {
+        $data = $this->data;
         $data['title'] = "City";
         $data['data'] = City::all()->sortByDesc('id');
         return view("admin/city/index",compact('data'));
@@ -73,6 +82,7 @@ class CityController extends Controller
      */
     public function create()
     {
+        $data = $this->data;
         $data['typeForm'] = "create";
         $data['title'] = "City";
         return view("admin/city/form",compact('data'));
@@ -112,6 +122,7 @@ class CityController extends Controller
      */
     public function edit($id)
     {
+        $data = $this->data;
         $data['dataModel'] = City::find($id);
         $data['typeForm'] = "Edit";
         $data['title'] = "City";

@@ -129,7 +129,7 @@ class SlideController extends Controller
         if ($request->file('image')) {
 
             $myFile = $this->img_location.'slide/'.$data->image;
-            if (file_exists($myFile)){
+            if (file_exists($myFile) && $data->image){
                 unlink($myFile);
             }
 

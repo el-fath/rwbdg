@@ -18,7 +18,7 @@
         <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
             <div class="d-flex">
                 <div class="breadcrumb">
-                    <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                    <a href="{{route('admin.dashboard')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
                     <span class="breadcrumb-item active">{{$title}}</span>
                 </div>
 
@@ -70,7 +70,7 @@
                                                     <br>
                                                     <br>
                                                 @endif
-                                                <input type="file" class="file-input" id="inputlogo" data-url="{{$dataModel->LogoPath}}"  data-fouc name="imglogo">
+                                                <input type="file" class="file-input-noupload" id="inputlogo" data-url="{{$dataModel->LogoPath}}"  data-fouc name="imglogo">
                                                 <span class="form-text text-muted">Recomendation size <code>512px x 512px</code>.</span>
                                             </div>
                                         </div>
@@ -82,7 +82,7 @@
                                                     <br>
                                                     <br>
                                                 @endif
-                                                <input type="file" class="file-input" data-url="{{$dataModel->FaviconPath}}" data-fouc name="imgfavicon">
+                                                <input type="file" class="file-input-noupload" data-url="{{$dataModel->FaviconPath}}" data-fouc name="imgfavicon">
                                                 <span class="form-text text-muted">Recomendation size <code>512px x 512px</code>.</span>
                                             </div>
                                         </div>

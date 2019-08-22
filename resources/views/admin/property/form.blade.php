@@ -18,7 +18,7 @@
         <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
             <div class="d-flex">
                 <div class="breadcrumb">
-                    <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
+                    <a href="{{route('admin.dashboard')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
                     <span class="breadcrumb-item active">{{$data['title']}}</span>
                 </div>
 
@@ -394,7 +394,7 @@
                                             <br>
                                             <br>
                                         @endif
-                                        <input type="file" class="file-input" name="image">
+                                        <input type="file" class="file-input-noupload" name="image">
                                         <span class="form-text text-muted">Recomendation for size is <code>1900x920</code>.</span>
                                     </div>
                                 </div>
@@ -405,7 +405,7 @@
                                         <div class="form-group row">
                                         <label class="col-form-label col-lg-2">{{$item->title}}</label>
                                             <div class="col-lg-10">
-                                            <input type="text" required class="form-control" value="" placeholder="URL {{$item->title}}" name="marketplace['{{$item->id}}']">
+                                            <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $item->url }}" placeholder="URL {{$item->title}}" name="marketplace[{{$item->id}}]">
                                             </div>
                                         </div>
                                     @endforeach

@@ -15,6 +15,13 @@ class Property extends Model
     public $translatedAttributes = ['title','description','slug'];
     protected $appends 	= array('ImagePath','ImagePathSmall','ImagePathMedium');
 
+
+    public function marketplace()
+    {
+        return $this->hasMany('App\Model\MarketplaceProperty','property_id', 'id');
+    }
+
+
     public function getImagePathAttribute()
     {
         $url = url('/')."/public/image/property/".$this->image;

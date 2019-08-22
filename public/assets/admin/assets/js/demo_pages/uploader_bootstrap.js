@@ -96,6 +96,23 @@ var FileUpload = function() {
         });
 
 
+        $('.file-input-noupload').fileinput({
+            browseLabel: 'Browse',
+            browseIcon: '<i class="icon-file-plus mr-2"></i>',
+            uploadIcon: '<i class="icon-file-upload2 mr-2"></i>',
+            removeIcon: '<i class="icon-cross2 font-size-base mr-2"></i>',
+            showUpload: false,
+            layoutTemplates: {
+                icon: '<i class="icon-file-check"></i>',
+                modal: modalTemplate
+            },
+            initialCaption: "No file selected",
+            previewZoomButtonClasses: previewZoomButtonClasses,
+            previewZoomButtonIcons: previewZoomButtonIcons,
+            fileActionSettings: fileActionSettings
+        });
+
+
         //
         // Custom layout
         //
