@@ -10,35 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'User\HomeController@index');
-
-// //FRONT END
-// // Route::prefix(parseLocale())->group(function () {
-//     Auth::routes();
+//FRONT END
+    Route::get('/', 'User\HomeController@index');
+    Route::get('/home', 'User\HomeController@index')->name('home');
     Route::get('/about', 'User\AboutController@index');
     Route::get('/contact-us', 'User\ContactController@index');
     Route::post('/contact-us', 'User\ContactController@store');
-//     Route::get('/landing-page', 'User\HomeController@index');
-
-
-//     //ARTISAN CALL
-    Route::get('/clear', function() {
-
-        Artisan::call('cache:clear');
-        Artisan::call('config:clear');
-        Artisan::call('config:cache');
-        Artisan::call('route:clear');
-        Artisan::call('view:clear');
-
-        return "Cleared!";
-
-    });
-// });
-
-
-
-
 
 
 //ADMIN
@@ -113,13 +90,6 @@ Route::group(['middleware' => 'admin'], function () {
     ]);
 });
 
-
-
-
-
-
-
-
 // Route::get('/migrate', function() {
 
 //     Artisan::call('migrate');
@@ -128,22 +98,16 @@ Route::group(['middleware' => 'admin'], function () {
 // });
 
 
+//ARTISAN CALL
+Route::get('/clear', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+    return "Cleared!";
+});
+
+
 //OTHER
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-
-//CUSTOM FUNCTION
-// function parseLocale()
-// {
-//     $locale = Request::segment(1);
-//     $languages = ['id', 'en'];
-
-//     if (in_array($locale, $languages)) {
-//         App::setLocale($locale);
-//         return $locale;
-//     }
-
-//     return '/';
-// }

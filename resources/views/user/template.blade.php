@@ -35,6 +35,9 @@
   <div class="span">
     <div class="location_indicator"></div>
   </div>
+  <div class="span">
+      <label class="label">Loading</label>
+    </div>
 </div>
  <!--Loader-->               
 
@@ -213,7 +216,15 @@
               </li>
               <li><a href="{{url("about")}}">Find specialist</a></li>
               <li><a href="{{url("about")}}">Carrer with us</a></li>
-              <li><a href="{{url("about")}}">What's up today</a></li>
+              <li class="dropdown">
+                  <a href="#." class="dropdown-toggle" data-toggle="dropdown">What's up today </a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown">
+                      <a href="#.">News</a>
+                      <a href="#.">Gallery</a>
+                    </li>
+                  </ul>
+              </li>
               <li><a href="{{url("contact-us")}}">Contact Us</a></li>
             </ul>
           </div>

@@ -1,7 +1,7 @@
 @extends('user/template')
 @section('content')
 <!--About Us -->
-<section id="about" class="padding_bottom">
+{{-- <section id="about" class="padding_bottom"> --}}
     
     {{-- <section class="page-banner page-banner-bg padding">
         <div class="container">
@@ -32,23 +32,23 @@
            
             	<div class="agent-p-contact">
                 	<div class="our-agent-box bottom30">
-                        <h2>get in touch</h2>
+                      <h2>get in touch</h2>
+                  </div>
+                  <div class="agetn-contact-2 bottom30">
+                        <p><i class="icon-telephone114"></i> (+01) 34 56 7890</p>
+                        <p><i class=" icon-icons142"></i> info@castle.com</p>
+                        
+                        <p><i class="icon-browser2"></i>www.castle.com</p>
+                        <p><i class="icon-icons74"></i> Advisor Melbourne, Merrick Way, FL 12345 Australia</p>
                     </div>
-                    <div class="agetn-contact-2 bottom30">
-                      	 <p><i class="icon-telephone114"></i> (+01) 34 56 7890</p>
-                         <p><i class=" icon-icons142"></i> info@castle.com</p>
-                         
-                         <p><i class="icon-browser2"></i>www.castle.com</p>
-                         <p><i class="icon-icons74"></i> Advisor Melbourne, Merrick Way, FL 12345 Australia</p>
-                      </div>
-                    <ul class="social_share bottom20">
-            <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i></a></li>
-            <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i></a></li>
-            <li><a href="javascript:void(0)" class="google"><i class="icon-google4"></i></a></li>
-            <li><a href="javascript:void(0)" class="linkden"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i></a></li>
-          </ul>
-                </div>
+                  <ul class="social_share bottom20">
+                    <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i></a></li>
+                    <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i></a></li>
+                    <li><a href="javascript:void(0)" class="google"><i class="icon-google4"></i></a></li>
+                    <li><a href="javascript:void(0)" class="linkden"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i></a></li>
+                  </ul>
+              </div>
             
             	<div class="agent-p-form">
                 	<div class="our-agent-box bottom30">
