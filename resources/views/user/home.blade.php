@@ -28,7 +28,7 @@
             data-startslide="0" 
             data-endslide="5" 
             style="z-index: 5;">
-            <h1><span class="t_white">We Can Find just Right <br>Property for You.</span></h1>
+            <h1><span class="t_white">@lang('home.welcome')<br>Property for You.</span></h1>
           </div>
           <div class="tp-caption tp-static-layer" 
             id="slide-37-layer-2" 

@@ -26,6 +26,13 @@ class CakCodeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $lang = "id";
+        if(request()->segment(1)){
+            $lang = request()->segment(1);
+        }
+        app()->setLocale($lang);
+        app()->getLocale();
+
         $profile = Profile::find(1);
         $config = Config::find(1);
 

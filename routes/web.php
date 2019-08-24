@@ -11,11 +11,17 @@
 |
 */
 //FRONT END
-    Route::get('/', 'User\HomeController@index');
+
+Route::localized(function () {
+    Route::get('/', 'User\HomeController@index')->name('index');
     Route::get('/home', 'User\HomeController@index')->name('home');
-    Route::get('/about', 'User\AboutController@index');
-    Route::get('/contact-us', 'User\ContactController@index');
-    Route::post('/contact-us', 'User\ContactController@store');
+    Route::get('/about', 'User\AboutController@index')->name('about');
+    Route::get('/contact-us', 'User\ContactController@index')->name('contact_us');
+    Route::post('/contact-us', 'User\ContactController@store')->name('contact_us.store');
+
+});
+
+   
 
 
 //ADMIN
