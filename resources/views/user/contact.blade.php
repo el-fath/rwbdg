@@ -56,7 +56,7 @@
                     </div>
                     
                     <div class="row">
-                      <form class="callus" action="{{ url('contact-us') }}" id="formInput" method="post">
+                      <form class="callus" action="{{ route('contact_us.store') }}" id="formInput" method="post">
                         @csrf
                         <div class="col-md-12">
                           <div class="single-query form-group">
