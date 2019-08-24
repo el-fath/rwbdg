@@ -1,5 +1,15 @@
 
 $(document).ready(function(){
+    var swiper = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+    });
+
+
+
     function formatAmountNoDecimals( number ) {
         var rgx = /(\d+)(\d{3})/;
         while( rgx.test( number ) ) {

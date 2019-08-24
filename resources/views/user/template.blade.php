@@ -18,9 +18,11 @@
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/settings.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/range-Slider.min.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/search.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/style.css">
 <link rel="icon" href="{{ $config->FaviconPath }}">
 <script src="{{ url('public/assets/user') }}/js/jquery-2.1.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
 <script src="{{ url('public/assets/admin') }}/assets/js/plugins/loaders/blockui.min.js"></script>
 <script src="{{ url('public/assets/admin') }}/assets/js/plugins/notifications/jgrowl.min.js"></script>
 <script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/extra_jgrowl_noty.js"></script>
