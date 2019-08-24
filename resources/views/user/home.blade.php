@@ -67,7 +67,7 @@
 @section('search')
 <button type="button" class="form_opener"><i class="fa fa-bars"></i></button>
 <div class="tp_overlay">
-  <div class="topbar clearfix">
+  {{-- <div class="topbar clearfix">
     <ul class="breadcrumb_top">
       <li><a href="favorite_properties.html"><i class="icon-icons43"></i>Favorites</a></li>
       <li><a href="submit_property.html"><i class="icon-icons215"></i>Submit Property</a></li>
@@ -76,21 +76,21 @@
       <li><a href="login.html"><i class="icon-icons179"></i>Login / Register</a></li>
       <li class="last-icon"><i class="icon-icons215"></i></li>
     </ul>
-  </div>
+  </div> --}}
   
   <form class="callus top30 clearfix centered">
-  <h2 class="text-uppercase t_white bottom20 text-center">advanced search</h2>
+  <h2 class="text-uppercase t_white bottom20 text-center">@lang("home.advance_search.title")</h2>
     <div class="row">
       <div class="col-sm-6">
         <div class="single-query bottom15">
-          <input type="text" class="keyword-input" placeholder="Keyword (e.g. 'office')">
+          <input type="text" class="keyword-input" placeholder="@lang("home.advance_search.keyword_field")">
         </div>
       </div>
       <div class="col-sm-6">
         <div class="single-query bottom15">
           <div class="intro">
             <select>
-              <option selected="" value="any">Location</option>
+              <option selected="" value="any">@lang("home.advance_search.location_field")</option>
               <option>All areas</option>
               <option>Bayonne </option>
               <option>Greenville</option>
@@ -105,7 +105,7 @@
         <div class="single-query bottom15">
           <div class="intro">
             <select>
-              <option class="active">Property Type</option>
+              <option class="active">@lang("home.advance_search.property_type_field")</option>
               <option>All areas</option>
               <option>Bayonne </option>
               <option>Greenville</option>
@@ -120,7 +120,7 @@
         <div class="single-query bottom15">
           <div class="intro">
             <select>
-              <option class="active">Property Status</option>
+              <option class="active">@lang("home.advance_search.property_transaction_field")</option>
               <option>All areas</option>
               <option>Bayonne </option>
               <option>Greenville</option>
@@ -136,7 +136,7 @@
           <div class="single-query bottom15">
             <div class="intro">
               <select>
-                <option class="active">Min Beds</option>
+                <option class="active">@lang("home.advance_search.min_bed_field")</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -151,7 +151,7 @@
           <div class="single-query bottom15">
             <div class="intro">
               <select>
-                <option class="active">Min Baths</option>
+                <option class="active">@lang("home.advance_search.min_bath_field")</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -165,12 +165,12 @@
       </div>
       <div class="col-md-3 col-sm-6 col-xs-6">
         <div class="single-query bottom15">
-          <input type="text" class="keyword-input" placeholder="Min Area (sq ft)">
+          <input type="text" class="keyword-input" placeholder="@lang("home.advance_search.min_landarea_field")">
         </div>
       </div>
       <div class="col-md-3 col-sm-6 col-xs-6">
         <div class="single-query bottom15">
-          <input type="text" class="keyword-input" placeholder="Max Area (sq ft)">
+          <input type="text" class="keyword-input" placeholder="@lang("home.advance_search.min_buldingarea_field")">
         </div>
       </div>
     </div>
@@ -178,11 +178,11 @@
       <div class="col-md-8 col-sm-8 col-xs-8 bottom15">
         <div class="single-query-slider">
           <div class="clearfix top20">
-            <label class="pull-left">Price Range:</label>
+            <label class="pull-left">@lang("home.advance_search.price_range_field"):</label>
             <div class="price text-right">
-              <span>$</span>
+              <span>Rp</span>
               <div class="leftLabel"></div>
-              <span>to $</span>
+              <span>to Rp</span>
               <div class="rightLabel"></div>
             </div>
           </div>
@@ -194,10 +194,10 @@
         </div>
       </div>
       <div class="col-md-4 col-sm-4 col-xs-4 text-right form-group top30">
-        <button type="submit" class="border_radius btn-yellow text-uppercase">Search</button>
+        <button type="submit" class="border_radius btn-yellow text-uppercase">@lang("home.advance_search.search_btn")</button>
       </div>
     </div>
-    <div class="row">
+    {{-- <div class="row">
       <div class="col-sm-12">
         <div class="group-button-search">
           <a data-toggle="collapse" href=".search-propertie-filters" class="more-filter">
@@ -257,12 +257,64 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
   </form>
 </div>
 @endsection
 
 @section('content')
+
+<!--Three Cols-->
+<section id="three_feature" class="padding_half">
+  <h3 class="hidden">hiddden</h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="box margin40">
+          <div class="image">
+            <img src="{{ url('public/assets/user') }}/images/listing8.jpg" alt="box">
+          </div>
+          <a class="panel_bottom" href="#.">Buying Your Home</a>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="box margin40">
+          <div class="image">
+            <img src="{{ url('public/assets/user') }}/images/listing8.jpg" alt="box">
+          </div>
+          <a class="panel_bottom" href="#.">Buying Your Home</a>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="box margin40">
+          <div class="image">
+            <img src="{{ url('public/assets/user') }}/images/listing8.jpg" alt="box">
+          </div>
+          <a class="panel_bottom" href="#.">Buying Your Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Three Cols Ends-->
+
+<!--Parallax-->
+<section id="parallax_four" class="padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 bottom30">
+        <h2>We Don’t Just Find <br> <span class="t_yellow">Great Deals</span> We Create Them</h2>
+        <h4 class="top20">We are proud to present to you some of the best homes, apartments, offices e.g.
+        across Australia for affordable prices.</h4>
+        <a href="listing4.html" class="text-uppercase btn-white top20">view all listings</a>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!--About Owner ends-->
+
+
 <section id="property" class="padding bg_gallery">
   <div class="container">
     <div class="row">
@@ -655,8 +707,141 @@
       </div>
     </div>
     <div class="col-sm-12 text-center top20">
-       <a href="listing1.html" class="btn-dark border_radius uppercase margin40">more listings</a>
+       <a href="listing1.html" class="btn-dark border_radius uppercase margin40">@lang("global.more_listing_btn")</a>
     </div>
   </div>
 </section>
+
+<!--Types-->
+<section id="types" class="padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h2 class="uppercase">Property Types</h2>
+          <p class="heading_space">We are proud to present to you some of the best homes, apartments, offices e.g. across Australia for affordable prices.</p>
+        </div>
+      </div>
+      <div id="type-grid" class="cbp cbp-l-grid-mosaic-flat">
+        <div class="cbp-item">
+          <a href="listing1.html">
+            <img src="images/grid1.jpg" alt="">
+            <div class="grid-caption">
+              <h3>Apartments</h3>
+              <span>51 Properties</span>
+            </div>
+          </a>
+        </div>
+        <div class="cbp-item">
+          <a href="listing4.html">
+            <img src="images/grid2.jpg" alt="">
+            <div class="grid-caption">
+              <h3>Single Family Home</h3>
+              <span>30 Properties</span>
+            </div>
+          </a>
+        </div>
+        <div class="cbp-item">
+          <a href="listing5.html">
+            <img src="images/grid3.jpg" alt="">
+            <div class="grid-caption">
+              <h3>Villa</h3>
+              <span>10 Properties</span>
+            </div>
+          </a>
+        </div>
+        <div class="cbp-item">
+          <a href="listing3.html"> 
+            <img src="images/grid4.jpg" alt="">
+            <div class="grid-caption">
+              <h3>Offices</h3>
+              <span>23 Properties</span>
+            </div>
+          </a>
+        </div>
+        <div class="cbp-item">
+          <a href="listing7.html">
+            <img src="images/grid5.jpg" alt="">
+            <div class="grid-caption">
+              <h3> Condominium</h3>
+              <span>102 Properties</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Types Ends-->
+
+<!--News-->
+<section id="news" class="padding bg_light">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="uppercase">Latest News</h2>
+          <p class="heading_space">Aliquam nec viverra erat. Aenean elit tellus mattis quis maximus.</p>
+        </div>
+      </div>
+      <div class="row">
+      <div id="news_slider" class="owl-carousel">
+          <div class="item">
+            <div class="news_hovered">
+            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
+            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
+            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="news_hovered">
+            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
+            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
+            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="news_hovered">
+            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
+            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
+            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="news_hovered">
+            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
+            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
+            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="news_hovered">
+            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
+            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
+            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="news_hovered">
+            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
+            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
+            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="news_hovered">
+            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
+            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
+            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="news_hovered">
+            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
+            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
+            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--News ends-->
 @endsection

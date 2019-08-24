@@ -1,13 +1,17 @@
 <?php
 return [
-	'welcome' => 'Selamat datang.',
-	"title" => "Please fill form below correctly.",
-	"profil" => [
-		"name" => "Your Name",
-		"address" => "Your Address",
-		"hobby" => "Your Hobby",
-		"job" => "Your Job",
+	'welcome'                     => 'Selamat datang',
+	"advance_search"              => [
+		"title"                      => "pencarian lanjutan",
+		"keyword_field"              => "Kata Kunci",
+		"location_field"             => "Lokasi",
+		"property_type_field"        => "Tipe Properti",
+		"property_transaction_field" => "Transaksi Property",
+		"min_bed_field"              => "Kmr Tdr",
+		"min_bath_field"             => "Kmr Mnd",
+		"min_landarea_field"         => "Min Luas Tanah (m2)",
+		"min_buldingarea_field"      => "Min Luas Bangunan (m2)",
+		"price_range_field"          => "Kisaran harga",
+		"search_btn" => "Cari",
 	],
-	"button" => "Save",
-	"thank" => "Thank you for your contribution.",
 ];

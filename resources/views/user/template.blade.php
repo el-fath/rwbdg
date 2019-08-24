@@ -26,7 +26,18 @@
 <script src="{{ url('public/assets/admin') }}/assets/js/demo_pages/extra_jgrowl_noty.js"></script>
 <script src="{{ url('public') }}/js/cakcode.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+
+<style>
+  .navbar-nav {
+    margin-top: 9px;
+  }
+</style>
+
 </head>
+
+
+
+
 <body>
 
 
@@ -50,7 +61,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div class="attr-nav">
+          {{-- <div class="attr-nav">
             <div class="upper-column info-box first">
               <div class="icons"><i class="icon-telephone114"></i></div>
               <ul>
@@ -58,7 +69,7 @@
                 <li>+1 900 234 567 - 68</li>
               </ul>
             </div>
-          </div>
+          </div> --}}
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
             <i class="fa fa-bars"></i>
@@ -66,25 +77,25 @@
             <a class="navbar-brand" href=""><img src="{{ $config->LogoPath }}" style="max-height: 70px;width: 70px;" class="logo" alt=""></a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-menu">
-            <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
-              <li><a href="{{url("landing-page")}}">Home</a></li>
-              <li><a href="{{url("about")}}">About</a></li>
+            <ul class="nav navbar-nav navbar-left" data-in="fadeIn" data-out="fadeOut">
+              <li><a href="{{route("index")}}">@lang("global.menu.home_label")</a></li>
+              <li><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li>
               <li class="dropdown megamenu-fw">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Buy</a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.buy_label")</a>
                 <ul class="dropdown-menu megamenu-content" role="menu">
                   <li>
                     <div class="row">
                       <div class="col-menu col-md-3">
-                        <h5 class="title">PROPERTIES LIST</h5>
+                        <h5 class="title">@lang("global.menu.property_list_label")</h5>
                         <div class="content">
                           <ul class="menu-col">
-                            <li><a href="listing1.html">Secondary Property</a></li>
-                            <li><a href="index7.html">New Property</a></li>
+                            <li><a href="listing1.html">@lang("global.menu.secondary_property_label")</a></li>
+                            <li><a href="index7.html">@lang("global.menu.new_property_label")</a></li>
                           </ul>
                         </div>
                       </div>
                       <div class="col-menu col-md-9">
-                        <h5 class="title bottom20">PROPERTIES LIST</h5>
+                        <h5 class="title bottom20">@lang("global.menu.property_list_label")</h5>
                         <div class="row">
                           <div id="nav_slider" class="owl-carousel">
                             <div class="item">
@@ -143,20 +154,20 @@
                 </ul>
               </li>
               <li class="dropdown megamenu-fw">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rent</a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.rent_label")</a>
                 <ul class="dropdown-menu megamenu-content" role="menu">
                   <li>
                     <div class="row">
                       <div class="col-menu col-md-3">
-                        <h5 class="title">PROPERTIES LIST</h5>
+                        <h5 class="title">@lang("global.menu.property_list_label")</h5>
                         <div class="content">
                           <ul class="menu-col">
-                            <li><a href="listing1.html">Secondary Property</a></li>
+                            <li><a href="listing1.html">@lang("global.menu.secondary_property_label")</a></li>
                           </ul>
                         </div>
                       </div>
                       <div class="col-menu col-md-9">
-                        <h5 class="title bottom20">PROPERTIES LIST</h5>
+                        <h5 class="title bottom20">@lang("global.menu.property_list_label")</h5>
                         <div class="row">
                           <div id="nav_slider" class="owl-carousel">
                             <div class="item">
@@ -214,18 +225,27 @@
                   </li>
                 </ul>
               </li>
-              <li><a href="{{url("about")}}">Find specialist</a></li>
-              <li><a href="{{url("about")}}">Carrer with us</a></li>
+              <li><a href="{{route("contact_us")}}">@lang("global.menu.specialist_label")</a></li>
+              <li><a href="{{route("contact_us")}}">@lang("global.menu.career_label")</a></li>
               <li class="dropdown">
-                  <a href="#." class="dropdown-toggle" data-toggle="dropdown">What's up today </a>
+                  <a href="#." class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.what_up_label")</a>
                   <ul class="dropdown-menu">
                     <li class="dropdown">
-                      <a href="#.">News</a>
-                      <a href="#.">Gallery</a>
+                      <a href="#.">@lang("global.menu.news_label")</a>
+                      <a href="#.">@lang("global.menu.gallery_label")</a>
                     </li>
                   </ul>
               </li>
-              <li><a href="{{route("contact_us")}}">Contact Us</a></li>
+              <li><a href="{{route("contact_us")}}">@lang("global.menu.contact_us")</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle language-header" data-toggle="dropdown" href="" aria-expanded="false">ID
+                    <ul class="dropdown-menu">
+                      <li><a class="current" href="#">ID</a></li>
+                      <li><a class="" href="#">EN</a></li>
+                    </ul>
+                </li>
             </ul>
           </div>
         </div>
@@ -247,7 +267,7 @@
         <div class="info-box first">
           <div class="icons"><i class="icon-telephone114"></i></div>
           <ul class="text-center">
-            <li><strong>Phone Number</strong></li>
+            <li><strong>@lang("global.phone_label")</strong></li>
             <li>+1 900 234 567 - 68</li>
           </ul>
         </div>
@@ -265,7 +285,7 @@
         <div class="info-box">
           <div class="icons"><i class="icon-icons142"></i></div>
           <ul class="text-center">
-            <li><strong>Email Address</strong></li>
+            <li><strong>@lang("global.email_label")</strong></li>
             <li><a href="#.">info@castle.com</a></li>
           </ul>
         </div>
@@ -315,7 +335,7 @@
       </div>
       <div class="col-md-3 col-sm-6">
         <div class="footer_panel bottom30">
-          <h4 class="bottom30 heading">Latest News</h4>
+          <h4 class="bottom30 heading">@lang("global.latest_news_label")</h4>
           <div class="media bottom30">
             <div class="media-body">
               <a href="#.">Nearest mall in high tech Goes google map your villa</a>

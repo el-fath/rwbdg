@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function __construct(Request $request)
     {
-       $config = Config::find(1);
+        $config = Config::find(1);
         SEOTools::setTitle('Home - '.$config->name);
         SEOTools::setDescription($config->description);
         SEOTools::opengraph()->setUrl( url('/') );
