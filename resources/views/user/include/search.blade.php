@@ -24,13 +24,10 @@
         <div class="single-query bottom15">
           <div class="intro">
             <select>
-              <option selected="" value="any">@lang("home.advance_search.location_field")</option>
-              <option>All areas</option>
-              <option>Bayonne </option>
-              <option>Greenville</option>
-              <option>Manhattan</option>
-              <option>Queens</option>
-              <option>The Heights</option>
+              <option selected="" value="any">@lang("home.advance_search.property_transaction")</option>
+              @foreach ($data['property_transaction'] as $key => $item)
+                <option value="{{$key}}">{{$item}}</option>
+              @endforeach
             </select>
           </div>
         </div>
@@ -40,12 +37,10 @@
           <div class="intro">
             <select>
               <option class="active">@lang("home.advance_search.property_category_field")</option>
-              <option>All areas</option>
-              <option>Bayonne </option>
-              <option>Greenville</option>
-              <option>Manhattan</option>
-              <option>Queens</option>
-              <option>The Heights</option>
+              {{-- <option value="">@lang("home.advance_search.category_option")</option> --}}
+              @foreach ($data['property_categories'] as $item)
+                <option value="{{$item->id}}">{{$item->title}}</option>
+              @endforeach
             </select>
           </div>
         </div>
@@ -55,12 +50,9 @@
           <div class="intro">
             <select>
               <option class="active">@lang("home.advance_search.property_type_field")</option>
-              <option>All areas</option>
-              <option>Bayonne </option>
-              <option>Greenville</option>
-              <option>Manhattan</option>
-              <option>Queens</option>
-              <option>The Heights</option>
+              @foreach ($data['property_type'] as $key => $item)
+                <option value="{{$key}}">{{$item}}</option>
+              @endforeach
             </select>
           </div>
         </div>
@@ -120,7 +112,7 @@
               <div class="rightLabel"></div>
             </div>
           </div>
-          <div data-range_min="0" data-range_max="1500000" data-cur_min="0" data-cur_max="1500000" class="nstSlider">
+          <div data-range_min="0" data-range_max="1000000000000" data-cur_min="0" data-cur_max="0" class="nstSlider">
             <div class="bar"></div>
             <div class="leftGrip"></div>
             <div class="rightGrip"></div>

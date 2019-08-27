@@ -5,6 +5,7 @@ return [
 		"title"                      => "advance search",
 		"keyword_field"              => "Keyword",
 		"location_field"             => "Location",
+		"property_transaction"        => "Properti Transaction",
 		"property_type_field"        => "Property Type",
 		"property_transaction_field" => "Property Transaction",
 		"property_category_field" => "Property Category",
@@ -14,5 +15,6 @@ return [
 		"min_buldingarea_field"      => "Min Bulding Area (m2)",
 		"price_range_field" => "Price Range",
 		"search_btn" => "Search",
+		"category_option" => "Choose Category",
 	],
 ];

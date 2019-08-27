@@ -13,12 +13,33 @@ class Property extends Model
     use Translatable;
     protected $guarded = [];
     public $translatedAttributes = ['title','description','slug'];
-    protected $appends 	= array('ImagePath','ImagePathSmall','ImagePathMedium');
+    protected $appends 	= array('ImagePath','ImagePathSmall','ImagePathMedium','Location');
 
 
     public function marketplace()
     {
         return $this->hasMany('App\Model\MarketplaceProperty','property_id', 'id');
+    }
+
+    public function getLocationAttribute()
+    {
+        $str = "";
+        if($this->province_id){
+            $province = Province::find($this->province_id);
+            $str.=$province->title;
+        }
+
+        if($this->city_id){
+            $city = City::find($this->city_id);
+            $str.=", ".$city->title;
+        }
+
+        if($this->district_id){
+            $district = District::find($this->district_id);
+            $str.=", ".$district->title;
+        }
+
+        return $str;
     }
 
 

@@ -36,6 +36,10 @@ class CakCodeServiceProvider extends ServiceProvider
         $profile = Profile::find(1);
         $config = Config::find(1);
 
+        \Route::macro('currentUrl', function ($locale = null) {
+            return route(\Route::currentRouteName(), \Route::current()->parameters(), true, $locale);
+        });
+
         View::share('profile', $profile);
         View::share('config', $config);
     }

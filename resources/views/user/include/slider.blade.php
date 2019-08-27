@@ -43,7 +43,7 @@
         @endforeach
         
         
-        <div class="tp-static-layers">
+        {{-- <div class="tp-static-layers">
           <div class="tp-caption tp-static-layer" 
             id="slide-37-layer-2" 
             data-x="['left','left','left','left']" data-hoffset="['50','50','50','50']" 
@@ -56,7 +56,7 @@
             data-endslide="5" 
             style="z-index: 5;"><a href="listing1.html" class="btn-white border_radius uppercase">view Properties</a>
           </div>
-        </div>
+        </div> --}}
       </ul>
     </div>
   </div>

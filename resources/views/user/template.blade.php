@@ -79,7 +79,7 @@
             <a class="navbar-brand" href=""><img src="{{ $config->LogoPath }}" style="max-height: 70px;width: 70px;" class="logo" alt=""></a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-menu">
-            <ul class="nav navbar-nav navbar-left" data-in="fadeIn" data-out="fadeOut">
+            <ul class="nav navbar-nav navbar-left" data-in="fadeIn" data-out="fadeOut" style="margin-left: 15px;">
               <li><a href="{{route("index")}}">@lang("global.menu.home_label")</a></li>
               <li><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li>
               <li class="dropdown megamenu-fw">
@@ -242,10 +242,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle language-header" data-toggle="dropdown" href="" aria-expanded="false">ID
+                    <a class="dropdown-toggle language-header" data-toggle="dropdown" href="" aria-expanded="false">{{(app()->getLocale() == 'id') ? "ID" : "EN"}}
                     <ul class="dropdown-menu">
-                      <li><a class="current" href="#">ID</a></li>
-                      <li><a class="" href="#">EN</a></li>
+                    <li><a class="current" href="{{\Route::currentUrl('id')}}">ID</a></li>
+                      <li><a class="" href="{{\Route::currentUrl('en')}}">EN</a></li>
                     </ul>
                 </li>
             </ul>
