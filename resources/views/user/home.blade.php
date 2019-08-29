@@ -89,51 +89,9 @@
       </div>
     </div>
     <div id="type-grid" class="cbp cbp-l-grid-mosaic-flat">
-      <div class="cbp-item">
-        <a href="listing1.html">
-          <img src="images/grid1.jpg" alt="">
-          <div class="grid-caption">
-            <h3>Apartments</h3>
-            <span>51 Properties</span>
-          </div>
-        </a>
-      </div>
-      <div class="cbp-item">
-        <a href="listing4.html">
-          <img src="images/grid2.jpg" alt="">
-          <div class="grid-caption">
-            <h3>Single Family Home</h3>
-            <span>30 Properties</span>
-          </div>
-        </a>
-      </div>
-      <div class="cbp-item">
-        <a href="listing5.html">
-          <img src="images/grid3.jpg" alt="">
-          <div class="grid-caption">
-            <h3>Villa</h3>
-            <span>10 Properties</span>
-          </div>
-        </a>
-      </div>
-      <div class="cbp-item">
-        <a href="listing3.html"> 
-          <img src="images/grid4.jpg" alt="">
-          <div class="grid-caption">
-            <h3>Offices</h3>
-            <span>23 Properties</span>
-          </div>
-        </a>
-      </div>
-      <div class="cbp-item">
-        <a href="listing7.html">
-          <img src="images/grid5.jpg" alt="">
-          <div class="grid-caption">
-            <h3> Condominium</h3>
-            <span>102 Properties</span>
-          </div>
-        </a>
-      </div>
+        @foreach ($data['property_categories'] as $item)
+          @include('user/items/thumb_category_property_home')
+        @endforeach
     </div>
   </div>
 </section>
@@ -149,62 +107,9 @@
       </div>
       <div class="row">
       <div id="news_slider" class="owl-carousel">
-          <div class="item">
-            <div class="news_hovered">
-            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
-            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
-            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
-            </div>
-          </div>
-          <div class="item">
-            <div class="news_hovered">
-            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
-            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
-            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
-            </div>
-          </div>
-          <div class="item">
-            <div class="news_hovered">
-            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
-            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
-            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
-            </div>
-          </div>
-          <div class="item">
-            <div class="news_hovered">
-            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
-            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
-            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
-            </div>
-          </div>
-          <div class="item">
-            <div class="news_hovered">
-            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
-            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
-            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
-            </div>
-          </div>
-          <div class="item">
-            <div class="news_hovered">
-            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
-            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
-            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
-            </div>
-          </div>
-          <div class="item">
-            <div class="news_hovered">
-            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
-            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
-            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
-            </div>
-          </div>
-          <div class="item">
-            <div class="news_hovered">
-            <p class="top10 bottom15"><strong>Nearest mall Strategic in high tech Goes your villa</strong></p>
-            <p class="bottom30">Lorem ipsum dolor sit amet, adipiscing elit sed diam consectetuer elit sed diam consectetuer</p>
-            <span><i class="icon-clock4"></i>Feb 22, 2017</span>
-            </div>
-          </div>
+          @foreach ($data['news_latest'] as $item)
+            @include('user/items/thumb_news_home')
+          @endforeach
         </div>
       </div>
     </div>

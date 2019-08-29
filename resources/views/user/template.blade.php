@@ -100,54 +100,9 @@
                         <h5 class="title bottom20">@lang("global.menu.property_list_label")</h5>
                         <div class="row">
                           <div id="nav_slider" class="owl-carousel">
-                            <div class="item">
-                              <div class="image bottom15"> 
-                                <img src="{{ url('public/assets/user') }}/images/nav-slider1.jpg" alt="Featured Property"> 
-                                <span class="nav_tag yellow text-uppercase">for rent</span>
-                              </div>
-                              <h4><a href="property_detail1.html">Park Avenue Apartment</a></h4>
-                              <p>Towson London, MR 21501</p>
-                            </div>
-                            <div class="item">
-                              <div class="image bottom15"> 
-                                <img src="{{ url('public/assets/user') }}/images/nav-slider2.jpg" alt="Featured Property"> 
-                                <span class="nav_tag yellow text-uppercase">for rent</span>
-                              </div>
-                              <h4><a href="property_detail2.html">Park Avenue Apartment</a></h4>
-                              <p>Towson London, MR 21501</p>
-                            </div>
-                            <div class="item">
-                              <div class="image bottom15"> 
-                                <img src="{{ url('public/assets/user') }}/images/nav-slider3.jpg" alt="Featured Property"> 
-                                <span class="nav_tag yellow text-uppercase">for rent</span>
-                              </div>
-                              <h4><a href="property_detail3.html">Park Avenue Apartment</a></h4>
-                              <p>Towson London, MR 21501</p>
-                            </div>
-                            <div class="item">
-                              <div class="image bottom15"> 
-                                <img src="{{ url('public/assets/user') }}/images/nav-slider1.jpg" alt="Featured Property"> 
-                                <span class="nav_tag yellow text-uppercase">for rent</span>
-                              </div>
-                              <h4><a href="property_detail1.html">Park Avenue Apartment</a></h4>
-                              <p>Towson London, MR 21501</p>
-                            </div>
-                            <div class="item">
-                              <div class="image bottom15"> 
-                                <img src="{{ url('public/assets/user') }}/images/nav-slider2.jpg" alt="Featured Property"> 
-                                <span class="nav_tag yellow text-uppercase">for rent</span>
-                              </div>
-                              <h4><a href="property_detail2.html">Park Avenue Apartment</a></h4>
-                              <p>Towson London, MR 21501</p>
-                            </div>
-                            <div class="item">
-                              <div class="image bottom15"> 
-                                <img src="{{ url('public/assets/user') }}/images/nav-slider3.jpg" alt="Featured Property"> 
-                                <span class="nav_tag yellow text-uppercase">for rent</span>
-                              </div>
-                              <h4><a href="property_detail3.html">Park Avenue Apartment</a></h4>
-                              <p>Towson London, MR 21501</p>
-                            </div>
+                            @foreach ($data['property_sale'] as $item)
+                              @include('user/items/thumb_property_navigation')
+                            @endforeach
                           </div>
                         </div>
                       </div>
@@ -172,54 +127,9 @@
                         <h5 class="title bottom20">@lang("global.menu.property_list_label")</h5>
                         <div class="row">
                           <div id="nav_slider" class="owl-carousel">
-                            <div class="item">
-                              <div class="image bottom15"> 
-                                <img src="{{ url('public/assets/user') }}/images/nav-slider1.jpg" alt="Featured Property"> 
-                                <span class="nav_tag yellow text-uppercase">for rent</span>
-                              </div>
-                              <h4><a href="property_detail1.html">Park Avenue Apartment</a></h4>
-                              <p>Towson London, MR 21501</p>
-                            </div>
-                            <div class="item">
-                              <div class="image bottom15"> 
-                                <img src="{{ url('public/assets/user') }}/images/nav-slider2.jpg" alt="Featured Property"> 
-                                <span class="nav_tag yellow text-uppercase">for rent</span>
-                              </div>
-                              <h4><a href="property_detail2.html">Park Avenue Apartment</a></h4>
-                              <p>Towson London, MR 21501</p>
-                            </div>
-                            <div class="item">
-                              <div class="image bottom15"> 
-                                <img src="{{ url('public/assets/user') }}/images/nav-slider3.jpg" alt="Featured Property"> 
-                                <span class="nav_tag yellow text-uppercase">for rent</span>
-                              </div>
-                              <h4><a href="property_detail3.html">Park Avenue Apartment</a></h4>
-                              <p>Towson London, MR 21501</p>
-                            </div>
-                            <div class="item">
-                              <div class="image bottom15"> 
-                                <img src="{{ url('public/assets/user') }}/images/nav-slider1.jpg" alt="Featured Property"> 
-                                <span class="nav_tag yellow text-uppercase">for rent</span>
-                              </div>
-                              <h4><a href="property_detail1.html">Park Avenue Apartment</a></h4>
-                              <p>Towson London, MR 21501</p>
-                            </div>
-                            <div class="item">
-                              <div class="image bottom15"> 
-                                <img src="{{ url('public/assets/user') }}/images/nav-slider2.jpg" alt="Featured Property"> 
-                                <span class="nav_tag yellow text-uppercase">for rent</span>
-                              </div>
-                              <h4><a href="property_detail2.html">Park Avenue Apartment</a></h4>
-                              <p>Towson London, MR 21501</p>
-                            </div>
-                            <div class="item">
-                              <div class="image bottom15"> 
-                                <img src="{{ url('public/assets/user') }}/images/nav-slider3.jpg" alt="Featured Property"> 
-                                <span class="nav_tag yellow text-uppercase">for rent</span>
-                              </div>
-                              <h4><a href="property_detail3.html">Park Avenue Apartment</a></h4>
-                              <p>Towson London, MR 21501</p>
-                            </div>
+                            @foreach ($data['property_rent'] as $item)
+                              @include('user/items/thumb_property_navigation')
+                            @endforeach
                           </div>
                         </div>
                       </div>

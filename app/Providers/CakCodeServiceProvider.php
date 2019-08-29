@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Model\Profile;
 use App\Model\Config;
+use Astrotomic\Translatable\Locales;
 
 class CakCodeServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,9 @@ class CakCodeServiceProvider extends ServiceProvider
         if(request()->segment(1) == "id" || request()->segment(1) == "en"){
             $lang = request()->segment(1);
         }
+        // dd(Locales::current());
+        app('config')->set('translatable.locale', $lang);
+        // dd(app('config')->get('translatable.locale'));
         app()->setLocale($lang);
         app()->getLocale();
 

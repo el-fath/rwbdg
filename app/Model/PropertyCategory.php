@@ -7,13 +7,21 @@ use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\File;
+use App\Model\Property;
 
 class PropertyCategory extends Model
 {
     use Translatable;
     protected $guarded = [];
     public $translatedAttributes = ['title','description','slug'];
-    protected $appends 	= array('ImagePath','ImagePathSmall','ImagePathMedium');
+    protected $appends 	= array('ImagePath','ImagePathSmall','ImagePathMedium','CountProperty');
+
+
+    public function getCountPropertyAttribute()
+    {
+        $count = Property::where('category_id','=',$this->id)->count();
+        return $count;
+    }
 
     public function getImagePathAttribute()
     {
