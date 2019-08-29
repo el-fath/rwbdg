@@ -32,14 +32,14 @@
            
             	<div class="agent-p-contact">
                 	<div class="our-agent-box bottom30">
-                      <h2>get in touch</h2>
+                      <h2>@lang('global.contact_us_1')</h2>
                   </div>
                   <div class="agetn-contact-2 bottom30">
-                        <p><i class="icon-telephone114"></i> (+01) 34 56 7890</p>
-                        <p><i class=" icon-icons142"></i> info@castle.com</p>
+                        <p><i class="icon-telephone114"></i>{{$data['profile']['phone']}}</p>
+                        <p><i class=" icon-icons142"></i>{{$data['profile']['email']}}</p>
                         
-                        <p><i class="icon-browser2"></i>www.castle.com</p>
-                        <p><i class="icon-icons74"></i> Advisor Melbourne, Merrick Way, FL 12345 Australia</p>
+                        <p><i class="icon-browser2"></i>www.rwbdg.com</p>
+                        <p><i class="icon-icons74"></i>{{$data['profile']['address']}}</p>
                     </div>
                   <ul class="social_share bottom20">
                     <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i></a></li>
@@ -52,7 +52,7 @@
             
             	<div class="agent-p-form">
                 	<div class="our-agent-box bottom30">
-                        <h2>Send us a message</h2><span id="msg"></span>
+                        <h2>@lang('global.contact_us_2')</h2><span id="msg"></span>
                     </div>
                     
                     <div class="row">
@@ -60,16 +60,16 @@
                         @csrf
                         <div class="col-md-12">
                           <div class="single-query form-group">
-                            <input type="text" class="form-control" placeholder="Name" name="name" id="name" required>
+                            <input type="text" class="form-control" placeholder="@lang('global.contact_us_3')" name="name" id="name" required>
                           </div>
                           <div class="single-query form-group">
-                            <input type="tel" class="form-control" placeholder="Phone Number" name="phone" id="phone" required>
+                            <input type="tel" class="form-control" placeholder="@lang('global.contact_us_4')" name="phone" id="phone" required>
                           </div>
                           <div class="single-query form-group">
                             <input type="email" class="form-control" placeholder="Email" name="email" id="email" required>
                           </div>
                           <div class="single-query form-group">
-                            <textarea class="form-control" placeholder="Message" name="message" id="message" required></textarea>
+                            <textarea class="form-control" placeholder="@lang('global.contact_us_5')" name="message" id="message" required></textarea>
                           </div>
                           @if(config('services.recaptcha.key'))
                             <div class="g-recaptcha"
@@ -77,7 +77,7 @@
                             </div>
                           @endif
                           <br>
-                          <input type="submit" value="submit now" class="btn-blue">
+                          <input type="submit" value="@lang('global.contact_us_6')" class="btn-blue">
                         </div>
                       </form>
                       

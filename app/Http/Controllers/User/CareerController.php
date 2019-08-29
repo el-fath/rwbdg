@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Profile;
 
-class AboutController extends Controller
+class CareerController extends Controller
 {
     public function index()
     {
         $data['profile'] = Profile::find(1);
         // return $data['profile'];
-        return view("user/about",compact('data'));
+        return view("user/career",compact('data'));
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ReCaptchaFormRequest;
 use App\Http\Controllers\Controller;
 use App\Model\ContactMessage;
+use App\Model\Profile;
 use App\Model\Config;
 use Artesaos\SEOTools\Facades\SEOTools;
 
@@ -23,7 +24,8 @@ class ContactController extends Controller
 
     public function index()
     {
-        return view("user/contact");
+        $data['profile'] = Profile::find(1);
+        return view("user/contact", compact('data'));
     }
     
     public function store(ReCaptchaFormRequest $request)

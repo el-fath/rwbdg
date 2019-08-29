@@ -28,4 +28,12 @@ return [
 	"property_category_desc"     => "We are proud to present to you some of the best homes, apartments, offices e.g. for affordable prices.",
 	"phone_label"               => "Phone Number",
 	"email_label"               => "Email Address",
+
+	"contact_us_1"               => "GET IN TOUCH",
+	"contact_us_2"               => "SEND US A MESSAGE",
+	"contact_us_3"               => "name",
+	"contact_us_4"               => "phone number",
+	"contact_us_5"               => "message",
+	"contact_us_6"               => "submit now",
+
 ];

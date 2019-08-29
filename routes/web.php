@@ -17,6 +17,7 @@ Route::localized(function () {
     Route::get('/home', 'User\HomeController@index')->name('home');
     Route::get('/about', 'User\AboutController@index')->name('about');
     Route::get('/contact-us', 'User\ContactController@index')->name('contact_us');
+    Route::get('/career', 'User\CareerController@index')->name('career');
     Route::post('/contact-us', 'User\ContactController@store')->name('contact_us.store');
 
 });
