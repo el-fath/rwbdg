@@ -68,6 +68,12 @@
                                                         <textarea rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description id">{{ ($typeForm =="create") ? "" : $dataModel->{'description:id'} }}</textarea>
                                                     </div>
                                                 </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-lg-2">Tag Line</label>
+                                                    <div class="col-lg-10">
+                                                        <input type="text" required class="form-control" value="{{ ($typeForm =="create") ? "" : $dataModel->{'tag_line:id'} }}" placeholder="Tag line id" name="id[tag_line]">
+                                                    </div>
+                                                </div>
                                         </div>
         
                                         <div class="tab-pane fade" id="formen">
@@ -81,6 +87,12 @@
                                                     <label class="col-form-label col-lg-2">Description</label>
                                                     <div class="col-lg-10">
                                                         <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description en">{{ ($typeForm =="create") ? "" : $dataModel->{'description:en'} }}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-lg-2">Tag Line</label>
+                                                    <div class="col-lg-10">
+                                                        <input type="text" required class="form-control" value="{{ ($typeForm =="create") ? "" : $dataModel->{'tag_line:en'} }}" placeholder="Tag line en" name="en[tag_line]">
                                                     </div>
                                                 </div>
                                         </div>
