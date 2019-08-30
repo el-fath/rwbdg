@@ -7,6 +7,7 @@ use App\Http\Requests\ReCaptchaFormRequest;
 use App\Http\Controllers\Controller;
 use App\Model\ContactMessage;
 use App\Model\Profile;
+use App\Model\Property;
 use App\Model\Config;
 use Artesaos\SEOTools\Facades\SEOTools;
 
@@ -24,6 +25,8 @@ class ContactController extends Controller
 
     public function index()
     {
+        $data['property_rent'] = Property::where("type_transaction","rent")->orderBy('created_at', 'desc')->limit(6)->get();
+        $data['property_sale'] = Property::where("type_transaction","sale")->orderBy('created_at', 'desc')->limit(6)->get();
         $data['profile'] = Profile::find(1);
         return view("user/contact", compact('data'));
     }

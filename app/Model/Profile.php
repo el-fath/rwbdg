@@ -10,7 +10,7 @@ class Profile extends Model implements TranslatableContract
 {
     use Translatable;
     protected $guarded = [];
-    public $translatedAttributes = ['name','description'];
+    public $translatedAttributes = ['name','description','tag_line'];
 
 }
 

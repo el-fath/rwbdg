@@ -22,13 +22,13 @@
     <div class="container">
       <div class="row">
         
-           <div class="col-md-4 hidden-xs">
-           </div> 
+          <div class="col-md-4 hidden-xs">
+          </div> 
            
-           <div class="col-md-4 hidden-xs">
-           </div> 
+          <div class="col-md-4 hidden-xs">
+          </div> 
            
-           <div class="col-md-4 col-sm-4 col-xs-12  contact-text">
+          <div class="col-md-4 col-sm-4 col-xs-12  contact-text">
            
             	<div class="agent-p-contact">
                 	<div class="our-agent-box bottom30">
@@ -84,7 +84,7 @@
                     </div>
                 	
                 </div>
-                
+              
             </div>
             
         </div>
