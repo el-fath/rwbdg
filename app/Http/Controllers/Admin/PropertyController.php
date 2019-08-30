@@ -89,7 +89,7 @@ class PropertyController extends Controller
         $data['city_id']     = (isset($data['city_id'])) ? $data['city_id']        : 0;
         $data['district_id'] = (isset($data['district_id'])) ? $data['district_id']: 0;
         
-        $marketplaces = $dataReq['marketplace'];
+        $marketplaces = $data['marketplace'];
         unset($data['marketplace']);
         $data = Property::create($data);
 
