@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Model\Profile;
 use App\Model\Config;
+use App\Model\Property;
+use App\Model\News;
 use Astrotomic\Translatable\Locales;
 
 class CakCodeServiceProvider extends ServiceProvider
@@ -39,6 +41,9 @@ class CakCodeServiceProvider extends ServiceProvider
 
         $profile = Profile::find(1);
         $config = Config::find(1);
+        $property_rent = Property::where("type_transaction","rent")->orderBy('created_at', 'desc')->limit(6)->get();
+        $property_sale = Property::where("type_transaction","sale")->orderBy('created_at', 'desc')->limit(6)->get();
+        $newsFooter = News::orderBy('created_at', 'desc')->limit(2)->get();
 
         \Route::macro('currentUrl', function ($locale = null) {
             return route(\Route::currentRouteName(), \Route::current()->parameters(), true, $locale);
@@ -46,5 +51,8 @@ class CakCodeServiceProvider extends ServiceProvider
 
         View::share('profile', $profile);
         View::share('config', $config);
+        View::share('property_rent', $property_rent);
+        View::share('property_sale', $property_sale);
+        View::share('newsFooter', $newsFooter);
     }
 }

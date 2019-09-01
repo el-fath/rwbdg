@@ -1,6 +1,7 @@
 <?php
 return [
 	'welcome'                     => 'Selamat datang',
+	'title'						  => "Home",
 	"advance_search"              => [
 		"title"                      => "pencarian lanjutan",
 		"keyword_field"              => "Kata Kunci",

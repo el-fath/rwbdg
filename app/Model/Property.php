@@ -16,7 +16,7 @@ class Property extends Model
     protected $appends 	= array('ImagePath','ImagePathSmall','ImagePathMedium','Location');
 
 
-    public function marketplace()
+    public function marketplaces()
     {
         return $this->hasMany('App\Model\MarketplaceProperty','property_id', 'id');
     }

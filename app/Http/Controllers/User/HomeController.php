@@ -14,13 +14,14 @@ use Illuminate\Routing\Route;
 use Astrotomic\Translatable\Locales;
 use App;
 use Globals;
+use Lang;
 
 class HomeController extends Controller
 {
     public function __construct(Request $request)
     {
         $config = Config::find(1);
-        SEOTools::setTitle('Home - '.$config->name);
+        SEOTools::setTitle(trans('home.title').' - '.$config->name);
         SEOTools::setDescription($config->description);
         SEOTools::opengraph()->setUrl( url('/') );
         SEOTools::addImages($config->LogoPath);

@@ -22,27 +22,27 @@
             <p>{{$item->address}}</p> {{$item->location}}
         </div>
         <div class="property_meta transparent"> 
-            <span><i class="icon-select-an-objecto-tool"></i>{{$item->land_area}} m<sup>2</sup> Land Area</span> 
-            <span><i class="icon-select-an-objecto-tool"></i>{{$item->building_area}} m<sup>2</sup> Building Area</span> 
+            <span><i class="icon-select-an-objecto-tool"></i>{{$item->land_area}} m<sup>2</sup> @lang('property.thumb.land_label')</span> 
+            <span><i class="icon-select-an-objecto-tool"></i>{{$item->building_area}} m<sup>2</sup> @lang('property.thumb.building_label')</span> 
             {{-- <span></span>    --}}
         </div>
         <div class="property_meta transparent bottom30"> 
-            <span><i class="icon-bed"></i>{{$item->bedroom}}+{{$item->extra_bedroom}} Bedroom</span> 
-            <span><i class="icon-safety-shower"></i>{{$item->bathroom}}+{{$item->extra_bathroom}} Bathroom</span>   
+            <span><i class="icon-bed"></i>{{$item->bedroom}}+{{$item->extra_bedroom}} @lang('property.thumb.bedroom_label')</span> 
+            <span><i class="icon-safety-shower"></i>{{$item->bathroom}}+{{$item->extra_bathroom}} @lang('property.thumb.bathroom_label')</span>   
             {{-- <span></span>  --}}
         </div>
         <div class="favroute clearfix">
             <p><i class="icon-calendar2"></i> {{$item->created_at->diffForHumans() }} </p>
             <ul class="pull-right">
-            <li><a href="javascript:void(0)"><i class="icon-like"></i></a></li>
-            <li><a href="#seventy" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
+            {{-- <li><a href="javascript:void(0)"><i class="icon-like"></i></a></li> --}}
+            <li><a href="#marketplace" class="share_expender" data-toggle="collapse"><i class="icon-globe"></i></a></li>
             </ul>
         </div>
-        <div class="toggle_share collapse" id="seventy">
+        <div class="toggle_share collapse" id="marketplace">
             <ul>
-            <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-            <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-            <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
+                @foreach ($item->marketplaces as $val)
+                    <li><a target="_blank" href="{{$val->url}}" class=""><i class="icon-home"></i> {{$val->marketplace->title}}</a></li>
+                @endforeach
             </ul>
         </div>
         </div>

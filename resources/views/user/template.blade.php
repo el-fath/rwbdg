@@ -91,8 +91,8 @@
                         <h5 class="title">@lang("global.menu.property_list_label")</h5>
                         <div class="content">
                           <ul class="menu-col">
-                            <li><a href="listing1.html">@lang("global.menu.secondary_property_label")</a></li>
-                            <li><a href="index7.html">@lang("global.menu.new_property_label")</a></li>
+                            <li><a href="{{route("property")}}">@lang("global.menu.secondary_property_label")</a></li>
+                            <li><a href="{{route("property")}}">@lang("global.menu.new_property_label")</a></li>
                           </ul>
                         </div>
                       </div>
@@ -100,7 +100,7 @@
                         <h5 class="title bottom20">@lang("global.menu.property_list_label")</h5>
                         <div class="row">
                           <div id="nav_slider" class="owl-carousel">
-                            @foreach ($data['property_sale'] as $item)
+                            @foreach ($property_sale as $item)
                               @include('user/items/thumb_property_navigation')
                             @endforeach
                           </div>
@@ -119,7 +119,7 @@
                         <h5 class="title">@lang("global.menu.property_list_label")</h5>
                         <div class="content">
                           <ul class="menu-col">
-                            <li><a href="listing1.html">@lang("global.menu.secondary_property_label")</a></li>
+                            <li><a href="{{route("property")}}">@lang("global.menu.secondary_property_label")</a></li>
                           </ul>
                         </div>
                       </div>
@@ -127,7 +127,7 @@
                         <h5 class="title bottom20">@lang("global.menu.property_list_label")</h5>
                         <div class="row">
                           <div id="nav_slider" class="owl-carousel">
-                            @foreach ($data['property_rent'] as $item)
+                            @foreach ($property_rent as $item)
                               @include('user/items/thumb_property_navigation')
                             @endforeach
                           </div>
@@ -143,8 +143,8 @@
                   <a href="#." class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.what_up_label")</a>
                   <ul class="dropdown-menu">
                     <li class="dropdown">
-                      <a href="#.">@lang("global.menu.news_label")</a>
-                      <a href="#.">@lang("global.menu.gallery_label")</a>
+                      <a href="{{route("news")}}">@lang("global.menu.news_label")</a>
+                      <a href="{{route("news")}}">@lang("global.menu.gallery_label")</a>
                     </li>
                   </ul>
               </li>
@@ -180,7 +180,7 @@
           <div class="icons"><i class="icon-telephone114"></i></div>
           <ul class="text-center">
             <li><strong>@lang("global.phone_label")</strong></li>
-            <li>+1 900 234 567 - 68</li>
+            <li>{{$profile->phone}}</li>
           </ul>
         </div>
       </div>
@@ -188,8 +188,8 @@
         <div class="info-box">
           <div class="icons"><i class="icon-icons74"></i></div>
           <ul class="text-center">
-            <li><strong>Manhattan Hall,</strong></li>
-            <li>Castle Melbourne, australia</li>
+            <li><strong>Address</strong></li>
+            <li>{{$profile->address}}</li>
           </ul>
         </div>
       </div>
@@ -198,7 +198,7 @@
           <div class="icons"><i class="icon-icons142"></i></div>
           <ul class="text-center">
             <li><strong>@lang("global.email_label")</strong></li>
-            <li><a href="#.">info@castle.com</a></li>
+            <li><a href="#.">{{$profile->email}}</a></li>
           </ul>
         </div>
       </div>
@@ -208,36 +208,31 @@
     <div class="row">
       <div class="col-md-3 col-sm-6">
         <div class="footer_panel bottom30">
-          <a href="#." class="logo bottom30"><img src="{{ url('public/assets/user') }}/images/logo-white.png" alt="logo"></a>
-          <p class="bottom15">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
-            tempor cum consectetuer 
-            adipiscing.
+        <a href="#." class="logo bottom30"><img src="{{$config->LogoPath}}" alt="logo" style="height: 80px;"></a>
+          <p class="bottom15">{{$profile->tag_line}}
           </p>
-          <p class="bottom15">If you are interested in castle do not wait and <a href="#.">BUY IT NOW!</a></p>
         </div>
       </div>
       <div class="col-md-3 col-sm-6">
         <div class="footer_panel bottom30">
-          <h4 class="bottom30 heading">Search by Area</h4>
+          <h4 class="bottom30 heading">Menu</h4>
           <table style="width:100%;">
             <tbody>
               <tr>
                 <td>
                   <ul class="links">
-                    <li><a href="#."><i></i>About</a></li>
-                    <li class="active"><a href="#."><i></i>News</a></li>
-                    <li><a href="#."> <i></i>Contacts</a></li>
-                    <li><a href="#."><i></i>Testimonials</a></li>
-                    <li><a href="#."><i></i>Typography</a></li>
+                    <li><a href="#."><i></i>@lang('global.menu.home_label')</a></li>
+                    <li><a href="#."><i></i>@lang('global.menu.about_us_label')</a></li>
+                    <li><a href="#."> <i></i>@lang('global.menu.buy_label')</a></li>
+                    <li><a href="#."><i></i>@lang('global.menu.rent_label') </a></li>
+                    <li><a href="#."><i></i>@lang('global.menu.specialist_label')</a></li>
                   </ul>
                 </td>
                 <td class="text-right">
                   <ul class="links text-left">
-                    <li><a href="#."><i></i>Services</a></li>
-                    <li class="active"><a href="#."><i></i>Careers</a></li>
-                    <li><a href="#."><i></i>Our team</a></li>
-                    <li><a href="#."><i></i>Shop</a></li>
-                    <li><a href="#."><i></i>Our approach</a></li>
+                    <li><a href="#."><i></i>@lang('global.menu.news_label')</a></li>
+                    <li><a href="#."><i></i>@lang('global.menu.gallery_label')</a></li>
+                    <li><a href="#."><i></i>@lang('global.menu.contact_us')</a></li>
                   </ul>
                 </td>
               </tr>
@@ -248,30 +243,23 @@
       <div class="col-md-3 col-sm-6">
         <div class="footer_panel bottom30">
           <h4 class="bottom30 heading">@lang("global.latest_news_label")</h4>
-          <div class="media bottom30">
-            <div class="media-body">
-              <a href="#.">Nearest mall in high tech Goes google map your villa</a>
-              <span><i class="icon-clock5"></i>Feb 22, 2017</span>
-            </div>
-          </div>
-          <div class="media">
-            <div class="media-body">
-              <a href="#.">Nearest mall in high tech Goes google map your villa</a>
-              <span><i class="icon-clock5"></i>Feb 22, 2017</span>
-            </div>
-          </div>
+          
+          @foreach ($newsFooter as $item)
+              @include('user/items/thumb_news_footer')
+          @endforeach
+
         </div>
       </div>
       <div class="col-md-3 col-sm-6">
         <div class="footer_panel bottom30">
-          <h4 class="bottom30 heading">Subscribe</h4>
+          {{-- <h4 class="bottom30 heading">Subscribe</h4>
           <p>Sign up with your email to get latest updates and offers</p>
           <form class="top30">
             <input class="search" placeholder="Enter your Email" type="search">
             <a class="button_s" href="#">
             <i class="icon-mail-envelope-open"></i>
             </a>
-          </form>
+          </form> --}}
         </div>
       </div>
     </div>
@@ -279,7 +267,7 @@
     <div class="copyright_simple">
       <div class="row">
         <div class="col-md-6 col-sm-5 top20 bottom20">
-          <p>Copyright &copy; 2017 <span>Castle</span>. All rights reserved.</p>
+          <p>Copyright &copy; 2019 <span>Ray White</span>. All rights reserved.</p>
         </div>
         <div class="col-md-6 col-sm-7 text-right top15 bottom10">
           <ul class="social_share">

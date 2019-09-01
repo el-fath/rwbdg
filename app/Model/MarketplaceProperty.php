@@ -11,11 +11,11 @@ class MarketplaceProperty extends Model
     
     public function marketplace()
     {
-        return $this->hasOne('App\Model\PropertyMarketplace','marketplace_id', 'id');
+        return $this->hasOne('App\Model\PropertyMarketplace','id', 'marketplace_id');
     }
 
     public function property()
     {
-        return $this->hasOne('App\Model\Property','property_id', 'id');
+        return $this->hasOne('App\Model\Property','id', 'property_id');
     }
 }

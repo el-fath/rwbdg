@@ -1,6 +1,7 @@
 <?php
 return [
 	'welcome'                     => 'Welcome',
+	'title'						  => "Home",
 	"advance_search"              => [
 		"title"                      => "advance search",
 		"keyword_field"              => "Keyword",

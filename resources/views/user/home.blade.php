@@ -74,7 +74,7 @@
       @endforeach
     </div>
     <div class="col-sm-12 text-center top20">
-       <a href="listing1.html" class="btn-dark border_radius uppercase margin40">@lang("global.more_listing_btn")</a>
+       <a href="{{route("property")}}" class="btn-dark border_radius uppercase margin40">@lang("global.more_listing_btn")</a>
     </div>
   </div>
 </section>
@@ -88,9 +88,11 @@
         <p class="heading_space">@lang('global.property_category_desc')</p>
       </div>
     </div>
-    <div id="type-grid" class="cbp cbp-l-grid-mosaic-flat">
+    <div id="" class="padding row">
         @foreach ($data['property_categories'] as $item)
-          @include('user/items/thumb_category_property_home')
+          <div class="col-lg-4">
+            @include('user/items/thumb_category_property_home')
+          </div>
         @endforeach
     </div>
   </div>
