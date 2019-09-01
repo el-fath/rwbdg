@@ -41,7 +41,7 @@
         <div class="toggle_share collapse" id="marketplace">
             <ul>
                 @foreach ($item->marketplaces as $val)
-                    <li><a target="_blank" href="{{$val->url}}" class=""><i class="icon-home"></i> {{$val->marketplace->title}}</a></li>
+                    <li><a target="_blank" href="{{$val->url}}" class="facebook"><i class="icon-home"></i> {{$val->marketplace->title}}</a></li>
                 @endforeach
             </ul>
         </div>

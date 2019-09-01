@@ -154,7 +154,7 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle language-header" data-toggle="dropdown" href="" aria-expanded="false">{{(app()->getLocale() == 'id') ? "ID" : "EN"}}
                     <ul class="dropdown-menu">
-                    <li><a class="current" href="{{\Route::currentUrl('id')}}">ID</a></li>
+                      <li><a class="current" href="{{\Route::currentUrl('id')}}">ID</a></li>
                       <li><a class="" href="{{\Route::currentUrl('en')}}">EN</a></li>
                     </ul>
                 </li>

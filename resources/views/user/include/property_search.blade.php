@@ -1,48 +1,40 @@
 <aside class="col-md-4 col-xs-12">
-        <div class="property-query-area clearfix">
+        <div class="property-query-area clearfix" style="background: #333333">
         <div class="col-md-12">
-            <h3 class="text-uppercase bottom20 top15">>@lang("home.advance_search.property_transaction")</h3>
+            <h3 class="text-uppercase bottom20 top15">@lang("home.advance_search.title")</h3>
         </div>
         <form class="callus">
             <div class="single-query form-group col-sm-12">
-            <input type="text" class="keyword-input" placeholder="Keyword (e.g. 'office')">
+            <input type="text" class="keyword-input" placeholder="@lang("home.advance_search.keyword_field")">
             </div>
             <div class="single-query form-group col-sm-12">
             <div class="intro">
                 <select>
-                <option selected="" value="any">Location</option>
-                <option>All areas</option>
-                <option>Bayonne </option>
-                <option>Greenville</option>
-                <option>Manhattan</option>
-                <option>Queens</option>
-                <option>The Heights</option>
+                    <option selected="" value="any">@lang("home.advance_search.property_transaction")</option>
+                    @foreach ($data['property_transaction'] as $key => $item)
+                        <option value="{{$key}}">{{$item}}</option>
+                    @endforeach
                 </select>
             </div>
             </div>
             <div class="single-query form-group col-sm-12">
             <div class="intro">
                 <select>
-                <option class="active">Property Type</option>
-                <option>All areas</option>
-                <option>Bayonne </option>
-                <option>Greenville</option>
-                <option>Manhattan</option>
-                <option>Queens</option>
-                <option>The Heights</option>
+                    <option class="active">@lang("home.advance_search.property_category_field")</option>
+                    {{-- <option value="">@lang("home.advance_search.category_option")</option> --}}
+                    @foreach ($data['property_categories'] as $item)
+                        <option value="{{$item->id}}">{{$item->title}}</option>
+                    @endforeach
                 </select>
             </div>
             </div>
             <div class="single-query form-group col-sm-12">
             <div class="intro">
                 <select>
-                <option class="active">Property Status</option>
-                <option>All areas</option>
-                <option>Bayonne </option>
-                <option>Greenville</option>
-                <option>Manhattan</option>
-                <option>Queens</option>
-                <option>The Heights</option>
+                        <option class="active">@lang("home.advance_search.property_type_field")</option>
+                        @foreach ($data['property_type'] as $key => $item)
+                          <option value="{{$key}}">{{$item}}</option>
+                        @endforeach
                 </select>
             </div>
             </div>
@@ -52,7 +44,7 @@
                 <div class="single-query form-group">
                     <div class="intro">
                     <select>
-                        <option class="active">Min Beds</option>
+                        <option class="active">@lang("home.advance_search.min_bed_field")</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -67,13 +59,13 @@
                 <div class="single-query form-group">
                     <div class="intro">
                     <select>
-                        <option class="active">Min Baths</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
+                            <option class="active">@lang("home.advance_search.min_bath_field")</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
                     </select>
                     </div>
                 </div>
@@ -84,29 +76,29 @@
             <div class="row">
                 <div class="col-sm-6">
                 <div class="single-query form-group">
-                    <input type="text" class="keyword-input" placeholder="Min Area (sq ft)">
+                    <input type="text" class="keyword-input" placeholder="@lang("home.advance_search.min_landarea_field")">
                 </div>
                 </div>
                 <div class="col-sm-6">
                 <div class="single-query form-group">
-                    <input type="text" class="keyword-input" placeholder="Max Area (sq ft)">
+                    <input type="text" class="keyword-input" placeholder="@lang("home.advance_search.min_buldingarea_field")">
                 </div>
                 </div>
             </div>
             </div>
             <div class="col-sm-12 bottom10">
             <div class="single-query-slider">
-                <label><strong>Price Range:</strong></label>
+                <label class="pull-left">@lang("home.advance_search.price_range_field"):</label>
                 <div class="price text-right">
                 <span>$</span>
                 <div class="leftLabel"></div>
                 <span>to $</span>
                 <div class="rightLabel"></div>
                 </div>
-                <div data-range_min="0" data-range_max="1500000" data-cur_min="0" data-cur_max="1500000" class="nstSlider">
-                <div class="bar"></div>
-                <div class="leftGrip"></div>
-                <div class="rightGrip"></div>
+                <div data-range_min="0" data-range_max="1000000000000" data-cur_min="0" data-cur_max="0" class="nstSlider">
+                    <div class="bar"></div>
+                    <div class="leftGrip"></div>
+                    <div class="rightGrip"></div>
                 </div>
             </div>
             </div>
