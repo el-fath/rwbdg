@@ -14,13 +14,9 @@
                 @endforeach
              </div>
              <div class="row margin_bottom">
-                <div class="col-md-12">
-                   <ul class="pager">
-                      <li><a href="#.">1</a></li>
-                      <li class="active"><a href="#.">2</a></li>
-                      <li><a href="#.">3</a></li>
-                   </ul>
-                </div>
+                  <div class="col-sm-12 text-center top20">
+                     <a href="{{route("property")}}" class="btn-dark border_radius uppercase margin40">@lang("global.more_news_btn")</a>
+                  </div>
              </div>
           </div>
           <aside class="col-md-4 col-xs-12">
@@ -34,32 +30,19 @@
                    </form>
                 </div>
                 <div class="col-md-12">
-                   <h3 class="bottom20">Categories</h3>
+                   <h3 class="bottom20">@lang('home.categories_label')</h3>
                    <ul class="pro-list bottom20">
-                      <li>
-                         Air Conditioning
-                      </li>
-                      <li>
-                         Barbeque
-                      </li>
-                      <li>
-                         Dryer
-                      </li>
-                      <li>
-                         Laundry
-                      </li>
-                      <li>
-                         Refrigerator
-                      </li>
-                      <li>
-                         Swimming Pool
-                      </li>
+                     @foreach ($data['news_category'] as $item)
+                        <li>
+                           {{$item->title}}
+                        </li>
+                     @endforeach 
                    </ul>
                 </div>
              </div>
              <div class="row">
                 <div class="col-md-12">
-                   <h3 class="bottom40 margin40">Featured Properties</h3>
+                   <h3 class="bottom40 margin40">@lang('home.latest_property_label')</h3>
                 </div>
              </div>
              @foreach ($data['property_latest'] as $item)
@@ -67,11 +50,11 @@
              @endforeach
              <div class="row">
                 <div class="col-md-12">
-                   <h3 class="margin40 bottom20">Featured Properties</h3>
+                   <h3 class="margin40 bottom20">@lang('home.featured_property_label')</h3>
                 </div>
                 <div class="col-md-12 padding-t-30">
                    <div id="agent-2-slider" class="owl-carousel">
-                      @foreach ($data['property_latest'] as $item)
+                      @foreach ($data['property_featured'] as $item)
                           @include('user/items/thumb_property_side_slide')
                       @endforeach
                    </div>
@@ -88,10 +71,8 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-8 bottom30">
-        <h2>We Don’t Just Find <br> <span class="t_yellow">Great Deals</span> We Create Them</h2>
-        <h4 class="top20">We are proud to present to you some of the best homes, apartments, offices e.g.
-        across Australia for affordable prices.</h4>
-        <a href="" class="text-uppercase btn-white top20">view all listings</a>
+        <h2>@lang('home.home1_label')</h2>
+        <h4 class="top20">@lang('home.home1_desc_label')</h4>
       </div>
     </div>
   </div>

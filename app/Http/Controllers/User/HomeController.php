@@ -9,6 +9,7 @@ use App\Model\Slide;
 use App\Model\Property;
 use App\Model\PropertyCategory;
 use App\Model\News;
+use App\Model\NewsCategory;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Routing\Route;
 use Astrotomic\Translatable\Locales;
@@ -36,10 +37,10 @@ class HomeController extends Controller
         $data['property_transaction'] = Globals::TYPE_TRANSACTION;
         $data['property_categories'] = PropertyCategory::all();
         
-        $data['property_rent'] = Property::where("type_transaction","rent")->orderBy('created_at', 'desc')->limit(6)->get();
-        $data['property_sale'] = Property::where("type_transaction","sale")->orderBy('created_at', 'desc')->limit(6)->get();
         $data['property_latest'] = Property::orderBy('created_at', 'desc')->limit(9)->get();
+        $data['property_featured'] = Property::where('is_featured', '1')->orderBy('created_at', 'desc')->limit(9)->get();
         $data['news_latest'] = News::orderBy('created_at', 'desc')->limit(8)->get();
+        $data['news_category'] = NewsCategory::orderBy('created_at', 'desc')->limit(8)->get();
 
         return view("user/home",compact('data'));
     }

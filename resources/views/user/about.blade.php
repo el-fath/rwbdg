@@ -8,21 +8,21 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <h1 class="text-uppercase">@lang('about.about_us')</h1>
-          {{-- <p>Ray White Indonesia</p> --}}
-          <p>
+          <p>{{ $profile->name }}</p>
+          {{-- <p>
             {{ $profile->social_facebook }}
-          </p>
-          <ol class="breadcrumb text-center">
+          </p> --}}
+          {{-- <ol class="breadcrumb text-center">
             <li><a href="#">Home</a></li>
             <li><a href="#">@lang('about.page')</a></li>
             <li class="active">@lang('about.about')</li>
-          </ol>
+          </ol> --}}
         </div>
       </div>
     </div>
   </section>
   <section id="faqs" class="padding_half bottom40">
-  <img src="{{ $config->LogoPath }}" style="max-height: 150px; width: 150px; margin:auto; display:block" class="logo" alt=""><br>
+  <img src="{{ $config->LogoPath }}" style="width: 250px; margin:auto; display:block" class="logo" alt=""><br>
   <div class="container" align="center">
     <ul class="social_share bottom20">
       <li><a href="https://www.facebook.com/{{ $profile->social_facebook }}" target="_blank"
@@ -39,14 +39,16 @@
       </li>
     </ul>
   </div>
+  <br>
   <div class="container">
       <div class="row">
         <div align="justify" class="col-sm-12">
-          <p>
+          <h1>
             {{ $profile->name }}
-          </p>
+          </h1>
+          <br>
           <p>
-            {{ $profile->description }}
+            {!! $profile->description !!}
           </p>
         </div>
       </div>

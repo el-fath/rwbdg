@@ -1,6 +1,6 @@
 <div class="row padding-b-30 padding-t-30">
     <div class="col-md-4 col-sm-4 col-xs-12 p-image image bottom20">
-        <img src="{{$item->title}}" alt="image" style="width: 80px;height: 77px;"/>
+        <img src="{{$item->ImagePathSmall}}" alt="image" style="width: 80px;height: 77px;"/>
     </div>
     <div class="col-md-8 col-sm-8 col-xs-12">
         <div class="feature-p-text">

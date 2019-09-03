@@ -20,6 +20,7 @@ return [
 	"rent_label" => "Rent",
 	"sell_label" => "Sell",
 	"more_listing_btn"          => "more listings",
+	"more_news_btn"          => "more news",
 	"latest_news_label"         => "Latest News",
 	"latest_property_label"     => "Property Terbaru",
 	"latest_property_desc"     	=> "We have many properties for you. See the list of Preferred Properties.",
