@@ -3,7 +3,6 @@
 <!--About Us -->
 <section id="about" class="padding_bottom">
     
-  @foreach ($data['profile'] as $val)
   <section class="page-banner padding">
     <div class="container">
       <div class="row">
@@ -11,7 +10,7 @@
           <h1 class="text-uppercase">@lang('about.about_us')</h1>
           {{-- <p>Ray White Indonesia</p> --}}
           <p>
-            {{ $val->tag_line }}
+            {{ $profile->social_facebook }}
           </p>
           <ol class="breadcrumb text-center">
             <li><a href="#">Home</a></li>
@@ -23,21 +22,36 @@
     </div>
   </section>
   <section id="faqs" class="padding_half bottom40">
-  <img src="{{ $config->LogoPath }}" style="max-height: 150px; width: 150px; margin:auto; display:block" class="logo" alt="">
+  <img src="{{ $config->LogoPath }}" style="max-height: 150px; width: 150px; margin:auto; display:block" class="logo" alt=""><br>
+  <div class="container" align="center">
+    <ul class="social_share bottom20">
+      <li><a href="https://www.facebook.com/{{ $profile->social_facebook }}" target="_blank"
+        title="https://www.facebook.com/{{ $profile->social_facebook }}" class="facebook">
+        <i class="icon-facebook-1"></i></a>
+      </li>
+      <li><a href="https://www.twitter.com/{{ $profile->social_twitter }}" target="_blank"
+        title="https://www.twitter.com/{{ $profile->social_twitter }}" class="twitter">
+        <i class="icon-twitter-1"></i></a>
+      </li>
+      <li><a href="https://www.instagram.com/{{ $profile->social_twitter }}" target="_blank"
+        title="https://www.instagram.com/{{ $profile->social_twitter }}" class="google">
+        <i class="icon-instagram"></i></a>
+      </li>
+    </ul>
+  </div>
   <div class="container">
       <div class="row">
         <div align="justify" class="col-sm-12">
           <p>
-            {{ $val->name }}
+            {{ $profile->name }}
           </p>
           <p>
-            {{ $val->description }}
+            {{ $profile->description }}
           </p>
         </div>
       </div>
     </div>
   </section>
-  @endforeach
   
 </section>
   
