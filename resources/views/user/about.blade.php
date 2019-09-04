@@ -8,11 +8,11 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <h1 class="text-uppercase">@lang('about.about_us')</h1>
-          <p>{{ $profile->name }}</p>
-          {{-- <p>
-            {{ $profile->social_facebook }}
-          </p> --}}
-          {{-- <ol class="breadcrumb text-center">
+          {{-- <p>Ray White Indonesia</p> --}}
+          <p>
+            {{ $profile->tag_line }}
+          </p>
+          <ol class="breadcrumb text-center">
             <li><a href="#">Home</a></li>
             <li><a href="#">@lang('about.page')</a></li>
             <li class="active">@lang('about.about')</li>

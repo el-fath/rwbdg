@@ -9,6 +9,7 @@ use App\Model\ContactMessage;
 use App\Model\Profile;
 use App\Model\Property;
 use App\Model\Config;
+use Mail;
 use Artesaos\SEOTools\Facades\SEOTools;
 
 class ContactController extends Controller
@@ -42,7 +43,8 @@ class ContactController extends Controller
             ];
             
             // $data = ContactMessage::create($data);
-            
+            $this->MailNotification($data);
+
             return response()->json([
                 'Code'             => 200,
                 'Message'          => "Success"
@@ -53,5 +55,23 @@ class ContactController extends Controller
                 'Message'          => $e->getMessage()
             ]);
         }
+    }
+
+    public function MailNotification($request)
+    {
+        $data = [
+            'pesan' => "Anda mendapat pesan jon",
+            'request' => $request,
+        ];
+
+        $beautymail = app()->make(\Snowfire\Beautymail\Beautymail::class, ['settings' => null]);
+        $beautymail->send('mail.notif', $data, function($message) use ($request)
+        {
+            $message
+                ->from('info@royaldiamondclinic.com',"Royal Diamond")
+                ->to("rochman003@gmail.com", "Royal Diamond")
+                // ->cc($request->email,$request->name)
+                ->subject("Consultation Request");
+        });
     }
 }
