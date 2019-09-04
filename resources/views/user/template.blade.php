@@ -80,21 +80,21 @@
           </div>
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-left" data-in="fadeIn" data-out="fadeOut" style="margin-left: 15px;">
-              <li><a href="{{route("index")}}">@lang("global.menu.home_label")</a></li>
-              <li><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li>
+              <li class="{{($data['menu'] == "home") ? "active" : ""}}"><a href="{{route("index")}}">@lang("global.menu.home_label")</a></li>
+              <li class="{{($data['menu'] == "about") ? "active" : ""}}"><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li>
               
-              <li><a href="{{route("contact_us")}}">@lang("global.menu.specialist_label")</a></li>
-              <li><a href="{{route("contact_us")}}">@lang("global.menu.career_label")</a></li>
-              <li class="dropdown">
+              <li class="{{($data['menu'] == "specialist") ? "active" : ""}}"><a href="{{route("contact_us")}}">@lang("global.menu.specialist_label")</a></li>
+              <li class="{{($data['menu'] == "career") ? "active" : ""}}"><a href="{{route("contact_us")}}">@lang("global.menu.career_label")</a></li>
+              <li class="dropdown {{($data['menu'] == "news" || $data['menu'] == "gallery") ? "active" : ""}}">
                   <a href="#." class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.what_up_label")</a>
                   <ul class="dropdown-menu">
                     <li class="dropdown">
                       <a href="{{route("news")}}">@lang("global.menu.news_label")</a>
-                      <a href="{{route("news")}}">@lang("global.menu.gallery_label")</a>
+                      <a href="{{route("gallery")}}">@lang("global.menu.gallery_label")</a>
                     </li>
                   </ul>
               </li>
-              <li><a href="{{route("contact_us")}}">@lang("global.menu.contact_us")</a></li>
+              <li class="{{($data['menu'] == "contact") ? "active" : ""}}"><a href="{{route("contact_us")}}">@lang("global.menu.contact_us")</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -168,16 +168,15 @@
                   <ul class="links">
                     <li><a href="#."><i></i>@lang('global.menu.home_label')</a></li>
                     <li><a href="#."><i></i>@lang('global.menu.about_us_label')</a></li>
-                    <li><a href="#."> <i></i>@lang('global.menu.buy_label')</a></li>
-                    <li><a href="#."><i></i>@lang('global.menu.rent_label') </a></li>
-                    <li><a href="#."><i></i>@lang('global.menu.specialist_label')</a></li>
+                    <li><a href="#."><i></i>@lang('global.menu.news_label')</a></li>
+                   
                   </ul>
                 </td>
                 <td class="text-right">
                   <ul class="links text-left">
-                    <li><a href="#."><i></i>@lang('global.menu.news_label')</a></li>
-                    <li><a href="#."><i></i>@lang('global.menu.gallery_label')</a></li>
-                    <li><a href="#."><i></i>@lang('global.menu.contact_us')</a></li>
+                      <li><a href="#."><i></i>@lang('global.menu.gallery_label')</a></li>
+                      <li><a href="#."><i></i>@lang('global.menu.specialist_label')</a></li>
+                      <li><a href="#."><i></i>@lang('global.menu.contact_us')</a></li>
                   </ul>
                 </td>
               </tr>

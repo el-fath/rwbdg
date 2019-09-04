@@ -13,6 +13,15 @@ class Album extends Model
     use Translatable;
     protected $guarded = [];
     public $translatedAttributes = ['title','description','slug'];
+    protected $appends 	= array('ThumbPath');
+
+    public function getThumbPathAttribute()
+    {
+        $photo = AlbumPhoto::where("album_id",$this->id)->limit(1)->first();
+        if($photo){
+            return $photo;
+        }
+    }
 }
 
 class AlbumTranslation extends Model {

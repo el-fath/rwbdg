@@ -29,6 +29,7 @@ class PropertyController extends Controller
 
     public function index()
     {
+        $data['menu'] = "property";
         $data['property_type'] = Globals::TYPE_PROPERTY;
         $data['property_transaction'] = Globals::TYPE_TRANSACTION;
         $data['property_categories'] = PropertyCategory::all();
