@@ -4,13 +4,13 @@
     'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost',
+    'url' => 'http://localhost/rwbdg/',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'id',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:K7yir8KQ41Bham73cKV2Gxu7H8PKCpcWv2O/fuKQU1A=',
+    'key' => 'base64:7Tj8oPl+pOXFuZbhAgBG/3KUzUUKKbxh3V6Cqio0de4=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -181,7 +181,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\framework/cache/data',
+        'path' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -366,13 +366,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\app',
+        'root' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\app/public',
-        'url' => 'http://localhost/storage',
+        'root' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\app/public',
+        'url' => 'http://localhost/rwbdg//storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -527,13 +527,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\logs/laravel.log',
+        'path' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\logs/laravel.log',
+        'path' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -597,7 +597,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\rwbdg\\resources\\views/vendor/mail',
+        0 => 'E:\\xampp\\htdocs\\rwbdg\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
@@ -740,7 +740,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\framework/sessions',
+    'files' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -777,9 +777,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\rwbdg\\resources\\views',
+      0 => 'E:\\xampp\\htdocs\\rwbdg\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\framework\\views',
+    'compiled' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\framework\\views',
   ),
   'debug-server' => 
   array (
@@ -847,7 +847,7 @@
     ),
     'temporary_files' => 
     array (
-      'local_path' => 'C:\\Users\\El-fath\\AppData\\Local\\Temp',
+      'local_path' => 'C:\\Users\\Ikko\\AppData\\Local\\Temp',
       'remote_disk' => NULL,
     ),
   ),

@@ -1,7 +1,12 @@
 <?php
 return [
 	'welcome'                     => 'Selamat datang',
-	'title'						  => "Home",
+	'title'						                 => "Home",
+	'home1_label'						           => "Kami Tidak Hanya Menemukan Tawaran Yang Hebat, Kami Membuatnya",
+	'home1_desc_label'						      => "Kami dengan bangga mempersembahkan kepada Anda beberapa rumah, apartemen, kantor terbaik, mis. di seluruh Indonesia Untuk harga yang terjangkau.",
+	"featured_property_label" => "Properti Unggulan",
+	"latest_property_label" => "Properti Terbaru",
+	"categories_label" => "Kategori",
 	"advance_search"              => [
 		"title"                      => "pencarian lanjutan",
 		"keyword_field"              => "Kata Kunci",

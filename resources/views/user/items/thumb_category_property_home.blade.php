@@ -1,5 +1,5 @@
 <div class="cbp-item">
-    <a href="listing1.html">
+    <a href="#">
         <img src="{{ $item->ImagePathSmall }}" alt="{{ $item->title }}" class="img-responsive" style="height: 260px;">
         <div class="grid-caption">
         <h3>{{ $item->title }}</h3>

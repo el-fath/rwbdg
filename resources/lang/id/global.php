@@ -20,6 +20,7 @@ return [
 	"rent_label" => "Sewa",
 	"sell_label" => "Jual",
 	"more_listing_btn"        => "lebih banyak listing",
+	"more_news_btn"          => "lebih banyak berita",
 	"latest_news_label"       => "Berita terbaru",
 	"latest_property_label"   => "Property Terbaru",
 	"latest_property_desc"    => "Kami memiliki banyak Properti untuk anda. Lihat daftar Properti pilihan.",

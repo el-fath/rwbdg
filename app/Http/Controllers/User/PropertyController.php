@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Config;
 use App\Model\Slide;
 use App\Model\Property;
+use App\Model\PropertyCategory;
 
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Routing\Route;
@@ -28,6 +29,9 @@ class PropertyController extends Controller
 
     public function index()
     {
+        $data['property_type'] = Globals::TYPE_PROPERTY;
+        $data['property_transaction'] = Globals::TYPE_TRANSACTION;
+        $data['property_categories'] = PropertyCategory::all();
         $data['property_latest'] = Property::orderBy('created_at', 'desc')->get();
         return view("user/property",compact('data'));
     }

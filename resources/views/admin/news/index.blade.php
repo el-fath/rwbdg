@@ -82,7 +82,7 @@
                         </td>
                         <td><a href="#">{{ $val->{'title:id'} }}</a></td>
                         <td>{{ $val->{'slug:id'} }}</td>
-                        <td>{{  $val->{'description:id'} }}</td>
+                        <td>{!! str_limit(strip_tags($val->{'description:id'}), 50) !!}...</td>
                         <td class="text-center">
                             <div class="list-icons">
                                 <div class="dropdown">

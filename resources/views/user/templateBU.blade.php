@@ -82,7 +82,61 @@
             <ul class="nav navbar-nav navbar-left" data-in="fadeIn" data-out="fadeOut" style="margin-left: 15px;">
               <li><a href="{{route("index")}}">@lang("global.menu.home_label")</a></li>
               <li><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li>
-              
+              <li class="dropdown megamenu-fw">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.buy_label")</a>
+                <ul class="dropdown-menu megamenu-content" role="menu">
+                  <li>
+                    <div class="row">
+                      <div class="col-menu col-md-3">
+                        <h5 class="title">@lang("global.menu.property_list_label")</h5>
+                        <div class="content">
+                          <ul class="menu-col">
+                            <li><a href="{{route("property")}}">@lang("global.menu.secondary_property_label")</a></li>
+                            <li><a href="{{route("property")}}">@lang("global.menu.new_property_label")</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-menu col-md-9">
+                        <h5 class="title bottom20">@lang("global.menu.property_list_label")</h5>
+                        <div class="row">
+                          <div id="nav_slider" class="owl-carousel">
+                            @foreach ($property_sale as $item)
+                              @include('user/items/thumb_property_navigation')
+                            @endforeach
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown megamenu-fw">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.rent_label")</a>
+                <ul class="dropdown-menu megamenu-content" role="menu">
+                  <li>
+                    <div class="row">
+                      <div class="col-menu col-md-3">
+                        <h5 class="title">@lang("global.menu.property_list_label")</h5>
+                        <div class="content">
+                          <ul class="menu-col">
+                            <li><a href="{{route("property")}}">@lang("global.menu.secondary_property_label")</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-menu col-md-9">
+                        <h5 class="title bottom20">@lang("global.menu.property_list_label")</h5>
+                        <div class="row">
+                          <div id="nav_slider" class="owl-carousel">
+                            @foreach ($property_rent as $item)
+                              @include('user/items/thumb_property_navigation')
+                            @endforeach
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
               <li><a href="{{route("contact_us")}}">@lang("global.menu.specialist_label")</a></li>
               <li><a href="{{route("contact_us")}}">@lang("global.menu.career_label")</a></li>
               <li class="dropdown">
@@ -113,6 +167,7 @@
 </header>
 <!--Header Ends-->
 
+@yield('search')
 
 @yield('content')
 
