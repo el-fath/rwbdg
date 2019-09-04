@@ -10,7 +10,7 @@
           <h1 class="text-uppercase">@lang('about.about_us')</h1>
           {{-- <p>Ray White Indonesia</p> --}}
           <p>
-            {{ $profile->social_facebook }}
+            {{ $profile->tag_line }}
           </p>
           <ol class="breadcrumb text-center">
             <li><a href="#">Home</a></li>

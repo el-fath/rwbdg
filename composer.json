@@ -16,6 +16,7 @@
         "intervention/image": "^2.5",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "snowfire/beautymail": "dev-master",
         "spatie/laravel-sitemap": "^5.3",
         "unisharp/laravel-filemanager": "dev-master",
         "yajra/laravel-datatables": "1.5"
