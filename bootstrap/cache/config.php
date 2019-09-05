@@ -1,7 +1,7 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'Laravel',
+    'name' => 'RWBDG',
     'env' => 'local',
     'debug' => true,
     'url' => 'http://localhost/rwbdg/',
@@ -36,17 +36,16 @@
       19 => 'Illuminate\\Translation\\TranslationServiceProvider',
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
-      22 => 'UniSharp\\LaravelFilemanager\\LaravelFilemanagerServiceProvider',
-      23 => 'Intervention\\Image\\ImageServiceProvider',
-      24 => 'Astrotomic\\Translatable\\TranslatableServiceProvider',
-      25 => 'Yajra\\DataTables\\DataTablesServiceProvider',
-      26 => 'Artesaos\\SEOTools\\Providers\\SEOToolsServiceProvider',
-      27 => 'Snowfire\\Beautymail\\BeautymailServiceProvider',
-      28 => 'App\\Providers\\AppServiceProvider',
-      29 => 'App\\Providers\\AuthServiceProvider',
-      30 => 'App\\Providers\\EventServiceProvider',
-      31 => 'App\\Providers\\RouteServiceProvider',
-      32 => 'App\\Providers\\CakCodeServiceProvider',
+      22 => 'Intervention\\Image\\ImageServiceProvider',
+      23 => 'Astrotomic\\Translatable\\TranslatableServiceProvider',
+      24 => 'Yajra\\DataTables\\DataTablesServiceProvider',
+      25 => 'Artesaos\\SEOTools\\Providers\\SEOToolsServiceProvider',
+      26 => 'Snowfire\\Beautymail\\BeautymailServiceProvider',
+      27 => 'App\\Providers\\AppServiceProvider',
+      28 => 'App\\Providers\\AuthServiceProvider',
+      29 => 'App\\Providers\\EventServiceProvider',
+      30 => 'App\\Providers\\RouteServiceProvider',
+      31 => 'App\\Providers\\CakCodeServiceProvider',
     ),
     'aliases' => 
     array (
@@ -244,7 +243,7 @@
         'table' => 'cache',
       ),
     ),
-    'prefix' => 'laravel_cache',
+    'prefix' => 'rwbdg_cache',
   ),
   'database' => 
   array (
@@ -315,7 +314,7 @@
       'options' => 
       array (
         'cluster' => 'predis',
-        'prefix' => 'laravel_database_',
+        'prefix' => 'rwbdg_database_',
       ),
       'default' => 
       array (
@@ -774,7 +773,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'laravel_session',
+    'cookie' => 'rwbdg_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => false,

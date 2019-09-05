@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eef2532a21e6e350c40d22ef45b4a7c7",
+    "content-hash": "3fac04b67ae697a7fa7e9448598177fb",
     "packages": [
         {
             "name": "0.0.0/composer-include-files",
@@ -4576,16 +4576,16 @@
         },
         {
             "name": "unisharp/laravel-filemanager",
-            "version": "dev-master",
+            "version": "v2.0.0-alpha8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/UniSharp/laravel-filemanager.git",
-                "reference": "bb74261aedaa13c0bbe85f778583de60fe4e71da"
+                "reference": "8639557f6a945dfae4cc013b7a35d68d9fce1e74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UniSharp/laravel-filemanager/zipball/bb74261aedaa13c0bbe85f778583de60fe4e71da",
-                "reference": "bb74261aedaa13c0bbe85f778583de60fe4e71da",
+                "url": "https://api.github.com/repos/UniSharp/laravel-filemanager/zipball/8639557f6a945dfae4cc013b7a35d68d9fce1e74",
+                "reference": "8639557f6a945dfae4cc013b7a35d68d9fce1e74",
                 "shasum": ""
             },
             "require": {
@@ -4647,7 +4647,7 @@
                 "tinymce",
                 "upload"
             ],
-            "time": "2019-07-08T01:42:18+00:00"
+            "time": "2019-05-06T03:22:05+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -6831,8 +6831,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "snowfire/beautymail": 20,
-        "unisharp/laravel-filemanager": 20
+        "snowfire/beautymail": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

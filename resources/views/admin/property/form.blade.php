@@ -422,15 +422,16 @@
         <!-- /rounded basic tabs -->    
     </div>
     <!-- /content area -->
+    <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 <script>
     $(document).ready(function(){
         
 
         var options = {
-            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-            filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-            filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+            filebrowserImageBrowseUrl: '/rwbdg/laravel-filemanager?type=Images',
+            filebrowserImageUploadUrl: '/rwbdg/laravel-filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/rwbdg/laravel-filemanager?type=Files',
+            filebrowserUploadUrl: '/rwbdg/laravel-filemanager/upload?type=Files&_token='
         };
 
         CKEDITOR.replace('editorId', options);
