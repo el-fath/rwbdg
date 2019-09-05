@@ -21,6 +21,7 @@ Route::localized(function () {
     Route::get('/contact-us', 'User\ContactController@index')->name('contact_us');
     Route::get('/career', 'User\CareerController@index')->name('career');
     Route::get('/specialist', 'User\SpecialistController@index')->name('specialist');
+    Route::get('/specialist/{id}', 'User\SpecialistController@detail')->name('specialist.id');
     Route::post('/contact-us', 'User\ContactController@store')->name('contact_us.store');
 
 });

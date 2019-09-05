@@ -43,7 +43,7 @@
                   </tbody>
                 </table>
                 <hr>
-                <a class="btn-more" href="javascript:void(0)">
+                <a class="btn-more" href="{{ route('specialist.id', $val->id) }}">
                 <i><img alt="arrow" src="{{ url('public/assets/user') }}/images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="{{ url('public/assets/user') }}/images/arrow-yellow.png"></i>
                 </a>
               </div>
@@ -53,6 +53,7 @@
         @endforeach
 
       </div>
+      {{ $data['Marketing']->links() }}
     </div>
   </section>
   <!-- Agent End -->
