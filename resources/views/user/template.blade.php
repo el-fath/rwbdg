@@ -83,7 +83,7 @@
               <li><a href="{{route("index")}}">@lang("global.menu.home_label")</a></li>
               <li><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li>
               
-              <li><a href="{{route("contact_us")}}">@lang("global.menu.specialist_label")</a></li>
+              <li><a href="{{route("specialist")}}">@lang("global.menu.specialist_label")</a></li>
               <li><a href="{{route("contact_us")}}">@lang("global.menu.career_label")</a></li>
               <li class="dropdown">
                   <a href="#." class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.what_up_label")</a>
