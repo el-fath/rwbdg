@@ -21,6 +21,11 @@ class Property extends Model
         return $this->hasMany('App\Model\MarketplaceProperty','property_id', 'id');
     }
 
+    public function news()
+    {
+        return $this->hasMany('App\Model\News','property_id', 'id');
+    }
+
     public function getLocationAttribute()
     {
         $str = "";

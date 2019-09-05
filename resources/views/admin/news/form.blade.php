@@ -104,6 +104,22 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Property</label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control select-search" name="property_id" data-fouc>
+                                                <option value="">Choose Property</option>
+                                                @foreach ($data['property'] as $item)
+                                                    @if($data['typeForm'] != "create")
+                                                        <option {{($data['dataModel']->property_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
+                                                    @else
+                                                        <option value="{{$item->id}}">{{$item->title}}</option>
+                                                    @endif
+                                                @endforeach
+                                        </select>
+                                        {{-- <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea> --}}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-form-label col-lg-2">Image</label>
                                     <div class="col-lg-10">
                                         @if($data['typeForm'] != "create")
@@ -178,9 +194,9 @@
                 $('#formInput').unblock();
                 if(data.Code == 200){
                     showNotif("success","Success",data.Message);
-                    setTimeout(function(){ 
-                        redirect('{{route('admin.news.index')}}');
-                    }, 2000);
+                    // setTimeout(function(){ 
+                    //     redirect('{{route('admin.news.index')}}');
+                    // }, 2000);
                 }else{
                     showNotif("error","Error",data.Message);
                 }

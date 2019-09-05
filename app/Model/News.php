@@ -21,6 +21,11 @@ class News extends Model
         return $this->hasOne('App\Model\NewsCategory', 'category_id', 'id');
     }
 
+    public function Property()
+    {
+        return $this->hasOne('App\Model\Property', 'property_id', 'id');
+    }
+
     public function getImagePathAttribute()
     {
         $url = url('/')."/public/image/news/".$this->image;

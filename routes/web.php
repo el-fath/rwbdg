@@ -116,12 +116,12 @@ Route::group(['middleware' => 'admin'], function () {
     ]);
 });
 
-// Route::get('/migrate', function() {
+Route::get('/migrate', function() {
 
-//     Artisan::call('migrate');
-//     return "Migration success!";
+    Artisan::call('migrate');
+    return "Migration success!";
 
-// });
+});
 
 
 //ARTISAN CALL

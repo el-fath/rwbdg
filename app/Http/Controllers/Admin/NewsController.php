@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\News;
 use App\Model\NewsCategory;
+use App\Model\Property;
 use Illuminate\Support\Str;
 use Yajra\Datatables\Datatables;
 
@@ -38,6 +39,7 @@ class NewsController extends Controller
         $data['typeForm'] = "create";
         $data['title'] = "News";
         $data['category'] = NewsCategory::all()->sortByDesc('id');
+        $data['property'] = Property::all()->sortByDesc('id');
         return view("admin/news/form",compact('data'));
     }
 
@@ -59,13 +61,8 @@ class NewsController extends Controller
         }
 
         
-
-        $data = [
-            'image' => $newName
-        ];
-
-        
-
+        $data = $request->all();
+        $data['image'] = $newName;
         $data = News::create($data);
 
         $requestindo = $request->input('id');
@@ -109,6 +106,7 @@ class NewsController extends Controller
         $data['typeForm'] = "Edit";
         $data['title'] = "News";
         $data['category'] = NewsCategory::all()->sortByDesc('id');
+        $data['property'] = Property::all()->sortByDesc('id');
         return view("admin/news/form",compact('data'));
     }
 
@@ -122,7 +120,7 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         $data = News::find($id);
-
+        $newName = "";
         if ($request->file('image')) {
 
             $myFile = $this->img_location.'news/'.$data->image;
@@ -138,6 +136,11 @@ class NewsController extends Controller
             $newFile = [ 'image' => $newName ];
             $data->update($newFile);
         }
+
+        $dataReq = $request->all();
+        if($newName){
+            $dataReq['image'] = $newName;
+        }
         
         $requestindo = $request->input('id');
         $requestindo['slug'] = Str::slug($requestindo['title'].'-'.$data->id, '-');
@@ -149,6 +152,7 @@ class NewsController extends Controller
             'en' => $requesteng,
         ];
 
+        $data->update($dataReq);
         $data->fill($dataTrans);
         $data->save();
         return response()->json([
