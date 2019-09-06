@@ -1,16 +1,16 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'Laravel',
+    'name' => 'RWBDG',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost',
+    'url' => 'http://localhost/rwbdg/',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'id',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:K7yir8KQ41Bham73cKV2Gxu7H8PKCpcWv2O/fuKQU1A=',
+    'key' => 'base64:7Tj8oPl+pOXFuZbhAgBG/3KUzUUKKbxh3V6Cqio0de4=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -36,17 +36,16 @@
       19 => 'Illuminate\\Translation\\TranslationServiceProvider',
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
-      22 => 'UniSharp\\LaravelFilemanager\\LaravelFilemanagerServiceProvider',
-      23 => 'Intervention\\Image\\ImageServiceProvider',
-      24 => 'Astrotomic\\Translatable\\TranslatableServiceProvider',
-      25 => 'Yajra\\DataTables\\DataTablesServiceProvider',
-      26 => 'Artesaos\\SEOTools\\Providers\\SEOToolsServiceProvider',
-      27 => 'Snowfire\\Beautymail\\BeautymailServiceProvider',
-      28 => 'App\\Providers\\AppServiceProvider',
-      29 => 'App\\Providers\\AuthServiceProvider',
-      30 => 'App\\Providers\\EventServiceProvider',
-      31 => 'App\\Providers\\RouteServiceProvider',
-      32 => 'App\\Providers\\CakCodeServiceProvider',
+      22 => 'Intervention\\Image\\ImageServiceProvider',
+      23 => 'Astrotomic\\Translatable\\TranslatableServiceProvider',
+      24 => 'Yajra\\DataTables\\DataTablesServiceProvider',
+      25 => 'Artesaos\\SEOTools\\Providers\\SEOToolsServiceProvider',
+      26 => 'Snowfire\\Beautymail\\BeautymailServiceProvider',
+      27 => 'App\\Providers\\AppServiceProvider',
+      28 => 'App\\Providers\\AuthServiceProvider',
+      29 => 'App\\Providers\\EventServiceProvider',
+      30 => 'App\\Providers\\RouteServiceProvider',
+      31 => 'App\\Providers\\CakCodeServiceProvider',
     ),
     'aliases' => 
     array (
@@ -206,7 +205,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\framework/cache/data',
+        'path' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -244,7 +243,7 @@
         'table' => 'cache',
       ),
     ),
-    'prefix' => 'laravel_cache',
+    'prefix' => 'rwbdg_cache',
   ),
   'database' => 
   array (
@@ -315,7 +314,7 @@
       'options' => 
       array (
         'cluster' => 'predis',
-        'prefix' => 'laravel_database_',
+        'prefix' => 'rwbdg_database_',
       ),
       'default' => 
       array (
@@ -391,13 +390,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\app',
+        'root' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\app/public',
-        'url' => 'http://localhost/storage',
+        'root' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\app/public',
+        'url' => 'http://localhost/rwbdg//storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -552,13 +551,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\logs/laravel.log',
+        'path' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\logs/laravel.log',
+        'path' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -606,23 +605,23 @@
   'mail' => 
   array (
     'driver' => 'smtp',
-    'host' => 'smtp.gmail.com',
-    'port' => '587',
+    'host' => 'smtp.mailtrap.io',
+    'port' => '2525',
     'from' => 
     array (
       'address' => 'hello@example.com',
       'name' => 'Example',
     ),
-    'encryption' => 'tls',
-    'username' => 'rochman003@gmail.com',
-    'password' => 'el-fath@003',
+    'encryption' => NULL,
+    'username' => NULL,
+    'password' => NULL,
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\rwbdg\\resources\\views/vendor/mail',
+        0 => 'E:\\xampp\\htdocs\\rwbdg\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
@@ -765,7 +764,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\framework/sessions',
+    'files' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -774,7 +773,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'laravel_session',
+    'cookie' => 'rwbdg_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => false,
@@ -802,9 +801,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\rwbdg\\resources\\views',
+      0 => 'E:\\xampp\\htdocs\\rwbdg\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\framework\\views',
+    'compiled' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\framework\\views',
   ),
   'debug-server' => 
   array (
@@ -872,7 +871,7 @@
     ),
     'temporary_files' => 
     array (
-      'local_path' => 'C:\\Users\\El-fath\\AppData\\Local\\Temp',
+      'local_path' => 'C:\\Users\\Ikko\\AppData\\Local\\Temp',
       'remote_disk' => NULL,
     ),
   ),

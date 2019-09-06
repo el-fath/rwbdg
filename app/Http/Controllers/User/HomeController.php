@@ -32,6 +32,7 @@ class HomeController extends Controller
     {
 
         // dd();
+        $data['menu'] = "home";
         $data['slide'] = Slide::all();
         $data['property_type'] = Globals::TYPE_PROPERTY;
         $data['property_transaction'] = Globals::TYPE_TRANSACTION;

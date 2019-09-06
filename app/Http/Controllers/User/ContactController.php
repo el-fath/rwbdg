@@ -26,6 +26,7 @@ class ContactController extends Controller
 
     public function index()
     {
+        $data['menu'] = "contact";
         $data['property_rent'] = Property::where("type_transaction","rent")->orderBy('created_at', 'desc')->limit(6)->get();
         $data['property_sale'] = Property::where("type_transaction","sale")->orderBy('created_at', 'desc')->limit(6)->get();
         $data['profile'] = Profile::find(1);

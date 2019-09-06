@@ -12,7 +12,7 @@ return [
 		"career_label"             => "Berkarir bersama kami",
 		"what_up_label"            => "Ada apa hari ini",
 		"news_label"               => "Berita",
-		"gallery_label"            => "Galleri",
+		"gallery_label"            => "Galeri",
 		"contact_us"               => "Hubungi kami",
 		
 	],

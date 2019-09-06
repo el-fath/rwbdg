@@ -18,7 +18,7 @@
         "laravel/tinker": "^1.0",
         "snowfire/beautymail": "dev-master",
         "spatie/laravel-sitemap": "^5.3",
-        "unisharp/laravel-filemanager": "dev-master",
+        "unisharp/laravel-filemanager": "v2.0.0-alpha8",
         "yajra/laravel-datatables": "1.5"
     },
     "require-dev": {
