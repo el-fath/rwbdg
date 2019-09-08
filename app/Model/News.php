@@ -13,7 +13,7 @@ class News extends Model
     use Translatable;
     protected $guarded = [];
     public $translatedAttributes = ['title','description','slug'];
-    protected $appends 	= array('ImagePath','ImagePathSmall','ImagePathMedium');
+    protected $appends 	= array('ImagePath','ImagePathSmall','ImagePathMedium','SimilarProperties');
 
 
     public function Category()
@@ -23,7 +23,13 @@ class News extends Model
 
     public function Property()
     {
-        return $this->hasOne('App\Model\Property', 'property_id', 'id');
+        return $this->hasOne('App\Model\Property', 'id', 'property_id');
+    }
+
+    public function getSimilarPropertiesAttribute()
+    {
+        $properties = Property::where("category_id",$this->Property->category_id)->get();
+        return $properties;
     }
 
     public function getImagePathAttribute()

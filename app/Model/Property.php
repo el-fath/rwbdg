@@ -21,6 +21,17 @@ class Property extends Model
         return $this->hasMany('App\Model\MarketplaceProperty','property_id', 'id');
     }
 
+    public function marketing()
+    {
+        return $this->hasOne('App\Model\Marketing','id', 'marketing_id');
+    }
+
+    public function category()
+    {
+        return $this->hasOne('App\Model\PropertyCategory','id', 'category_id');
+    }
+
+
     public function news()
     {
         return $this->hasMany('App\Model\News','property_id', 'id');
