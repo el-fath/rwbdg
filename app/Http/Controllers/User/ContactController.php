@@ -43,7 +43,8 @@ class ContactController extends Controller
                 'message' => $request->message
             ];
             
-            // $data = ContactMessage::create($data);
+            $data = ContactMessage::create($data);
+
             $this->MailNotification($data);
 
             return response()->json([
@@ -69,8 +70,8 @@ class ContactController extends Controller
         $beautymail->send('mail.notif', $data, function($message) use ($request)
         {
             $message
-                ->from('info@royaldiamondclinic.com',"Royal Diamond")
-                ->to("rochman003@gmail.com", "Royal Diamond")
+                ->from('raywhitebukitdarmogolf@gmail.com',"Ray White Bukit Darmo Golf")
+                ->to($request->email, $request->name)
                 // ->cc($request->email,$request->name)
                 ->subject("Consultation Request");
         });
