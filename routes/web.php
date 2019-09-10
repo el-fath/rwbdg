@@ -76,11 +76,20 @@ Route::group(['middleware' => 'admin'], function () {
         'as' => 'admin.city.sync',
         'uses' => 'Admin\CityController@sync'
     ]);
+    Route::post('admin/city/getcity', [
+        'as' => 'admin.city.getcity',
+        'uses' => 'Admin\CityController@getcity'
+    ]);
     Route::resource('admin/city', 'Admin\CityController',['as' => 'admin']);
 
     Route::get('admin/district/sync', [
         'as' => 'admin.district.sync',
         'uses' => 'Admin\DistrictController@sync'
+    ]);
+
+    Route::post('admin/district/getdistrict', [
+        'as' => 'admin.getdistrict.getdistrict',
+        'uses' => 'Admin\DistrictController@getdistrict'
     ]);
     Route::resource('admin/district', 'Admin\DistrictController',['as' => 'admin']);
 

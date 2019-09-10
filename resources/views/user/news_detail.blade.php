@@ -95,6 +95,7 @@
 <!-- News Details End -->
 
 <!-- Property Detail Start -->
+@if ($news->property)
 <section id="property" class="padding_top padding_bottom_half">
     <div class="container">
         <div class="row clearfix">
@@ -210,5 +211,5 @@
     </div>
 </section>
 <!-- Property Detail End -->
-
+@endif
 @endsection

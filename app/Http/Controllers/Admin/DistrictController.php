@@ -9,6 +9,7 @@ use App\Model\City;
 use Illuminate\Support\Str;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use Response;
 
 
 class DistrictController extends Controller
@@ -30,6 +31,21 @@ class DistrictController extends Controller
         $data['title'] = "District";
         $data['data'] = District::all()->sortByDesc('id');
         return view("admin/district/index",compact('data'));
+    }
+
+    public function getdistrict(Request $request)
+    {
+        $id = $request->id;
+        $city = District::where("city_id",$id)->get();
+        $arr = [
+            "meta" => [
+                "code" => 200,
+                "message" => "Success"
+            ],
+            "data" => $city->toArray()
+        ];
+        return Response::json($arr);
+
     }
 
     /**
