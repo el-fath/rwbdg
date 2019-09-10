@@ -28,7 +28,7 @@ class NewsController extends Controller
     public function index()
     {
         $data['menu'] = "news";
-        $data['news'] = News::orderBy('created_at', 'desc')->get();
+        $data['news'] = News::orderBy('created_at', 'desc')->paginate(3);
         return view("user/news",compact('data'));
     }
 
