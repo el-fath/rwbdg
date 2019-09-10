@@ -7,14 +7,28 @@ use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\File;
+use Nicolaslopezj\Searchable\SearchableTrait;
+
 
 class News extends Model
 {
+    use SearchableTrait;
     use Translatable;
     protected $guarded = [];
     public $translatedAttributes = ['title','description','slug'];
     protected $appends 	= array('ImagePath','ImagePathSmall','ImagePathMedium','SimilarProperties');
 
+    protected $searchable = [
+        'columns' => [
+            'news_translations.title' => 2,
+            'property_translations.title' => 1,
+        ],
+        'joins' => [
+            'properties' => ['news.property_id','properties.id'],
+            'news_translations' => ['news.id','news_translations.news_id'],
+            'property_translations' => ['properties.id','property_translations.property_id'],
+        ],
+    ];
 
     public function Category()
     {

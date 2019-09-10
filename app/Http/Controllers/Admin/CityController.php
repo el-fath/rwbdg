@@ -9,6 +9,7 @@ use App\Model\Province;
 use Illuminate\Support\Str;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use Response;
 
 
 class CityController extends Controller
@@ -31,6 +32,21 @@ class CityController extends Controller
         $data['title'] = "City";
         $data['data'] = City::all()->sortByDesc('id');
         return view("admin/city/index",compact('data'));
+    }
+
+    public function getcity(Request $request)
+    {
+        $id = $request->id;
+        $city = City::where("province_id",$id)->get();
+        $arr = [
+            "meta" => [
+                "code" => 200,
+                "message" => "Success"
+            ],
+            "data" => $city->toArray()
+        ];
+        return Response::json($arr);
+
     }
 
     public function sync()

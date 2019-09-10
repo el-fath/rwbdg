@@ -9,6 +9,7 @@ use App\Model\Config;
 use App\Model\Property;
 use App\Model\News;
 use Astrotomic\Translatable\Locales;
+use Carbon\Carbon;
 
 class CakCodeServiceProvider extends ServiceProvider
 {
@@ -38,6 +39,7 @@ class CakCodeServiceProvider extends ServiceProvider
         // dd(app('config')->get('translatable.locale'));
         app()->setLocale($lang);
         app()->getLocale();
+        Carbon::setLocale(app()->getLocale());
 
         $profile = Profile::find(1);
         $config = Config::find(1);

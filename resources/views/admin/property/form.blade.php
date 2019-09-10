@@ -223,14 +223,14 @@
                                                 </div>
                                         </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row location-column">
                                         <label class="col-form-label col-lg-2">Location</label>
                                         <div class="col-lg-10">
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <label class="col-form-label col-lg-12">Province</label>
                                                         <div class="form-group">
-                                                                <select class="form-control select-search" name="province_id" data-fouc>
+                                                                <select class="form-control select-search" name="province_id" id="province_select" data-fouc>
                                                                         <option value="">Choose Province</option>
                                                                         @foreach ($data['province'] as $item)
                                                                             @if($data['typeForm'] != "create")
@@ -246,7 +246,7 @@
                                                     <div class="col-md-4">
                                                         <label class="col-form-label col-lg-12">City</label>
                                                         <div class="form-group">
-                                                                <select class="form-control select-search" name="city_id" data-fouc>
+                                                                <select class="form-control select-search" name="city_id" id="city_select" data-fouc>
                                                                         <option value="">Choose City</option>
                                                                         @if(isset($data['city']))
                                                                             @foreach ($data['city'] as $item)
@@ -264,7 +264,7 @@
                                                     <div class="col-md-4">
                                                         <label class="col-form-label col-lg-12">District</label>
                                                         <div class="form-group">
-                                                                <select class="form-control select-search" name="district_id" data-fouc>
+                                                                <select class="form-control select-search" name="district_id" id="district_select" data-fouc>
                                                                         <option value="">Choose District</option>
                                                                         @if(isset($data['district']))
                                                                             @foreach ($data['district'] as $item)
@@ -437,6 +437,83 @@
         CKEDITOR.replace('editorId', options);
         CKEDITOR.replace('editorEn', options);
 
+
+        $("#province_select").on('change', function(){    
+            var id = $($(this).find(':selected')[0]).val();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            
+            $.ajax({
+                url: "{{ route('admin.city.getcity') }}",
+                method: 'post',
+                dataType : 'json',
+                data: {
+                    id: id,
+                },
+                beforeSend: function(){
+                    blockMessage($('.location-column'),'Please Wait','#fff');
+                },
+                success: function(result){
+                    $('.location-column').unblock();
+                    console.log("asd",result.data);
+                    var newOptions = [];
+                    var $el = $("#city_select");
+                    $('#city_select option:gt(0)').remove();
+                    for (let index = 0; index < result.data.length; index++) {
+                        var data = result.data[index];
+                        console.log(data);
+                        $el.append($("<option></option>")
+                            .attr("value", data.id).text(data.title));
+                    }
+                },
+                fail: function(xhr, textStatus, errorThrown){
+                    $('.location-column').unblock();
+                    alert('request failed');
+                }
+            });
+        });
+        
+        $("#city_select").on('change', function(){    
+            var id = $($(this).find(':selected')[0]).val();
+            alert(id);
+            console.log(id);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: "{{ route('admin.getdistrict.getdistrict') }}",
+                method: 'post',
+                dataType : 'json',
+                data: {
+                    id: id,
+                },
+                beforeSend: function(){
+                    blockMessage($('.location-column'),'Please Wait','#fff');
+                },
+                success: function(result){
+                    $('.location-column').unblock();
+                    console.log("asd",result.data);
+                    var newOptions = [];
+                    var $el = $("#district_select");
+                    $('#district_select option:gt(0)').remove();
+                    for (let index = 0; index < result.data.length; index++) {
+                        var data = result.data[index];
+                        console.log(data);
+                        $el.append($("<option></option>")
+                            .attr("value", data,id).text(data.title));
+                    }
+                },
+                fail: function(xhr, textStatus, errorThrown){
+                    $('.location-column').unblock();
+                    alert('request failed');
+                }
+            });
+        });
 
 
         $("#formInput").submit(function(e){
