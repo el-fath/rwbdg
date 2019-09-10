@@ -4,7 +4,7 @@
     </div>
     <div class="col-md-8 col-sm-8 col-xs-12">
         <div class="feature-p-text">
-            <h4><a href="#.">{{$item->title}}</a></h4>
+            <h4><a href="{{route('property.id', $item->id)}}">{{$item->title}}</a></h4>
             <span>{{$item->Location}}</span>
         </div>
     </div>

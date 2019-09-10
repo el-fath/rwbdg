@@ -36,4 +36,12 @@ class PropertyController extends Controller
         $data['property_latest'] = Property::orderBy('created_at', 'desc')->get();
         return view("user/property",compact('data'));
     }
+
+    public function detail($id)
+    {
+        // return
+        $data['data'] = Property::with('marketing')->find($id);
+        $data['menu'] = "property";
+        return view("user/property/detail",compact('data'));
+    }
 }
