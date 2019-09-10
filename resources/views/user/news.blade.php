@@ -11,6 +11,7 @@
                 @foreach ($data['news'] as $item)
                     @include('user/items/thumb_news')
                 @endforeach
+                {{ $data['news']->links() }}
                 </div>
                 <div class="row margin_bottom">
                 <div class="col-md-12">

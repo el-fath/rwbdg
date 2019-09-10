@@ -11,7 +11,7 @@ class SpecialistController extends Controller
     public function index()
     {
         $data['menu'] = "specialist";
-        $data['Marketing'] = Marketing::with('level')->paginate(3);
+        $data['Marketing'] = Marketing::with('level')->orderBy('created_at', 'desc')->paginate(3);
         return view("user/specialist/specialist", compact('data'));
     }
 
