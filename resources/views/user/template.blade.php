@@ -83,7 +83,7 @@
               <li class="{{($data['menu'] == "home") ? "active" : ""}}"><a href="{{route("index")}}">@lang("global.menu.home_label")</a></li>
               <li class="{{($data['menu'] == "about") ? "active" : ""}}"><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li>
               
-              <li class="{{($data['menu'] == "specialist") ? "active" : ""}}"><a href="{{route("contact_us")}}">@lang("global.menu.specialist_label")</a></li>
+              <li class="{{($data['menu'] == "specialist") ? "active" : ""}}"><a href="{{route("specialist")}}">@lang("global.menu.specialist_label")</a></li>
               <li class="{{($data['menu'] == "career") ? "active" : ""}}"><a href="{{route("contact_us")}}">@lang("global.menu.career_label")</a></li>
               <li class="dropdown {{($data['menu'] == "news" || $data['menu'] == "gallery") ? "active" : ""}}">
                   <a href="#." class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.what_up_label")</a>

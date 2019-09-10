@@ -10,12 +10,14 @@ class SpecialistController extends Controller
 {
     public function index()
     {
-        $data['Marketing'] = Marketing::with('level')->paginate(1);
+        $data['menu'] = "specialist";
+        $data['Marketing'] = Marketing::with('level')->paginate(3);
         return view("user/specialist/specialist", compact('data'));
     }
 
     public function detail($id)
     {
+        $data['menu'] = "specialist";
         $data['Marketing'] = Marketing::find($id);
         return view("user/specialist/detail", compact('data'));
     }

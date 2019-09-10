@@ -1,16 +1,16 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'RWBDG',
+    'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost/rwbdg/',
+    'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'id',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:7Tj8oPl+pOXFuZbhAgBG/3KUzUUKKbxh3V6Cqio0de4=',
+    'key' => 'base64:K7yir8KQ41Bham73cKV2Gxu7H8PKCpcWv2O/fuKQU1A=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -205,7 +205,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -243,7 +243,7 @@
         'table' => 'cache',
       ),
     ),
-    'prefix' => 'rwbdg_cache',
+    'prefix' => 'laravel_cache',
   ),
   'database' => 
   array (
@@ -314,7 +314,7 @@
       'options' => 
       array (
         'cluster' => 'predis',
-        'prefix' => 'rwbdg_database_',
+        'prefix' => 'laravel_database_',
       ),
       'default' => 
       array (
@@ -390,13 +390,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\app/public',
-        'url' => 'http://localhost/rwbdg//storage',
+        'root' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\app/public',
+        'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -551,13 +551,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -605,23 +605,23 @@
   'mail' => 
   array (
     'driver' => 'smtp',
-    'host' => 'smtp.mailtrap.io',
-    'port' => '2525',
+    'host' => 'smtp.gmail.com',
+    'port' => '587',
     'from' => 
     array (
       'address' => 'hello@example.com',
       'name' => 'Example',
     ),
-    'encryption' => NULL,
-    'username' => NULL,
-    'password' => NULL,
+    'encryption' => 'tls',
+    'username' => 'rochman003@gmail.com',
+    'password' => 'el-fath@003',
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'E:\\xampp\\htdocs\\rwbdg\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\rwbdg\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
@@ -764,7 +764,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -773,7 +773,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'rwbdg_session',
+    'cookie' => 'laravel_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => false,
@@ -801,9 +801,9 @@
   array (
     'paths' => 
     array (
-      0 => 'E:\\xampp\\htdocs\\rwbdg\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\rwbdg\\resources\\views',
     ),
-    'compiled' => 'E:\\xampp\\htdocs\\rwbdg\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\rwbdg\\storage\\framework\\views',
   ),
   'debug-server' => 
   array (
@@ -871,7 +871,7 @@
     ),
     'temporary_files' => 
     array (
-      'local_path' => 'C:\\Users\\Ikko\\AppData\\Local\\Temp',
+      'local_path' => 'C:\\Users\\El-fath\\AppData\\Local\\Temp',
       'remote_disk' => NULL,
     ),
   ),

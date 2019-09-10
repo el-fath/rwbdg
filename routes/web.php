@@ -16,6 +16,7 @@ Route::localized(function () {
     Route::get('/', 'User\HomeController@index')->name('index');
     Route::get('/home', 'User\HomeController@index')->name('home');
     Route::get('/property', 'User\PropertyController@index')->name('property');
+    Route::get('/property/{id}', 'User\PropertyController@detail')->name('property.id');
     Route::get('/news', 'User\NewsController@index')->name('news');
     Route::get('/news/{slug}', 'User\NewsController@detail')->name('news_detail');
     Route::get('/gallery', 'User\GalleryController@index')->name('gallery');
