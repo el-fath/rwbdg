@@ -194,9 +194,9 @@
                 $('#formInput').unblock();
                 if(data.Code == 200){
                     showNotif("success","Success",data.Message);
-                    // setTimeout(function(){ 
-                    //     redirect('{{route('admin.news.index')}}');
-                    // }, 2000);
+                    setTimeout(function(){ 
+                        redirect('{{route('admin.news.index')}}');
+                    }, 2000);
                 }else{
                     showNotif("error","Error",data.Message);
                 }
