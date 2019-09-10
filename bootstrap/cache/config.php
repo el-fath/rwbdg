@@ -273,6 +273,15 @@
         'prefix' => '',
         'prefix_indexes' => true,
         'strict' => true,
+        'modes' => 
+        array (
+          0 => 'STRICT_TRANS_TABLES',
+          1 => 'NO_ZERO_IN_DATE',
+          2 => 'NO_ZERO_DATE',
+          3 => 'ERROR_FOR_DIVISION_BY_ZERO',
+          4 => 'NO_AUTO_CREATE_USER',
+          5 => 'NO_ENGINE_SUBSTITUTION',
+        ),
         'engine' => NULL,
         'options' => 
         array (
