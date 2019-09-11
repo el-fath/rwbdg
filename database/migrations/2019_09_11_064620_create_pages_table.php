@@ -16,6 +16,7 @@ class CreatePagesTable extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
             $table->text('code')->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
         });
 
@@ -29,7 +30,7 @@ class CreatePagesTable extends Migration
 
             $table->string('locale')->index();
             $table->unique(['pages_id','locale']);
-            $table->foreign('pagess_id')->references('id')->on('pages')->onDelete('cascade');
+            $table->foreign('pages_id')->references('id')->on('pages')->onDelete('cascade');
         });
     }
 

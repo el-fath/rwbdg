@@ -27,6 +27,7 @@ Route::localized(function () {
     Route::get('/specialist', 'User\SpecialistController@index')->name('specialist');
     Route::get('/specialist/{id}', 'User\SpecialistController@detail')->name('specialist.id');
     Route::post('/contact-us', 'User\ContactController@store')->name('contact_us.store');
+    Route::get('/{page}', 'User\PagesController@show')->name('pages');
 
 });
 
@@ -59,6 +60,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/property-marketplace', 'Admin\PropertyMarketPlaceController',['as' => 'admin']);
     Route::resource('admin/property-category', 'Admin\PropertyCategoryController',['as' => 'admin']);
     Route::resource('admin/marketing-level', 'Admin\MarketingLevelController',['as' => 'admin']);
+    Route::resource('admin/pages', 'Admin\PagesController',['as' => 'admin']);
     Route::resource('admin/news', 'Admin\NewsController',['as' => 'admin']);
     Route::resource('admin/news-category', 'Admin\NewsCategoryController',['as' => 'admin']);
     Route::resource('admin/album', 'Admin\AlbumController',['as' => 'admin']);

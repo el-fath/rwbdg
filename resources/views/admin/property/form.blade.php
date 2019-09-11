@@ -478,7 +478,7 @@
         
         $("#city_select").on('change', function(){    
             var id = $($(this).find(':selected')[0]).val();
-            alert(id);
+            // alert(id);
             console.log(id);
             $.ajaxSetup({
                 headers: {
@@ -505,7 +505,7 @@
                         var data = result.data[index];
                         console.log(data);
                         $el.append($("<option></option>")
-                            .attr("value", data,id).text(data.title));
+                            .attr("value", data.id).text(data.title));
                     }
                 },
                 fail: function(xhr, textStatus, errorThrown){

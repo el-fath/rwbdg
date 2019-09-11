@@ -84,7 +84,7 @@
               <li class="{{($data['menu'] == "about") ? "active" : ""}}"><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li>
               
               <li class="{{($data['menu'] == "specialist") ? "active" : ""}}"><a href="{{route("specialist")}}">@lang("global.menu.specialist_label")</a></li>
-              <li class="{{($data['menu'] == "career") ? "active" : ""}}"><a href="{{route("contact_us")}}">@lang("global.menu.career_label")</a></li>
+              <li class="{{($data['menu'] == $careerPage->slug) ? "active" : ""}}"><a href="{{route("pages",$careerPage->slug)}}">@lang("global.menu.career_label")</a></li>
               <li class="dropdown {{($data['menu'] == "news" || $data['menu'] == "gallery") ? "active" : ""}}">
                   <a href="#." class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.what_up_label")</a>
                   <ul class="dropdown-menu">

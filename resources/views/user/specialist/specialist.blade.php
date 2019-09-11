@@ -8,11 +8,7 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <h1 class="text-uppercase">@lang('specialist.find_special')</h1>
-          <ol class="breadcrumb text-center">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">@lang('specialist.page')</a></li>
-            <li class="active">@lang('specialist.agent')</li>
-          </ol>
+          
         </div>
       </div>
     </div>
@@ -25,7 +21,7 @@
         <div class="col-sm-4 bottom40">
           <div class="agent_wrap">
             <div class="image">
-              <img src="{{$val->ImagePath}}" style="width: 364px; height:388px;" alt="Agents">
+              <img src="{{$val->ImagePathSmall}}" style="width: 364px; height:388px;object-fit: contain;" alt="{{$val->name}}">
               <div class="img-info" style="width: 364px; height:388px;">
                 <h3>{{$val->name}}</h3>
                 <span>{{$val->level['title']}}</span>

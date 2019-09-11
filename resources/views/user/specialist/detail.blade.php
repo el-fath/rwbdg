@@ -28,7 +28,7 @@
             <div class="col-sm-6 bottom40">
               <div class="agent_wrap">
                 <div class="image">
-                <img src="{{ $data['Marketing']->ImagePath }}" style="width: 364px; height:388px;" alt="Agents">
+                <img src="{{ $data['Marketing']->ImagePath }}" style="width: 364px; height:388px;object-fit: contain;" alt="Agents">
                 </div>
               </div>
             </div>

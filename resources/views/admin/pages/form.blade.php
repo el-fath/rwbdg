@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form id="formInput" action="{{ ($data['typeForm'] =="create") ? route('admin.news.store') : route('admin.news.update',$data['dataModel']->id) }}" method="POST" enctype="multipart/form-data">
+                        <form id="formInput" action="{{ ($data['typeForm'] =="create") ? route('admin.pages.store') : route('admin.pages.update',$data['dataModel']->id) }}" method="POST" enctype="multipart/form-data">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item"><a href="#formid" class="nav-link rounded-top active" data-toggle="tab">id</a></li>
                                 <li class="nav-item"><a href="#formen" class="nav-link rounded-top" data-toggle="tab">en</a></li>
@@ -76,7 +76,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Title</label>
                                             <div class="col-lg-10">
-                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title News" name="en[title]">
+                                                <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'title:en'} }}" placeholder="Title Pages" name="en[title]">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -88,35 +88,9 @@
                                 </div>
                                 <hr>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Category</label>
+                                    <label class="col-form-label col-lg-2">Code</label>
                                     <div class="col-lg-10">
-                                        <select class="form-control select-search" name="category_id" data-fouc>
-                                                <option value="">Choose Category</option>
-                                                @foreach ($data['category'] as $item)
-                                                    @if($data['typeForm'] != "create")
-                                                        <option {{($data['dataModel']->category_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">{{$item->title}}</option>
-                                                    @else
-                                                    <option value="{{$item->id}}">{{$item->title}}</option>
-                                                    @endif
-                                                @endforeach
-                                        </select>
-                                        {{-- <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea> --}}
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-lg-2">Property</label>
-                                    <div class="col-lg-10">
-                                        <select class="form-control select-search" name="property_id" data-fouc>
-                                                <option value="">Choose Property</option>
-                                                @foreach ($data['property'] as $item)
-                                                    @if($data['typeForm'] != "create")
-                                                        <option {{($data['dataModel']->property_id == $item->id) ? "selected" : ""}} value="{{$item->id}}">({{$item->id}}). {{$item->title}} - {{$item->type_transaction}} - {{$item->type_property}} </option>
-                                                    @else
-                                                        <option value="{{$item->id}}">{{$item->title}}</option>
-                                                    @endif
-                                                @endforeach
-                                        </select>
-                                        {{-- <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->{'description:en'} }}</textarea> --}}
+                                        <input type="text" required class="form-control" value="{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->code }}" placeholder="Code" name="code">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -195,7 +169,7 @@
                 if(data.Code == 200){
                     showNotif("success","Success",data.Message);
                     setTimeout(function(){ 
-                        redirect('{{route('admin.news.index')}}');
+                        redirect('{{route('admin.pages.index')}}');
                     }, 2000);
                 }else{
                     showNotif("error","Error",data.Message);

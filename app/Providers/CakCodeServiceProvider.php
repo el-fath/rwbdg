@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Model\Profile;
 use App\Model\Config;
 use App\Model\Property;
+use App\Model\Pages;
 use App\Model\News;
 use Astrotomic\Translatable\Locales;
 use Carbon\Carbon;
@@ -47,6 +48,8 @@ class CakCodeServiceProvider extends ServiceProvider
         $property_sale = Property::where("type_transaction","sale")->orderBy('created_at', 'desc')->limit(6)->get();
         $newsFooter = News::orderBy('created_at', 'desc')->limit(2)->get();
 
+        $careerPage = Pages::where("code","career")->limit(1)->first();
+
         \Route::macro('currentUrl', function ($locale = null) {
             return route(\Route::currentRouteName(), \Route::current()->parameters(), true, $locale);
         });
@@ -56,5 +59,6 @@ class CakCodeServiceProvider extends ServiceProvider
         View::share('property_rent', $property_rent);
         View::share('property_sale', $property_sale);
         View::share('newsFooter', $newsFooter);
+        View::share('careerPage', $careerPage);
     }
 }

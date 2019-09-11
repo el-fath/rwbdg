@@ -220,7 +220,8 @@
 							</ul>
 						</li>
 						<li class="nav-item"><a href="{{ route('admin.marketing.index') }}" class="nav-link"><i class="icon-user-tie"></i> <span>Marketing Executive</span></a></li>
-						<li class="nav-item"><a href="{{ route('admin.property.index') }}" class="nav-link"><i class="fa fa-building-o mr-2"></i> <span>Property</span></a></li>
+						<li class="nav-item"><a href="{{ route('admin.property.index') }}" class="nav-link"><i class="fa fa-building-o"></i> <span>Property</span></a></li>
+						<li class="nav-item"><a href="{{ route('admin.pages.index') }}" class="nav-link"><i class="icon-magazine"></i> <span>Pages</span></a></li>
 						
 						<!-- /forms -->
 
