@@ -1,7 +1,7 @@
 <div class="cbp-item latest {{$item->type_transaction}}">
     <div class="property_item">
         <div class="image">
-        <a href="property_detail1.html"><img src="{{$item->ImagePathSmall}}" alt="{{$item->title}}" class="img-responsive" style="height: 210px;"></a>
+        <a href="{{route('property.id', $item->slug)}}"><img src="{{$item->ImagePathSmall}}" alt="{{$item->title}}" class="img-responsive" style="height: 210px;"></a>
         <div class="price clearfix"> 
             @if ($item->type_transaction == "sale")
                 <span class="tag pull-right">Rp {{ number_format($item->sale_price,0,",",".") }}</span>

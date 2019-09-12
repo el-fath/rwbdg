@@ -13,6 +13,7 @@ use Illuminate\Routing\Route;
 use Astrotomic\Translatable\Locales;
 use App;
 use Globals;
+use Lang;
 
 class NewsController extends Controller
 {
@@ -22,27 +23,50 @@ class NewsController extends Controller
         SEOTools::setTitle(trans('news.title').' - '.$config->name);
         SEOTools::setDescription($config->description);
         SEOTools::opengraph()->setUrl( url('/') );
-        SEOTools::addImages($config->LogoPath);
+        // SEOTools::addImages($config->LogoPath);
     }
 
     public function index(Request $request)
     {
         $data['menu'] = "news";
+        $data['news_category'] = NewsCategory::orderBy('created_at', 'desc')->limit(8)->get();
+        // $data['news'] = News::orderBy('created_at', 'desc')->paginate(5);
+        
+        $query = News::query();
 
-        $data['news'] = News::orderBy('created_at', 'desc')->paginate(3);
         if($request->has('search')){
-            $data['news'] = News::search($request->get('search'))->orderBy('created_at', 'desc')->paginate(3);
+            $query = $query->search($request->get('search'));
         }
+
+        if($request->has('category')){
+            $query = $query->where("category_id",$request->category);
+        }
+
+        $query = $query->orderBy('created_at', 'desc')->paginate(5);
+
+        $data['news'] = $query;
+
         return view("user/news",compact('data'));
     }
 
     public function detail($slug)
     {
+        $config = Config::find(1);
         $data['menu'] = "news";
         $data['news'] = News::whereTranslation("slug",$slug)->limit(1)->first();
         $data['news_category'] = NewsCategory::orderBy('created_at', 'desc')->limit(8)->get();
         $data['property_latest'] = Property::orderBy('created_at', 'desc')->limit(9)->get();
         $data['property_featured'] = Property::where('is_featured', '1')->orderBy('created_at', 'desc')->limit(9)->get();
+
+        SEOTools::opengraph()->setUrl( route("news_detail",$slug) );
+        SEOTools::setTitle($data['news']->title.' - '.$config->name);
+        SEOTools::setDescription(str_limit(strip_tags($data['news']->description), 80));
+        if($data['news']->ImagePathSmall && isset($data['news']->ImagePathSmall)){
+            SEOTools::addImages($data['news']->ImagePathSmall);
+        }else{
+            SEOTools::addImages($config->LogoPath);
+        }
+        
 
         return view("user/news_detail",compact('data'));
     }

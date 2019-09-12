@@ -253,7 +253,7 @@
 <script src="{{ url('public/assets/user') }}/js/functions.js"></script>
 
 <script src="{{ url('public/assets/user') }}/js/neary-by-place.js"></script> 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script> 
+{{-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>  --}}
 <script src="{{ url('public/assets/user') }}/js/gmaps.js.js"></script>
 <script src="{{ url('public/assets/user') }}/js/contact.js"></script>
 

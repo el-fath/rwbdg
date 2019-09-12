@@ -18,7 +18,7 @@ class GalleryController extends Controller
     public function __construct(Request $request)
     {
         $config = Config::find(1);
-        SEOTools::setTitle(trans('home.title').' - '.$config->name);
+        SEOTools::setTitle(trans('gallery.title').' - '.$config->name);
         SEOTools::setDescription($config->description);
         SEOTools::opengraph()->setUrl( url('/') );
         SEOTools::addImages($config->LogoPath);

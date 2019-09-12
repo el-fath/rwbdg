@@ -27,7 +27,7 @@ Route::localized(function () {
     Route::get('/specialist', 'User\SpecialistController@index')->name('specialist');
     Route::get('/specialist/{id}', 'User\SpecialistController@detail')->name('specialist.id');
     Route::post('/contact-us', 'User\ContactController@store')->name('contact_us.store');
-    Route::get('/{page}', 'User\PagesController@show')->name('pages');
+    Route::get('/static/{page}', 'User\PagesController@show')->name('pages');
 
 });
 

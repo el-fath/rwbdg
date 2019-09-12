@@ -15,7 +15,7 @@
              </div>
              <div class="row margin_bottom">
                   <div class="col-sm-12 text-center top20">
-                     <a href="{{route("property")}}" class="btn-dark border_radius uppercase margin40">@lang("global.more_news_btn")</a>
+                     <a href="{{route("news")}}" class="btn-dark border_radius uppercase margin40">@lang("global.more_news_btn")</a>
                   </div>
              </div>
           </div>
@@ -33,9 +33,11 @@
                    <h3 class="bottom20">@lang('home.categories_label')</h3>
                    <ul class="pro-list bottom20">
                      @foreach ($data['news_category'] as $item)
+                        
                         <li>
-                           {{$item->title}}
+                           <a href="{{route('news', ['category'=>$item->id])}}">  {{$item->title}}</a>
                         </li>
+                        
                      @endforeach 
                    </ul>
                 </div>

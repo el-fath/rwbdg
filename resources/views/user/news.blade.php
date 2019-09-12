@@ -11,16 +11,7 @@
                 @foreach ($data['news'] as $item)
                     @include('user/items/thumb_news')
                 @endforeach
-                {{ $data['news']->links() }}
-                </div>
-                <div class="row margin_bottom">
-                <div class="col-md-12">
-                    <ul class="pager">
-                        <li><a href="#.">1</a></li>
-                        <li class="active"><a href="#.">2</a></li>
-                        <li><a href="#.">3</a></li>
-                    </ul>
-                </div>
+                {{ $data['news']->links("user/include/pagination") }}
                 </div>
             </div>
             <aside class="col-md-4 col-xs-12">
@@ -36,24 +27,13 @@
                 <div class="col-md-12">
                     <h3 class="bottom20">Categories</h3>
                     <ul class="pro-list bottom20">
+                        @foreach ($data['news_category'] as $item)
+                        
                         <li>
-                            Air Conditioning
+                           <a href="{{route('news', ['category'=>$item->id])}}">  {{$item->title}}</a>
                         </li>
-                        <li>
-                            Barbeque
-                        </li>
-                        <li>
-                            Dryer
-                        </li>
-                        <li>
-                            Laundry
-                        </li>
-                        <li>
-                            Refrigerator
-                        </li>
-                        <li>
-                            Swimming Pool
-                        </li>
+                        
+                        @endforeach 
                     </ul>
                 </div>
                 </div>

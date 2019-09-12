@@ -9,26 +9,40 @@
     </div>
     <div class="col-sm-6 bottom40">
         <div class="agent_wrap">
-            <h3>{{$marketing->name}}</h3>
-            <p class="bottom30">{!!$marketing->description!!}</p>
+            <h3>{{ $marketing->name }}</h3>
+            <p class="bottom30">{{ $marketing->description }}</p>
             <table class="agent_contact table">
                 <tbody>
                     <tr class="bottom10">
-                        <td><strong>@lang('property.phone_agent_label'):</strong></td>
-                        <td class="text-right"><a href="tel:{{$marketing->phone}}"></a></td>
+                        <td><strong>Phone:</strong></td>
+                        <td class="text-right">{{ $marketing->phone }}</td>
                     </tr>
                     <tr>
-                        <td><strong>@lang('property.email_agent_label'):</strong></td>
-                        <td class="text-right"><a href="mailto:{{$marketing->email}}"></a></td>
+                        <td><strong>Email Adress:</strong></td>
+                        <td class="text-right"><a href="#">{{ $marketing->email }}</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Facebook:</strong></td>
+                        <td class="text-right"><a href="#">{{ $marketing->facebook }}</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Instagram:</strong></td>
+                        <td class="text-right"><a href="#">{{ $marketing->instagram }}</a></td>
                     </tr>
                 </tbody>
             </table>
             <div style="border-bottom:1px solid #d3d8dd;" class="bottom15"></div>
             <ul class="social_share">
-                <li><a href="{{$marketing->facebook}}" class="facebook"><i class="icon-facebook-1"></i></a></li>
-                <li><a href="{{$marketing->instagram}}" class="instagram"><i class="icon-twitter-1"></i></a></li>
+                <li><a href="javascript:void(0)" class="google"><i class="icon-google4"></i></a></li>
+                <li><a href="https://www.facebook.com/{{ $marketing->facebook }}" target="_blank"
+                        title="https://www.facebook.com/{{ $marketing->facebook }}" class="facebook">
+                        <i class="icon-facebook-1"></i></a>
+                </li>
+                <li><a href="https://www.instagram.com/{{ $marketing->instagram }}" target="_blank"
+                        title="https://www.instagram.com/{{ $marketing->instagram }}" class="google">
+                        <i class="icon-instagram"></i></a>
+                </li>
             </ul>
         </div>
     </div>
-
 </div>

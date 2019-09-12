@@ -1,6 +1,6 @@
 <?php
 return [
-	'title' => "Tentang Kami",
+	'title' => "Galeri",
 	'about_us' => 'Tentang Kami',
 	'page'     => 'Halaman',
 	'about'    => 'Tentang',

@@ -14,6 +14,7 @@ use Illuminate\Routing\Route;
 use Astrotomic\Translatable\Locales;
 use App;
 use Globals;
+use Lang;
 
 class PropertyController extends Controller
 {
@@ -23,7 +24,7 @@ class PropertyController extends Controller
         SEOTools::setTitle(trans('property.title').' - '.$config->name);
         SEOTools::setDescription($config->description);
         SEOTools::opengraph()->setUrl( url('/') );
-        SEOTools::addImages($config->LogoPath);
+        // SEOTools::addImages($config->LogoPath);
     }
 
 
@@ -39,9 +40,21 @@ class PropertyController extends Controller
 
     public function detail($id)
     {
+        $config = Config::find(1);
         // return
-        $data['data'] = Property::with('marketing')->find($id);
+        $data['data'] = Property::whereTranslation("slug",$id)->with('marketing')->limit(1)->first();
         $data['menu'] = "property";
+
+        SEOTools::opengraph()->setUrl( route("property.id",$id ));
+        SEOTools::setTitle($data['data']->title.' - '.$config->name);
+        SEOTools::setDescription(str_limit(strip_tags($data['data']->description), 80));
+        if($data['data']->ImagePathSmall && isset($data['data']->ImagePathSmall)){
+            SEOTools::addImages($data['data']->ImagePathSmall);
+        }else{
+            SEOTools::addImages($config->LogoPath);
+        }
+
+
         return view("user/property/detail",compact('data'));
     }
 }

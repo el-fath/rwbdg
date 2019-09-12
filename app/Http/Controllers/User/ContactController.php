@@ -9,15 +9,19 @@ use App\Model\ContactMessage;
 use App\Model\Profile;
 use App\Model\Property;
 use App\Model\Config;
-use Mail;
 use Artesaos\SEOTools\Facades\SEOTools;
-
+use Illuminate\Routing\Route;
+use Astrotomic\Translatable\Locales;
+use Mail;
+use App;
+use Globals;
+use Lang;
 class ContactController extends Controller
 {
     public function __construct()
     {
         $config = Config::find(1);
-        SEOTools::setTitle('Contact Us - '.$config->name);
+        SEOTools::setTitle(trans('contact.title').' - '.$config->name);
         SEOTools::setDescription($config->description);
         SEOTools::opengraph()->setUrl( url('/') );
         SEOTools::addImages($config->LogoPath);

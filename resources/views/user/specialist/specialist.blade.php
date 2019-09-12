@@ -39,7 +39,7 @@
                   </tbody>
                 </table>
                 <hr>
-                <a class="btn-more" href="{{ route('specialist.id', $val->id) }}">
+                <a class="btn-more" href="{{ route('specialist.id', $val->slug) }}">
                 <i><img alt="arrow" src="{{ url('public/assets/user') }}/images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="{{ url('public/assets/user') }}/images/arrow-yellow.png"></i>
                 </a>
               </div>
@@ -49,7 +49,7 @@
         @endforeach
 
       </div>
-      {{ $data['Marketing']->links() }}
+      {{ $data['Marketing']->links("user/include/pagination") }}
     </div>
   </section>
   <!-- Agent End -->

@@ -15,11 +15,16 @@
               <div class="item" ><img src="{{$data['data']->ImagePathMedium}}" alt="image"/></div>
            </div> --}}
            <div class="property_meta bg-black bottom40">
-              <span><i class="icon-select-an-objecto-tool"></i>{{$data['data']->land_area}} sq ft</span>
-              <span><i class="icon-microphone"></i>{{$data['data']->land_area}} Office Rooms</span>
-              <span><i class="icon-safety-shower"></i>{{$data['data']->bathroom}} Bathroom</span>
-              <span><i class="icon-old-television"></i>{{$data['data']->land_area}}</span>
-              <span><i class="icon-garage"></i>{{$data['data']->land_area}} Garage</span>
+            <span><i class="icon-select-an-objecto-tool"></i>{{$data['data']->land_area}}
+               m<sup>2</sup></span>
+           <span><i class="icon-old-television"></i>{{$data['data']->building_area}}
+               m<sup>2</sup></span>
+           <span><i
+                   class=" icon-microphone"></i>{{$data['data']->bedroom}}+{{$data['data']->extra_bedroom}}
+               Office Rooms</span>
+           <span><i
+                   class="icon-safety-shower"></i>{{$data['data']->bathroom}}+{{$data['data']->extra_bedroom}}
+               Bathroom</span>
            </div>
         </div>
         <div class="col-md-8">
