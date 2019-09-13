@@ -26,11 +26,18 @@
                         <p><i class="icon-icons74"></i>{{$data['profile']['address']}}</p>
                     </div>
                   <ul class="social_share bottom20">
-                    <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i></a></li>
-                    <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i></a></li>
-                    <li><a href="javascript:void(0)" class="google"><i class="icon-google4"></i></a></li>
-                    <li><a href="javascript:void(0)" class="linkden"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i></a></li>
+                    <li><a href="https://www.facebook.com/{{ $profile->social_facebook }}" target="_blank"
+                        title="https://www.facebook.com/{{ $profile->social_facebook }}" class="facebook">
+                        <i class="icon-facebook"></i></a>
+                    </li>
+                    <li><a href="https://www.twitter.com/{{ $profile->social_twitter }}" target="_blank"
+                        title="https://www.twitter.com/{{ $profile->social_twitter }}" class="twitter">
+                        <i class="icon-twitter"></i></a>
+                    </li>
+                    <li><a href="https://www.instagram.com/{{ $profile->social_instagram }}" target="_blank"
+                        title="https://www.instagram.com/{{ $profile->social_instagram }}" class="google">
+                        <i class="icon-instagram"></i></a>
+                    </li>
                   </ul>
               </div>
             
