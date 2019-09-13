@@ -133,6 +133,13 @@
                                                 <input type="tel" class="form-control" placeholder="Instagram" name="social_instagram" value="{{ ($typeForm =="create") ? : $dataModel->social_instagram }}">
                                             </div>
                                         </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-2">Location</label>
+                                            <div class="col-lg-10" style="height:10cm">
+                                                <div id="map"></div>
+                                                <input type="hidden" id="inp_loc" value="" name="location">
+                                            </div>
+                                        </div>
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
                                         </div>
@@ -149,6 +156,65 @@
         <!-- /dashboard content -->
     </div>
     <!-- /content area -->
+<script>
+      var map;
+      var markers = [];
+
+      function initMap() {
+        var myLatLng = {lat: {{ $profile->latitude }}, lng: {{ $profile->longitude }} };
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: myLatLng,
+          mapTypeId: 'terrain'
+        });
+
+        // This event listener will call addMarker() when the map is clicked.
+        map.addListener('click', function(event) {
+            deleteMarkers();
+            addMarker(event.latLng);
+        });
+
+        // Adds a marker at the center of the map.
+        addMarker(myLatLng);
+      }
+
+      // Adds a marker to the map and push to the array.
+      function addMarker(location) {
+        $('#inp_loc').val(location);
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+        markers.push(marker);
+      }
+
+      // Sets the map on all markers in the array.
+      function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+
+      // Removes the markers from the map, but keeps them in the array.
+      function clearMarkers() {
+        setMapOnAll(null);
+      }
+
+      // Shows any markers currently in the array.
+      function showMarkers() {
+        setMapOnAll(map);
+      }
+
+      // Deletes all markers in the array by removing references to them.
+      function deleteMarkers() {
+        clearMarkers();
+        markers = [];
+      }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCghcnyi7IpQ7qRTE9BsfBn9gCloZ5T3pA&callback=initMap">
+</script>
 <script>
     $(document).ready(function(){
         

@@ -33,6 +33,17 @@
   .navbar-nav {
     margin-top: 9px;
   }
+  /* Always set the map height explicitly to define the size of the div
+  * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 </style>
 
 </head>
@@ -84,7 +95,7 @@
               <li class="{{($data['menu'] == "about") ? "active" : ""}}"><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li>
               
               <li class="{{($data['menu'] == "specialist") ? "active" : ""}}"><a href="{{route("specialist")}}">@lang("global.menu.specialist_label")</a></li>
-              <li class="{{($data['menu'] == $careerPage->slug) ? "active" : ""}}"><a href="{{route("pages",$careerPage->slug)}}">@lang("global.menu.career_label")</a></li>
+              {{-- <li class="{{($data['menu'] == $careerPage->slug) ? "active" : ""}}"><a href="{{route("pages",$careerPage->slug)}}">@lang("global.menu.career_label")</a></li> --}}
               <li class="dropdown {{($data['menu'] == "news" || $data['menu'] == "gallery") ? "active" : ""}}">
                   <a href="#." class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.what_up_label")</a>
                   <ul class="dropdown-menu">
@@ -253,11 +264,12 @@
 <script src="{{ url('public/assets/user') }}/js/functions.js"></script>
 
 <script src="{{ url('public/assets/user') }}/js/neary-by-place.js"></script> 
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script> 
-<script src="{{ url('public/assets/user') }}/js/gmaps.js.js"></script>
 <script src="{{ url('public/assets/user') }}/js/contact.js"></script>
 
-<script src="{{ url('public/assets/user') }}/js/google-map.js"></script> 
+{{-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script> 
+<script src="{{ url('public/assets/user') }}/js/gmaps.js.js"></script>
+
+<script src="{{ url('public/assets/user') }}/js/google-map.js"></script>  --}}
 
 </body>
 </html>

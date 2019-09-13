@@ -29,18 +29,18 @@
                 <table class="agent_contact table">
                   <tbody>
                     <tr class="bottom10">
-                      <td><strong>Phone:</strong></td>
+                      <td><strong>@lang('specialist.phone'):</strong></td>
                       <td class="text-right">{{$val->phone}}</td>
                     </tr>
                     <tr>
-                      <td><strong>Email Adress:</strong></td>
+                      <td><strong>@lang('specialist.email'):</strong></td>
                       <td class="text-right"><a href="#.">{{$val->email}}</a></td>
                     </tr>
                   </tbody>
                 </table>
                 <hr>
                 <a class="btn-more" href="{{ route('specialist.id', $val->slug) }}">
-                <i><img alt="arrow" src="{{ url('public/assets/user') }}/images/arrow-yellow.png"></i><span>Full Profile</span><i><img alt="arrow" src="{{ url('public/assets/user') }}/images/arrow-yellow.png"></i>
+                <i><img alt="arrow" src="{{ url('public/assets/user') }}/images/arrow-yellow.png"></i><span>@lang('specialist.profile')</span><i><img alt="arrow" src="{{ url('public/assets/user') }}/images/arrow-yellow.png"></i>
                 </a>
               </div>
             </div>

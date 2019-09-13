@@ -39,11 +39,11 @@
                 <table class="agent_contact table">
                   <tbody>
                     <tr class="bottom10">
-                      <td><strong>Phone:</strong></td>
+                      <td><strong>@lang('specialist.phone'):</strong></td>
                       <td class="text-right">{{ $data['Marketing']->phone }}</td>
                     </tr>
                     <tr>
-                      <td><strong>Email Adress:</strong></td>
+                      <td><strong>@lang('specialist.email'):</strong></td>
                       <td class="text-right"><a href="#">{{ $data['Marketing']->email }}</a></td>
                     </tr>
                     <tr>
@@ -58,7 +58,7 @@
                 </table>
                 <div style="border-bottom:1px solid #d3d8dd;" class="bottom15"></div>
                 <ul class="social_share">
-                    <li><a href="javascript:void(0)" class="google"><i class="icon-google4"></i></a></li>
+                    {{-- <li><a href="javascript:void(0)" class="google"><i class="icon-google4"></i></a></li> --}}
                     <li><a href="https://www.facebook.com/{{ $data['Marketing']->facebook }}" target="_blank"
                         title="https://www.facebook.com/{{ $data['Marketing']->facebook }}" class="facebook">
                         <i class="icon-facebook-1"></i></a>

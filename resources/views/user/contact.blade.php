@@ -1,21 +1,5 @@
 @extends('user/template')
 @section('content')
-<!--About Us -->
-{{-- <section id="about" class="padding_bottom"> --}}
-    
-    {{-- <section class="page-banner page-banner-bg padding">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h1 class="p-white text-uppercase">Contact Us</h1>
-              <p class="p-white">Select one of the frequently asked questions below to learn more about buying, selling, and renting real estate.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Page Banner End --> 
-       --}}
-      <!--Contact-->
 <section id="contact-us">
   <div class="contact">
     <div id="map"></div>
@@ -91,60 +75,27 @@
     </div>
   </div>
 </section>
-<!-- Contact End -->
-
-
-      <!-- testimonials End -->
-      
-      
-      <!--Partners-->
-      {{-- <section id="logos">
-        <div class="container partners padding_top">
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <h2 class="uppercase">Our Partners</h2>
-              <p class="heading_space">Aliquam nec viverra erat. Aenean elit tellus mattis quis maximus.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div id="partner-slider" class="owl-carousel">
-              <div class="item">
-                <img src="images/logo1.png" alt="Featured Partner">
-              </div>
-              <div class="item">
-                <img src="images/logo2.png" alt="Featured Partner">
-              </div>
-              <div class="item">
-                <img src="images/logo3.png" alt="Featured Partner">
-              </div>
-              <div class="item">
-                <img src="images/logo4.png" alt="Featured Partner">
-              </div>
-              <div class="item">
-                <img src="images/logo5.png" alt="Featured Partner">
-              </div>
-              <div class="item">
-                <img src="images/logo1.png" alt="Featured Partner">
-              </div>
-              <div class="item">
-                <img src="images/logo2.png" alt="Featured Partner">
-              </div>
-              <div class="item">
-                <img src="images/logo3.png" alt="Featured Partner">
-              </div>
-              <div class="item">
-                <img src="images/logo4.png" alt="Featured Partner">
-              </div>
-              <div class="item">
-                <img src="images/logo5.png" alt="Featured Partner">
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> --}}
-      <!--Partners Ends-->      
-  
 </section>
+<script>
+
+  function initMap() {
+    var myLatLng = {lat: {{ $profile->latitude }}, lng: {{ $profile->longitude }} };
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 13,
+      center: myLatLng
+    });
+
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: '{{ $config->name }}'
+    });
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCghcnyi7IpQ7qRTE9BsfBn9gCloZ5T3pA&callback=initMap">
+</script>
 <script>
     $(document).ready(function(){
         

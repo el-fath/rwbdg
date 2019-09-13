@@ -28,13 +28,13 @@
            </div>
         </div>
         <div class="col-md-8">
-          <h2 class="text-uppercase">Property Description</h2>
+          <h2 class="text-uppercase">@lang('property.prop_desc')</h2>
           <p class="bottom30">
             {!!$data['data']->description!!}
           </p>
         </div>
         <div class="col-md-4">
-            <h2 class="text-uppercase bottom20">Property Owner</h2>
+            <h2 class="text-uppercase bottom20">@lang('property.prop_owner')</h2>
             <div class="row">
                <div class="col-sm-4 bottom40">
                   <div class="agent_wrap">
@@ -53,11 +53,11 @@
                   <table class="agent_contact table">
                      <tbody>
                         <tr class="bottom10">
-                           <td><strong>Phone:</strong></td>
+                           <td><strong>@lang('specialist.phone'):</strong></td>
                            <td class="text-right">{{$data['data']->marketing['phone']}}</td>
                         </tr>
                         <tr>
-                           <td><strong>Email Adress:</strong></td>
+                           <td><strong>@lang('specialist.email'):</strong></td>
                            <td class="text-right">{{$data['data']->marketing['email']}}</td>
                         </tr>
                         <tr>

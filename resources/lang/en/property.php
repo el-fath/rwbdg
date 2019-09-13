@@ -1,6 +1,8 @@
 <?php
 return [
-	'title' 	                     => 'Property',
+	'title' => 'Property',
+	'prop_owner' => 'Property Owner',
+	'prop_desc'  => 'Property Description',
 	'property_listing_label'      => 'PROPERTY LISTINGS',
 	'property_listing_desc_label' => 'We have Properties in these Areas View a list of Featured Properties.',
 	'sort_label'                  => 'Order',

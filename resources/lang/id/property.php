@@ -1,6 +1,8 @@
 <?php
 return [
-	'title' 	                     => 'Properti',
+	'title' => 'Properti',
+	'prop_owner' => 'Pemilik Properti',
+	'prop_desc'  => 'Deskripsi Properti',
 	'property_listing_label'      => 'DAFTAR PROPERTI',
 	'property_listing_desc_label' => 'Kami memiliki Properti di Area ini. Lihat daftar Properti Pilihan.',
 	'sort_label'                  => 'Urutkan',

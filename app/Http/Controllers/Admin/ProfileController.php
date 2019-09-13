@@ -75,6 +75,21 @@ class ProfileController extends Controller
     {
         try {
             $data = Profile::find(1);
+
+            if ($request->location != '[object Object]') {
+
+                $new_loc = substr($request->location, 1, -1);
+                $latlong = explode(",",$new_loc);
+                $lat     = $latlong['0'];
+                $long    = substr($latlong['1'], 1);
+
+                $newdata = [
+                    'latitude' => $lat,
+                    'longitude' => $long
+                ];
+                $data->update($newdata);
+            }
+
             $newdata = [
                 'address'          => $request->address,
                 'email'            => $request->email,
