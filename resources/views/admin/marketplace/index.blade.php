@@ -63,6 +63,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Image</th>
                         <th>Title</th>
                         <th>Description</th>
                         <th class="text-center">Actions</th>
@@ -75,6 +76,9 @@
                     
                     <tr>
                         <td>{{ $no++ }}</td>
+                        <td>
+                            <img src="{{$val->ImagePathSmall}}" alt="" style="width:120px;">
+                        </td>
                         <td>{{ $val->title }}</td>
                         <td>{{  $val->description }}</td>
                         <td class="text-center">

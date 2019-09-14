@@ -9,6 +9,10 @@ use Illuminate\Support\Str;
 
 class PropertyMarketPlaceController extends Controller
 {
+    public function __construct()
+    {
+        $this->img_location = "public/image/";
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,7 +45,22 @@ class PropertyMarketPlaceController extends Controller
      */
     public function store(Request $request)
     {
-        PropertyMarketplace::create($request->all());
+        if ($request->file('image')) {
+            $file    = $request->file('image');
+            $ext     = $file->getClientOriginalExtension();
+            $newName = rand(100000,1001238912).".".$ext;
+            $file->move($this->img_location.'property-marketplace',$newName);
+        }else{
+            $newName = NULL;
+        }
+        
+        $data = $request->all();
+        if($newName){
+            $data['image'] = $newName;
+        }
+
+
+        PropertyMarketplace::create($data);
         return response()->json([
             'Code'             => 200,
             'Message'          => "Success Added"
@@ -83,7 +102,26 @@ class PropertyMarketPlaceController extends Controller
     public function update(Request $request, $id)
     {
         $object = PropertyMarketplace::find($id);
-        $object->update($request->all());
+
+
+        $data = $request->all();
+        
+        if ($request->file('image')) {
+
+            $myFile = $this->img_location.'property-marketplace/'.$data->image;
+            if (file_exists($myFile)){
+                unlink($myFile);
+            }
+
+            $file    = $request->file('image');
+            $ext     = $file->getClientOriginalExtension();
+            $newName = rand(100000,1001238912).".".$ext;
+            $file->move($this->img_location.'property-marketplace',$newName);
+            
+            $data['image'] = $newName;
+        }
+
+        $object->update($data);
         return response()->json([
             'Code'             => 200,
             'Message'          => "Success Edited"

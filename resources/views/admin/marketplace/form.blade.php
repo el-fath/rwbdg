@@ -63,6 +63,18 @@
                                         <textarea rows="3" cols="3" class="form-control" name="description" placeholder="Description">{{ ($data['typeForm'] =="create") ? "" : $data['dataModel']->description }}</textarea>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-2">Image</label>
+                                    <div class="col-lg-10">
+                                        @if($data['typeForm'] != "create")
+                                            <img src="{{$data['dataModel']->ImagePath}}" style="width: 200px;" alt="">
+                                            <br>
+                                            <br>
+                                        @endif
+                                        <input type="file" class="file-input-noupload" name="image">
+                                        <span class="form-text text-muted">Recomendation for size is <code>1900x920</code>.</span>
+                                    </div>
+                                </div>
                             
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
