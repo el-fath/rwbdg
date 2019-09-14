@@ -164,7 +164,7 @@
     <div class="row">
       <div class="col-md-3 col-sm-6">
         <div class="footer_panel bottom30">
-        <a href="#." class="logo bottom30"><img src="{{$config->LogoPath}}" alt="logo" style="height: 80px;"></a>
+        <a href="{{route('home')}}" class="logo bottom30"><img src="{{$config->LogoPath}}" alt="logo" style="height: 80px;"></a>
           <p class="bottom15">{{$profile->tag_line}}
           </p>
         </div>
@@ -177,17 +177,17 @@
               <tr>
                 <td>
                   <ul class="links">
-                    <li><a href="#."><i></i>@lang('global.menu.home_label')</a></li>
-                    <li><a href="#."><i></i>@lang('global.menu.about_us_label')</a></li>
-                    <li><a href="#."><i></i>@lang('global.menu.news_label')</a></li>
+                    <li><a href="{{route('home')}}"><i></i>@lang('global.menu.home_label')</a></li>
+                    <li><a href="{{route('about')}}"><i></i>@lang('global.menu.about_us_label')</a></li>
+                    <li><a href="{{route('news')}}"><i></i>@lang('global.menu.news_label')</a></li>
                    
                   </ul>
                 </td>
                 <td class="text-right">
                   <ul class="links text-left">
-                      <li><a href="#."><i></i>@lang('global.menu.gallery_label')</a></li>
-                      <li><a href="#."><i></i>@lang('global.menu.specialist_label')</a></li>
-                      <li><a href="#."><i></i>@lang('global.menu.contact_us')</a></li>
+                      <li><a href="{{route('gallery')}}"><i></i>@lang('global.menu.gallery_label')</a></li>
+                      <li><a href="{{route('specialist')}}"><i></i>@lang('global.menu.specialist_label')</a></li>
+                      <li><a href="{{route('contact_us')}}"><i></i>@lang('global.menu.contact_us')</a></li>
                   </ul>
                 </td>
               </tr>
@@ -222,15 +222,13 @@
     <div class="copyright_simple">
       <div class="row">
         <div class="col-md-6 col-sm-5 top20 bottom20">
-          <p>Copyright &copy; 2019 <span>Ray White</span>. All rights reserved.</p>
+          <p>Copyright &copy; 2019 <span>{{$config->name}}</span>. All rights reserved.</p>
         </div>
         <div class="col-md-6 col-sm-7 text-right top15 bottom10">
           <ul class="social_share">
-            <li><a href="#." class="facebook"><i class="icon-facebook-1"></i></a></li>
-            <li><a href="#." class="twitter"><i class="icon-twitter-1"></i></a></li>
-            <li><a href="#." class="google"><i class="icon-google4"></i></a></li>
-            <li><a href="#." class="linkden"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="#." class="vimo"><i class="icon-vimeo3"></i></a></li>
+            <li><a href="{{$profile->facebook}}" class="facebook"><i class="icon-facebook-1"></i></a></li>
+            <li><a href="{{$profile->instagram}}" class="instagram"><i class="icon-instagram"></i></a></li>
+            <li><a href="mailto:{{$profile->email}}" class="google"><i class="icon-google4"></i></a></li>
           </ul>
         </div>
       </div>

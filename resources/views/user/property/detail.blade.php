@@ -32,6 +32,100 @@
           <p class="bottom30">
             {!!$data['data']->description!!}
           </p>
+          <hr>
+          <br>
+          <h2 class="text-uppercase bottom20">@lang('property.quick_summary_label')</h2>
+            <div class="row property-d-table bottom40">
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                     <table class="table table-striped table-responsive">
+                        <tbody>
+                              <tr>
+                                 <td><b>@lang('property.summary.property_id')</b></td>
+                                 <td class="text-right">{{$data['data']->id}}</td>
+                              </tr>
+                              <tr>
+                                 <td><b>@lang('property.summary.price')</b></td>
+                                 @if ($data['data']->type_transaction == 'sale')
+                                 <td class="text-right">Rp.
+                                    {{ number_format($data['data']->sale_price,0,",",".") }}</td>
+                                 @else
+                                 <td class="text-right">Rp.
+                                    {{ number_format($data['data']->rent_price,0,",",".") }}</td>
+                                 @endif
+                              </tr>
+                              <tr>
+                                 <td><b>@lang('property.summary.land_area')</b></td>
+                                 <td class="text-right">{{$data['data']->land_area}} m<sup>2</sup></td>
+                              </tr>
+                              <tr>
+                                 <td><b>@lang('property.summary.building_area')</b></td>
+                                 <td class="text-right">{{$data['data']->building_area}} m<sup>2</sup></td>
+                              </tr>
+                              <tr>
+                                 <td><b>@lang('property.summary.bedrooms')</b></td>
+                                 <td class="text-right">{{$data['data']->bedroom}} +
+                                    {{$data['data']->extra_bedroom}}</td>
+                              </tr>
+                              <tr>
+                                 <td><b>@lang('property.summary.bathrooms')</b></td>
+                                 <td class="text-right">{{$data['data']->bathroom}} +
+                                    {{$data['data']->extra_bathroom}}</td>
+                              </tr>
+
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                     <table class="table table-striped table-responsive">
+                        <tbody>
+                              <tr>
+                                 <td><b>@lang('property.summary.type')</b></td>
+                                 <td class="text-right">{{$data['data']->type_transaction}}</td>
+                              </tr>
+                              <tr>
+                                 <td><b>@lang('property.summary.available_from')</b></td>
+                                 <td class="text-right">{{$data['data']->created_at->format('M d,Y')}}</td>
+                              </tr>
+                              <tr>
+                                 <td><b>@lang('property.summary.certificate')</b></td>
+                                 <td class="text-right">{{$data['data']->certificate}}</td>
+                              </tr>
+                              <tr>
+                                 <td><b>@lang('property.summary.category')</b></td>
+                                 <td class="text-right">{{$data['data']->category->title}}</td>
+                              </tr>
+                              <tr>
+                                 <td><b>@lang('property.summary.floors')</b></td>
+                                 <td class="text-right">{{$data['data']->floor}}</td>
+                              </tr>
+                              <tr>
+                                 <td><b>@lang('property.summary.electricity')</b></td>
+                                 <td class="text-right">{{$data['data']->electricity}}</td>
+                              </tr>
+                        </tbody>
+                     </table>
+                  </div>
+            </div>
+          <br>
+          <hr>
+          <h2 class="text-uppercase bottom20">Marketplace</h2>
+            <div class="row property-d-table bottom40">
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                     @foreach ($data['data']->marketplaces as $item)
+                        <div class="media">
+                              <div class="media-left">
+                              <a href="#">
+                                 <img class="media-object" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEzLjQ2MDkzNzUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==" alt="...">
+                              </a>
+                              </div>
+                              <div class="media-body" style="vertical-align: middle;">
+                              <h4 class="media-heading">{{$item->marketplace->title}}</h4>
+                              <a href="{{$item->url}}" target="_blank">{{$item->url}}</a>
+                              </div>
+                        </div>
+                     @endforeach
+                  </div>
+            </div>
         </div>
         <div class="col-md-4">
             <h2 class="text-uppercase bottom20">@lang('property.prop_owner')</h2>

@@ -22,9 +22,9 @@
           <aside class="col-md-4 col-xs-12">
              <div class="row">
                 <div class="col-md-12">
-                   <form class="form-search bottom40" method="get" id="news-search" action="/">
+                   <form class="form-search bottom40" method="get" id="news-search" action="{{route("news")}}">
                       <div class="input-append">
-                         <input type="text" class="input-medium search-query" placeholder="Search Here" value="">
+                         <input type="text" class="input-medium search-query" placeholder="Search Here" name="search" value="">
                          <button type="submit" class="add-on"><i class="icon-icons185"></i></button>
                       </div>
                    </form>

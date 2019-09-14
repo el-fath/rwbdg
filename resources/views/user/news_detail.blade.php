@@ -152,6 +152,24 @@ $news = $data['news'];
                                 </table>
                             </div>
                         </div>
+                        <h2 class="text-uppercase bottom20">Marketplace</h2>
+                        <div class="row property-d-table bottom40">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @foreach ($news->property->marketplaces as $item)
+                                    <div class="media">
+                                        <div class="media-left">
+                                          <a href="#">
+                                            <img class="media-object" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEzLjQ2MDkzNzUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==" alt="...">
+                                          </a>
+                                        </div>
+                                        <div class="media-body" style="vertical-align: middle;">
+                                        <h4 class="media-heading">{{$item->marketplace->title}}</h4>
+                                        <a href="{{$item->url}}" target="_blank">{{$item->url}}</a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
                         @if ($news->property->marketing)
                         @php
                         $marketing = $news->property->marketing;
@@ -177,9 +195,9 @@ $news = $data['news'];
                 @endif
             </div>
             <aside class="col-md-4 col-xs-12">
-                <form class="form-search" method="get" id="news-search" action="/">
+                <form class="form-search" method="get" id="news-search" action="{{route("news")}}">
                     <div class="input-append">
-                        <input type="text" class="input-medium search-query" placeholder="Search Here" value="">
+                        <input type="text" class="input-medium search-query" placeholder="Search Here" name="search" value="">
                         <button type="submit" class="add-on"><i class="icon-icons185"></i></button>
                     </div>
                 </form>
@@ -187,9 +205,9 @@ $news = $data['news'];
                 <h3>@lang('home.categories_label')</h3>
                 <ul class="pro-list padding-t-20">
                     @foreach ($data['news_category'] as $item)
-                    <li>
-                        {{$item->title}}
-                    </li>
+                        <li>
+                            <a href="{{route('news', ['category'=>$item->id])}}">  {{$item->title}}</a>
+                         </li>
                     @endforeach
                 </ul>
                 <div class="row">
