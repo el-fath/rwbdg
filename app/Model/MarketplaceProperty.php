@@ -11,7 +11,7 @@ class MarketplaceProperty extends Model
     
     public function marketplace()
     {
-        return $this->hasOne('App\Model\PropertyMarketplace','id', 'marketplace_id');
+        return $this->belongsTo('App\Model\PropertyMarketplace','marketplace_id', 'id');
     }
 
     public function property()

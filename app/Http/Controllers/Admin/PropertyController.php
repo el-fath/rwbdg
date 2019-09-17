@@ -231,14 +231,17 @@ class PropertyController extends Controller
         $data->update($dataReq);
         $data->fill($dataTrans);
         $data->save();
+
+
         if($marketplaces){
+            MarketplaceProperty::where("property_id",$data->id)->delete();
             foreach ($marketplaces as $key => $row) {
-                MarketplaceProperty::where("property_id",$data->id)->delete();
                 $dataDetail = [
                     "property_id" => $data->id,
                     "marketplace_id" => $key,
                     "url" => $row
                 ];
+                // dd($dataDetail);
                 $dataDetail = MarketplaceProperty::create($dataDetail);
             }
         }

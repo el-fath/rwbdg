@@ -6,6 +6,7 @@ return [
 	'home1_desc_label'            => "We are proud to present to you some of the best homes, apartments, offices e.g. across Indonesia for affordable prices.",
 	"featured_property_label" => "Featured Properties",
 	"latest_property_label" => "Latest Properties",
+	"markerplace_title_label" => "List of properties promoted in the marketplace",
 	"categories_label" => "Categories",
 	"advance_search"              => [
 		"title"                      => "advance search",

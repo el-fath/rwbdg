@@ -6,6 +6,7 @@ return [
 	'home1_desc_label'						      => "Kami dengan bangga mempersembahkan kepada Anda beberapa rumah, apartemen, kantor terbaik, mis. di seluruh Indonesia Untuk harga yang terjangkau.",
 	"featured_property_label" => "Properti Unggulan",
 	"latest_property_label" => "Properti Terbaru",
+	"markerplace_title_label" => "Daftar properti yang dipromosikan di marketplace",
 	"categories_label" => "Kategori",
 	"advance_search"              => [
 		"title"                      => "pencarian lanjutan",
