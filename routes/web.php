@@ -29,6 +29,7 @@ Route::localized(function () {
     Route::post('/contact-us', 'User\ContactController@store')->name('contact_us.store');
     Route::get('/static/{page}', 'User\PagesController@show')->name('pages');
 
+    Route::get('/not-found', 'User\HomeController@notFound')->name('not-found');
 });
 
    
@@ -50,6 +51,7 @@ Route::get('images/{filename}', function ($filename)
 //ADMIN
 Route::get('/admin/login', 'Auth\LoginController@showLoginForm');
 Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin/not-found', 'Admin\DashboardController@notFound')->name('admin-not-found');
     Route::get('/admin', 'Admin\DashboardController@index')->name('admin.index');
     Route::get('/admin/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
     Route::resource('admin/config', 'Admin\ConfigController',['as' => 'admin']);

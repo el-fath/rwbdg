@@ -24,4 +24,10 @@ class DashboardController extends Controller
         $data['countPrimaryProperty'] = Property::where("type_property",Globals::TYPE_PROPERTY['primary'])->count();
         return view("admin/dashboard",compact('data'));
     }
+
+    public function notFound()
+    {
+        $data['title'] = "page not found";
+        return view("admin/notfound",compact('data'));
+    }
 }
