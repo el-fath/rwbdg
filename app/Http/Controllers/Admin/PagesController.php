@@ -118,7 +118,7 @@ class PagesController extends Controller
 
             $myFile = $this->img_location.'pages/'.$data->image;
             if (file_exists($myFile)){
-                unlink($myFile);
+                @unlink($myFile);
             }
 
             $file    = $request->file('image');
@@ -165,7 +165,7 @@ class PagesController extends Controller
         $data = Pages::find($id);
         if ($data->image != NULL) {
             $myFile = $this->img_location.'pages/'.$data->image;
-            unlink($myFile);
+            @unlink($myFile);
         }
         $data->delete();
         return response()->json([

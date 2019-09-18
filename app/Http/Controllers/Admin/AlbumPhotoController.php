@@ -80,7 +80,7 @@ class AlbumPhotoController extends Controller
         $data = AlbumPhoto::find($id);
         if ($data->image != NULL) {
             $myFile = $this->img_location.'album-photo/'.$data->image;
-            unlink($myFile);
+            @unlink($myFile);
         }
         $data->delete();
 

@@ -121,7 +121,7 @@ class MarketingController extends Controller
 
             $myFile = $this->img_location.'marketing/'.$data->image;
             if (file_exists($myFile)){
-                unlink($myFile);
+                @unlink($myFile);
             }
 
             $file    = $request->file('image');
@@ -169,7 +169,7 @@ class MarketingController extends Controller
         $data = Marketing::find($id);
         if ($data->image != NULL) {
             $myFile = $this->img_location.'marketing/'.$data->image;
-            unlink($myFile);
+            @unlink($myFile);
         }
         $data->delete();
         return response()->json([

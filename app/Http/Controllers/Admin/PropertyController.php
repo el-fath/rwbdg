@@ -186,7 +186,7 @@ class PropertyController extends Controller
 
             $myFile = $this->img_location.'property/'.$data->image;
             if (file_exists($myFile)){
-                unlink($myFile);
+                @unlink($myFile);
             }
 
             $file    = $request->file('image');
@@ -263,7 +263,7 @@ class PropertyController extends Controller
         $data = Property::find($id);
         if ($data->image != NULL) {
             $myFile = $this->img_location.'property/'.$data->image;
-            unlink($myFile);
+            @unlink($myFile);
         }
         $data->delete();
         return response()->json([

@@ -125,7 +125,7 @@ class NewsController extends Controller
 
             $myFile = $this->img_location.'news/'.$data->image;
             if (file_exists($myFile)){
-                unlink($myFile);
+                @unlink($myFile);
             }
 
             $file    = $request->file('image');
@@ -172,7 +172,7 @@ class NewsController extends Controller
         $data = News::find($id);
         if ($data->image != NULL) {
             $myFile = $this->img_location.'news/'.$data->image;
-            unlink($myFile);
+            @unlink($myFile);
         }
         $data->delete();
         return response()->json([

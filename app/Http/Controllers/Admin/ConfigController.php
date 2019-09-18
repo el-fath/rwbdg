@@ -88,7 +88,7 @@ class ConfigController extends Controller
             if ($request->file('imglogo')) {
                 $myFile            =  "public/image/config/".$data->logo;
                 if ($data->logo) {
-                    unlink($myFile);
+                    @unlink($myFile);
                 }
     
                 $file              =  $request->file('imglogo');
@@ -103,7 +103,7 @@ class ConfigController extends Controller
             if ($request->file('imgfavicon')) {
                 $myFile            =  "public/image/config/".$data->favicon;
                 if ($data->favicon) {
-                    unlink($myFile);
+                    @unlink($myFile);
                 }
     
                 $file              =  $request->file('imgfavicon');

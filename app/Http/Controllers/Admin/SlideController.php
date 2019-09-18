@@ -130,7 +130,7 @@ class SlideController extends Controller
 
             $myFile = $this->img_location.'slide/'.$data->image;
             if (file_exists($myFile) && $data->image){
-                unlink($myFile);
+                @unlink($myFile);
             }
 
             $file    = $request->file('image');
@@ -172,7 +172,7 @@ class SlideController extends Controller
         $data = Slide::find($id);
         if ($data->image != NULL) {
             $myFile = $this->img_location.'slide/'.$data->image;
-            unlink($myFile);
+            @unlink($myFile);
         }
         $data->delete();
         return response()->json([

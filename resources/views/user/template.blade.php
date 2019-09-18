@@ -87,7 +87,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
             <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href=""><img src="{{ $config->LogoPath }}" style="max-height: 70px;width: 70px;" class="logo" alt=""></a>
+            <a class="navbar-brand" href=""><img src="{{ $config->LogoPath }}" style="max-height: 70px;max-width: 200px;" class="logo" alt=""></a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-left" data-in="fadeIn" data-out="fadeOut" style="margin-left: 15px;">
@@ -95,7 +95,7 @@
               <li class="{{($data['menu'] == "about") ? "active" : ""}}"><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li>
               
               <li class="{{($data['menu'] == "specialist") ? "active" : ""}}"><a href="{{route("specialist")}}">@lang("global.menu.specialist_label")</a></li>
-              {{-- <li class="{{($data['menu'] == $careerPage->slug) ? "active" : ""}}"><a href="{{route("pages",$careerPage->slug)}}">@lang("global.menu.career_label")</a></li> --}}
+              <li class="{{($data['menu'] == $careerPage->slug) ? "active" : ""}}"><a href="{{route("pages",$careerPage->slug)}}">@lang("global.menu.career_label")</a></li>
               <li class="dropdown {{($data['menu'] == "news" || $data['menu'] == "gallery") ? "active" : ""}}">
                   <a href="#." class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.what_up_label")</a>
                   <ul class="dropdown-menu">
