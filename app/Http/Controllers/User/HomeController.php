@@ -8,6 +8,7 @@ use App\Model\Config;
 use App\Model\Slide;
 use App\Model\Property;
 use App\Model\PropertyCategory;
+use App\Model\PropertyMarketplace;
 use App\Model\News;
 use App\Model\NewsCategory;
 use Artesaos\SEOTools\Facades\SEOTools;
@@ -42,6 +43,9 @@ class HomeController extends Controller
         $data['property_featured'] = Property::where('is_featured', '1')->orderBy('created_at', 'desc')->limit(9)->get();
         $data['news_latest'] = News::orderBy('created_at', 'desc')->limit(8)->get();
         $data['news_category'] = NewsCategory::orderBy('created_at', 'desc')->limit(8)->get();
+        $data['marketplaces'] = PropertyMarketplace::limit(3)->with(['properties' => function($q) {
+            $q->inRandomOrder()->take(6);
+        }])->get();
 
         return view("user/home",compact('data'));
     }

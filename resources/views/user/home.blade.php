@@ -80,6 +80,52 @@
   </div>
 </section>
 <!--About Owner ends-->
+<!--Agents-->
+<section id="layouts" class="padding_top">
+   
+  <div class="container">
+    <div class="row">
+      <h2>@lang('home.markerplace_title_label')</h2> 
+      <hr>
+      @foreach ($data['marketplaces'] as $item)
+      <div class="col-sm-4 margin_bottom">
+      <div class="media news_media">
+            <div class="media-left">
+               <img class="media-object border_radius" style="width: 100px;" src="{{$item->ImagePathSmall}}" alt="{{$item->title}}">
+            </div>
+            <div class="media-body" style="vertical-align: middle;">
+                  <h2 class="uppercase">{{$item->title}}</h2>
+            </div>
+      </div>
+     
+        <p class="heading_space"></p>
+        @foreach ($item->properties as $prop)
+         <div class="media news_media">
+            <div class="media-left">
+              <a target="_blank" href="{{$prop->url}}">
+              <img class="media-object border_radius" style="width: 120px;height: 80px;" src="{{$prop->property->ImagePathSmall}}" alt="Latest news">
+              </a>
+            </div>
+            <div class="media-body" style="vertical-align: middle;">
+              <h3><a target="_blank" href="{{$prop->url}}">{{$prop->property->title}}</a></h3>
+
+              @if ($prop->property->type_transaction == 'sale')
+                  <span class=""><i class="icon-dollar"></i>Rp. {{ number_format($prop->property->sale_price,0,",",".") }}</span>
+              @else
+                  <span class=""><i class="icon-dollar"></i>Rp. {{ number_format($prop->property->rent_price,0,",",".") }}</span>
+              @endif
+              <p class="">{!!$prop->property->address!!}, {!!$prop->property->Location!!}
+              </p>
+            </div>
+         </div>
+        @endforeach
+      </div>
+      @endforeach
+    </div>
+    <div style="border-bottom:1px solid #d3d8dd;"></div>
+  </div>
+</section>
+<!--Agents Ends-->
 
 <!--Types-->
 <section id="types" class="padding">

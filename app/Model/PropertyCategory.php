@@ -16,6 +16,7 @@ class PropertyCategory extends Model
     public $translatedAttributes = ['title','description','slug'];
     protected $appends 	= array('ImagePath','ImagePathSmall','ImagePathMedium','CountProperty');
 
+    
 
     public function getCountPropertyAttribute()
     {

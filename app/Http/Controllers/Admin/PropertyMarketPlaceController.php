@@ -108,9 +108,9 @@ class PropertyMarketPlaceController extends Controller
         
         if ($request->file('image')) {
 
-            $myFile = $this->img_location.'property-marketplace/'.$data->image;
+            $myFile = $this->img_location.'property-marketplace/'.$object->image;
             if (file_exists($myFile)){
-                unlink($myFile);
+                @unlink($myFile);
             }
 
             $file    = $request->file('image');
@@ -120,6 +120,7 @@ class PropertyMarketPlaceController extends Controller
             
             $data['image'] = $newName;
         }
+
 
         $object->update($data);
         return response()->json([
