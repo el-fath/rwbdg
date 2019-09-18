@@ -52,4 +52,10 @@ class HomeController extends Controller
 	    dd($routeName);
         return ;
     }
+
+    public function notFound()
+    {
+        $data['menu'] = "page not found";
+        return view("user/notfound",compact('data'));
+    }
 }
