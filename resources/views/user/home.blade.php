@@ -32,7 +32,7 @@
                 <div class="col-md-12">
                    <h3 class="bottom20">@lang('home.categories_label')</h3>
                    <ul class="pro-list bottom20">
-                     @foreach ($data['news_category'] as $item)
+                     @foreach ($data['property_categories'] as $item)
                         
                         <li>
                            <a href="{{route('news', ['category'=>$item->id])}}">  {{$item->title}}</a>

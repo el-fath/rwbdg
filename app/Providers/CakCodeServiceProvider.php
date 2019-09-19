@@ -8,6 +8,7 @@ use App\Model\Profile;
 use App\Model\Config;
 use App\Model\Property;
 use App\Model\Pages;
+use App\Model\Domain;
 use App\Model\News;
 use Astrotomic\Translatable\Locales;
 use Carbon\Carbon;
@@ -47,6 +48,7 @@ class CakCodeServiceProvider extends ServiceProvider
         $property_rent = Property::where("type_transaction","rent")->orderBy('created_at', 'desc')->limit(6)->get();
         $property_sale = Property::where("type_transaction","sale")->orderBy('created_at', 'desc')->limit(6)->get();
         $newsFooter = News::orderBy('created_at', 'desc')->limit(2)->get();
+        $domains = Domain::orderBy('created_at', 'desc')->get();
 
         $careerPage = Pages::where("code","career")->limit(1)->first();
 
@@ -60,5 +62,8 @@ class CakCodeServiceProvider extends ServiceProvider
         View::share('property_sale', $property_sale);
         View::share('newsFooter', $newsFooter);
         View::share('careerPage', $careerPage);
+        View::share('domains', $domains);
+        
+
     }
 }

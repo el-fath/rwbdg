@@ -204,7 +204,7 @@ $news = $data['news'];
                 <hr>
                 <h3>@lang('home.categories_label')</h3>
                 <ul class="pro-list padding-t-20">
-                    @foreach ($data['news_category'] as $item)
+                    @foreach ($data['property_categories'] as $item)
                         <li>
                             <a href="{{route('news', ['category'=>$item->id])}}">  {{$item->title}}</a>
                          </li>

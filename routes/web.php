@@ -17,8 +17,8 @@ Route::localized(function () {
     Route::get('/home', 'User\HomeController@index')->name('home');
     Route::get('/property', 'User\PropertyController@index')->name('property');
     Route::get('/property/{id}', 'User\PropertyController@detail')->name('property.id');
-    Route::get('/news', 'User\NewsController@index')->name('news');
-    Route::get('/news/{slug}', 'User\NewsController@detail')->name('news_detail');
+    Route::get('/article', 'User\NewsController@index')->name('news');
+    Route::get('/article/{slug}', 'User\NewsController@detail')->name('news_detail');
     Route::get('/gallery', 'User\GalleryController@index')->name('gallery');
     Route::get('/gallery/{id_album}', 'User\GalleryController@photos')->name('gallery_photos');
     Route::get('/about', 'User\AboutController@index')->name('about');
@@ -56,6 +56,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
     Route::resource('admin/config', 'Admin\ConfigController',['as' => 'admin']);
     Route::resource('admin/profile', 'Admin\ProfileController',['as' => 'admin']);
+    Route::resource('admin/domain', 'Admin\DomainController',['as' => 'admin']);
     Route::resource('admin/slide', 'Admin\SlideController',['as' => 'admin']);
     Route::resource('admin/user', 'Admin\UserController',['as' => 'admin']);
     Route::resource('admin/group', 'Admin\GroupController',['as' => 'admin']);

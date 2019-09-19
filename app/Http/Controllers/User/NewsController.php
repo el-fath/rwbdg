@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Config;
 use App\Model\News;
-use App\Model\NewsCategory;
+use App\Model\PropertyCategory;
 use App\Model\Property;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Routing\Route;
@@ -28,8 +28,9 @@ class NewsController extends Controller
 
     public function index(Request $request)
     {
+       
         $data['menu'] = "news";
-        $data['news_category'] = NewsCategory::orderBy('created_at', 'desc')->limit(8)->get();
+        $data['property_categories'] = PropertyCategory::orderBy('created_at', 'desc')->get();
         // $data['news'] = News::orderBy('created_at', 'desc')->paginate(5);
         
         $query = News::query();
@@ -46,6 +47,8 @@ class NewsController extends Controller
 
         $data['news'] = $query;
 
+        
+
         return view("user/news",compact('data'));
     }
 
@@ -54,7 +57,7 @@ class NewsController extends Controller
         $config = Config::find(1);
         $data['menu'] = "news";
         $data['news'] = News::whereTranslation("slug",$slug)->limit(1)->first();
-        $data['news_category'] = NewsCategory::orderBy('created_at', 'desc')->limit(8)->get();
+        $data['property_categories'] = PropertyCategory::orderBy('created_at', 'desc')->get();
         $data['property_latest'] = Property::orderBy('created_at', 'desc')->limit(9)->get();
         $data['property_featured'] = Property::where('is_featured', '1')->orderBy('created_at', 'desc')->limit(9)->get();
 

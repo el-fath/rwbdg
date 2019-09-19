@@ -19,7 +19,13 @@
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/range-Slider.min.css">
 <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/search.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
-<link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/style.css">
+
+
+
+{{-- <link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/style.css"> --}}
+<link rel="stylesheet" type="text/css" href="{{ url('public/assets/user') }}/css/style2.css">
+
+
 <link rel="icon" href="{{ $config->FaviconPath }}">
 <script src="{{ url('public/assets/user') }}/js/jquery-2.1.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
@@ -92,8 +98,24 @@
           <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-left" data-in="fadeIn" data-out="fadeOut" style="margin-left: 15px;">
               <li class="{{($data['menu'] == "home") ? "active" : ""}}"><a href="{{route("index")}}">@lang("global.menu.home_label")</a></li>
-              <li class="{{($data['menu'] == "about") ? "active" : ""}}"><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li>
-              
+              {{-- <li class="{{($data['menu'] == "about") ? "active" : ""}}"><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li> --}}
+              <li class="{{($data['menu'] == "about") ? "active" : ""}} dropdown">
+                <a href="#." class="dropdown-toggle" data-toggle="dropdown">@lang("global.menu.about_us_label") </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{url("about")}}">@lang("global.menu.about_us_label")</a></li>
+                  <li class="dropdown">
+                    <a href="#." class="dropdown-toggle" data-toggle="dropdown">Domain</a>
+                    <ul class="dropdown-menu">
+                      @if (isset($domains))
+                          
+                      @foreach ($domains as $item)
+                      <li><a target="_blank" href="{{$item->title}}">{{$item->title}}</a></li>
+                      @endforeach
+                      @endif
+                    </ul>
+                  </li>
+                </ul>
+              </li>
               <li class="{{($data['menu'] == "specialist") ? "active" : ""}}"><a href="{{route("specialist")}}">@lang("global.menu.specialist_label")</a></li>
               <li class="{{($data['menu'] == $careerPage->slug) ? "active" : ""}}"><a href="{{route("pages",$careerPage->slug)}}">@lang("global.menu.career_label")</a></li>
               <li class="dropdown {{($data['menu'] == "news" || $data['menu'] == "gallery") ? "active" : ""}}">

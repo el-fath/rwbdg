@@ -201,6 +201,7 @@
 							</ul>
 						</li>
 						<li class="nav-item"><a href="{{ route('admin.slide.index') }}" class="nav-link {{ Request::segment(2) == 'slide' ? 'active':'' }}"><i class="icon-images2"></i> <span>Slider</span></a></li>
+						<li class="nav-item"><a href="{{ route('admin.domain.index') }}" class="nav-link {{ Request::segment(2) == 'domain' ? 'active':'' }}"><i class="icon-link"></i> <span>Domain</span></a></li>
 						
 
 						<li class="nav-item nav-item-submenu">
