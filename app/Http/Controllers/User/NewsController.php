@@ -40,7 +40,10 @@ class NewsController extends Controller
         }
 
         if($request->has('category')){
-            $query = $query->where("category_id",$request->category);
+            // $query = $query->where("category_id",$request->category);
+            $query = $query->whereHas("Property", function ($q) use ($request){
+                $q->where("category_id",$request->category);
+            });
         }
 
         $query = $query->orderBy('created_at', 'desc')->paginate(5);

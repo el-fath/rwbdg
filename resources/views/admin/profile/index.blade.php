@@ -65,7 +65,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-form-label col-lg-2">Description</label>
                                                     <div class="col-lg-10">
-                                                        <textarea rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description id">{{ ($typeForm =="create") ? "" : $dataModel->{'description:id'} }}</textarea>
+                                                        <textarea id="editorId" rows="3" cols="3" class="form-control" name="id[description]" placeholder="Description id">{{ ($typeForm =="create") ? "" : $dataModel->{'description:id'} }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -86,7 +86,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-form-label col-lg-2">Description</label>
                                                     <div class="col-lg-10">
-                                                        <textarea rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description en">{{ ($typeForm =="create") ? "" : $dataModel->{'description:en'} }}</textarea>
+                                                        <textarea id="editorEn" rows="3" cols="3" class="form-control" name="en[description]" placeholder="Description en">{{ ($typeForm =="create") ? "" : $dataModel->{'description:en'} }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -218,8 +218,25 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCghcnyi7IpQ7qRTE9BsfBn9gC
 <script>
     $(document).ready(function(){
         
+        var options = {
+            filebrowserImageBrowseUrl: '/rwbdg/laravel-filemanager?type=Images',
+            filebrowserImageUploadUrl: '/rwbdg/laravel-filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/rwbdg/laravel-filemanager?type=Files',
+            filebrowserUploadUrl: '/rwbdg/laravel-filemanager/upload?type=Files&_token='
+        };
+
+        CKEDITOR.replace('editorId', options);
+        CKEDITOR.replace('editorEn', options);
+
+
         $("#formInput").submit(function(e){
             e.preventDefault();
+
+            for (var i in CKEDITOR.instances) {
+                CKEDITOR.instances[i].updateElement();
+            };
+
+
             var formData = new FormData(this);
             
             $.ajaxSetup({
